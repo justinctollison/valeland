@@ -1,0 +1,69 @@
+using UnityEngine;
+using System.Collections.Generic;
+
+public class ChattableNPC : MonoBehaviour, IClickable
+{
+    [SerializeField] protected string npcName = "";
+    [SerializeField] protected List<DialogData> dialogueDatas = new List<DialogData>();
+    bool clicked = false;
+    bool buttonReleased = true;
+
+    private void Update()
+    {
+        if (clicked) RunClicked();
+    }
+
+    void RunClicked()
+    {
+        if (Input.GetMouseButtonDown(0) && buttonReleased) {
+            clicked = false;
+        } else buttonReleased = true;
+        if (Vector3.Distance(PlayerController.Instance.transform.position, transform.position) < 1.5f)
+        {
+            StartConversation();
+        }
+    }
+
+    protected virtual void StartConversation()
+    {
+        clicked = false;
+        DialogueManager.instance.TriggerDialogue(npcName, dialogueDatas);
+        PlayerController.Instance.GetMovement().MoveToLocation(PlayerController.Instance.transform.position);
+    }
+    private void OnMouseDown()
+    {
+        PlayerController.Instance.GetMovement().MoveToLocation(transform.position);
+        clicked = true;
+        buttonReleased = false;
+    }
+
+    public bool CanBeClicked()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void OnClick()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void OnHover()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void OnHoverExit()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void SetLayer(int layer)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public int GetLayer()
+    {
+        throw new System.NotImplementedException();
+    }
+}
