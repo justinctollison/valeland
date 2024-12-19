@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public class ChattableNPC : MonoBehaviour, IClickable
 {
     [SerializeField] protected string npcName = "";
-    [SerializeField] protected List<DialogData> dialogueDatas = new List<DialogData>();
+    [SerializeField] protected List<DialogueData> dialogueDatas = new List<DialogueData>();
     bool clicked = false;
     bool buttonReleased = true;
 
@@ -15,9 +15,15 @@ public class ChattableNPC : MonoBehaviour, IClickable
 
     void RunClicked()
     {
-        if (Input.GetMouseButtonDown(0) && buttonReleased) {
+        if (Input.GetMouseButtonDown(0) && buttonReleased)
+        {
             clicked = false;
-        } else buttonReleased = true;
+        }
+        else
+        {
+            buttonReleased = true;
+        }
+
         if (Vector3.Distance(PlayerController.Instance.transform.position, transform.position) < 1.5f)
         {
             StartConversation();

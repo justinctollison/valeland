@@ -11,7 +11,8 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _dialogueBodyText;
     [SerializeField] private TextMeshProUGUI _dialogueNameText;
 
-    private List<DialogData> _savedDialogueDataList = new List<DialogData>();
+    private List<DialogueData> _savedDialogueDataList = new List<DialogueData>();
+
     private bool _dialogueRunning = false;
     private bool _dialogueProgressedThisFrame = false;
     private int _dialogueProgressionCount = 0;
@@ -59,11 +60,11 @@ public class DialogueManager : MonoBehaviour
         else
         {
             // Set the first body test
-            _dialogueBodyText.text = _savedDialogueDataList[_dialogueProgressionCount].dialogText;
+            _dialogueBodyText.text = _savedDialogueDataList[_dialogueProgressionCount].dialogueText;
 
-            if (_savedDialogueDataList[_dialogueProgressionCount].dialogAudio != null)
+            if (_savedDialogueDataList[_dialogueProgressionCount].dialogueAudio != null)
             {
-                AudioManager.Instance.PlayVoiceLine(_savedDialogueDataList[_dialogueProgressionCount].dialogAudio);
+                AudioManager.Instance.PlayVoiceLine(_savedDialogueDataList[_dialogueProgressionCount].dialogueAudio);
             }
 
             // Increment the Dialog Data List index
@@ -77,7 +78,7 @@ public class DialogueManager : MonoBehaviour
         EventsManager.Instance.onDialogueEnded.Invoke();
     }
 
-    public void TriggerDialogue(string npcName, List<DialogData> dialogDatas)
+    public void TriggerDialogue(string npcName, List<DialogueData> dialogDatas)
     {
         if(dialogDatas == null)
         {
@@ -115,8 +116,8 @@ public class DialogueManager : MonoBehaviour
 }
 
 [Serializable]
-public class DialogData
+public class DialogueData
 {
-    public string dialogText = "";
-    public AudioClip dialogAudio;
+    public string dialogueText = "";
+    public AudioClip dialogueAudio;
 }

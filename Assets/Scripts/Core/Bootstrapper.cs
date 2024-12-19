@@ -8,6 +8,6 @@ public static class Bootstrapper
 
     public static void Execute()
     {
-        Object.DontDestroyOnLoad(Object.Instantiate(Resources.Load("World Managers")));
+        Object.DontDestroyOnLoad(Object.Instantiate(Resources.Load("System")));
     }
 }
