@@ -6,7 +6,4 @@ public interface IClickable
     void OnClick();
     void OnHover();
     void OnHoverExit();
-
-    public void SetLayer(int layer);
-    public int GetLayer();
 }

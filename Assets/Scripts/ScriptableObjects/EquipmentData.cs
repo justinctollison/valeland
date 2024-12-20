@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Equipment", menuName = "Equipment Data")]
+[CreateAssetMenu(fileName = "Equipment", menuName = "New Equipment")]
 public class EquipmentData : ScriptableObject
 {
     public ItemRarity itemRarity;

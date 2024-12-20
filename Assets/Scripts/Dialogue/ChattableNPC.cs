@@ -18,15 +18,18 @@ public class ChattableNPC : MonoBehaviour, IClickable
         if (Input.GetMouseButtonDown(0) && buttonReleased)
         {
             clicked = false;
+            Debug.Log($"Clicked is set to: {clicked}");
         }
         else
         {
             buttonReleased = true;
+            Debug.Log($"Button Released is set to: {buttonReleased}");
         }
 
         if (Vector3.Distance(PlayerController.Instance.transform.position, transform.position) < 1.5f)
         {
             StartConversation();
+            Debug.Log($"We're inside the Distance Check for Start Conversation");
         }
     }
 
@@ -35,6 +38,7 @@ public class ChattableNPC : MonoBehaviour, IClickable
         clicked = false;
         DialogueManager.instance.TriggerDialogue(npcName, dialogueDatas);
         PlayerController.Instance.GetMovement().MoveToLocation(PlayerController.Instance.transform.position);
+        Debug.Log($"We're in Start Conversation");
     }
     private void OnMouseDown()
     {
@@ -45,31 +49,18 @@ public class ChattableNPC : MonoBehaviour, IClickable
 
     public bool CanBeClicked()
     {
-        throw new System.NotImplementedException();
+        return true;
     }
 
     public void OnClick()
     {
-        throw new System.NotImplementedException();
     }
 
     public void OnHover()
     {
-        throw new System.NotImplementedException();
     }
 
     public void OnHoverExit()
     {
-        throw new System.NotImplementedException();
-    }
-
-    public void SetLayer(int layer)
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public int GetLayer()
-    {
-        throw new System.NotImplementedException();
     }
 }

@@ -16,7 +16,6 @@ public class CharacterStatPanel : MonoBehaviour
     {
         EventsManager.Instance.onStatPointSpent.AddListener(UpdateCharacterSheetPanel);
         EventsManager.Instance.onPlayerLeveledUp.AddListener(UpdateCharacterSheetPanel);
-        HideCharacterStatPanel();
     }
     private void OnDestroy()
     {

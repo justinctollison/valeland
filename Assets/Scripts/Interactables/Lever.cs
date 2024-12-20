@@ -8,7 +8,7 @@ public class Lever : Interactable
     {
         var unlockable = _connectedInteractable.GetComponent<IUnlockable>();
 
-        if (unlockable.IsLocked)
+        if (unlockable.GetIsLocked)
         {
             unlockable.Unlock();
         }

@@ -7,18 +7,30 @@ public class Gate : MonoBehaviour, IUnlockable
     [SerializeField] private bool _isOpen;
     [SerializeField] private GameObject _gate;
 
-    public bool IsLocked => _isLocked;
-    public bool RequireKey => _requireKey;
-    public GameObject MovableObject => _gate;
+    SphereCollider _sphereCollider;
 
     private void Start()
     {
         _isOpen = false;
+
+        _sphereCollider = GetComponent<SphereCollider>();
+        _sphereCollider.isTrigger = true;
     }
 
-    private void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        Toggle();
+        if (other.GetComponent<CombatReceiver>().GetFactionID() == FactionID.Good)
+        {
+            Toggle();
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.GetComponent<CombatReceiver>().GetFactionID() == FactionID.Good)
+        {
+            Toggle();
+        }
     }
 
     public void Close()
@@ -52,16 +64,19 @@ public class Gate : MonoBehaviour, IUnlockable
 
     public void Toggle()
     {
-        if (Input.GetKeyDown(KeyCode.G))
+        if (!_isOpen)
         {
-            if (!_isOpen)
-            {
-                Open();
-            }
-            else
-            {
-                Close();
-            }
+            Open();
+        }
+        else
+        {
+            Close();
         }
     }
+
+
+    public bool GetIsLocked => _isLocked;
+    public bool GetRequireKey => _requireKey;
+    public GameObject GetMovableObject => _gate;
+
 }

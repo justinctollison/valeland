@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7221657881932813992}
   - component: {fileID: 5893720082262740122}
   - component: {fileID: 7176621581416842627}
+  - component: {fileID: 5149692428905814281}
   - component: {fileID: 799288294540482076}
   m_Layer: 0
   m_Name: Skeleton
@@ -140,6 +141,22 @@ MonoBehaviour:
       m_Calls: []
   _currentHP: 10
   _currentMana: 0
+--- !u!114 &5149692428905814281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1102767932579131852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa735a1c23cd6d043afca64b69249734, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _npcData: {fileID: 11400000, guid: f68ab63bed5ab1943b2dc018b74eb346, type: 2}
+  _attackPrefab: {fileID: 0}
+  _targetsList: []
+  _currentTarget: {fileID: 0}
 --- !u!114 &799288294540482076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,10 +169,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63506b8285ca3194fb61f5247f14a8a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _npcData: {fileID: 11400000, guid: f68ab63bed5ab1943b2dc018b74eb346, type: 2}
-  _attackPrefab: {fileID: 4001024201544436937, guid: 523aff856b2ee274c9171c445f204a61, type: 3}
-  _targetsList: []
-  _currentTarget: {fileID: 0}
   _currentStateName: 
 --- !u!1001 &299553622705197611
 PrefabInstance:

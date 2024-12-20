@@ -6,8 +6,8 @@ public interface IUnlockable
     // Closed Function
     // isLocked Bool
 
-    public bool IsLocked { get; }
-    public bool RequireKey { get; }
+    public bool GetIsLocked { get; }
+    public bool GetRequireKey { get; }
 
     public void Open();
     public void Close();

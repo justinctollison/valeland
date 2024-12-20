@@ -22,7 +22,7 @@ public class AttackState : State
             SpawnAttackPrefab();
         }
 
-        if (!stateMachine.TargetIsInAttackRange())
+        if (!basicAI.TargetIsInAttackRange())
         {
             stateMachine.ChangeState(stateMachine.GetEngageState());
         }
@@ -35,10 +35,10 @@ public class AttackState : State
 
     private void SpawnAttackPrefab()
     {
-        stateMachine.transform.LookAt(stateMachine.GetCurrentTarget().transform.position);
-        Vector3 attackDirection = (stateMachine.GetCurrentTarget().transform.position - stateMachine.transform.position).normalized;
+        stateMachine.transform.LookAt(basicAI.GetCurrentTarget().transform.position);
+        Vector3 attackDirection = (basicAI.GetCurrentTarget().transform.position - stateMachine.transform.position).normalized;
         Vector3 spawnDirection = (attackDirection * data.attackRange) + stateMachine.transform.position;
 
-        stateMachine.InstantiateNewAttack(spawnDirection);
+        basicAI.InstantiateNewAttack(spawnDirection);
     }
 }

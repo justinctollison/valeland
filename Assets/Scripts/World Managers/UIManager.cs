@@ -7,6 +7,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject _skillTree;
     [SerializeField] GameObject _inventoryMenu;
     [SerializeField] GameObject _equipmentMenu;
+    [SerializeField] GameObject _dialogueMenu;
 
     public static UIManager Instance;
 
@@ -18,6 +19,11 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         // HideAll();
+
+        HideEquipment();
+        HideInventory();
+        HideCharacterStatsPanel();
+        HideSkillTree();
     }
 
     public void HideAll()
@@ -85,6 +91,30 @@ public class UIManager : MonoBehaviour
         else
         {
             ShowSkillTree();
+        }
+    }
+    #endregion
+
+    #region Dialogue Menu
+    public void ShowDialogueMenu()
+    {
+        _dialogueMenu.SetActive(true);
+    }
+
+    public void HideDialogueMenu()
+    {
+        _dialogueMenu?.SetActive(false);
+    }
+
+    public void ToggleDialogueMenu()
+    {
+        if (_dialogueMenu.activeInHierarchy)
+        {
+            HideDialogueMenu();
+        }
+        else
+        {
+            ShowDialogueMenu();
         }
     }
     #endregion

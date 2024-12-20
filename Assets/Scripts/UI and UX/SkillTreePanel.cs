@@ -10,7 +10,6 @@ public class SkillTreePanel : MonoBehaviour
     private void Start()
     {
         skillTree = PlayerController.Instance.GetSkillManager().GetSkillTree();
-        HideSkillTree();
         EventsManager.Instance.onSkillPointSpent.AddListener(UpdateSkillTree);
     }
     private void OnDestroy()

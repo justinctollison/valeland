@@ -24,7 +24,7 @@ public class PlayerCombat : CombatReceiver
         Debug.Log($"Our faction for Player is {_factionID}");
     }
 
-    protected void Update()
+    protected override void Update()
     {
         if (_isAlive)
         {

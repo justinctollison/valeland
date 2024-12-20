@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CombatActor : MonoBehaviour
 {
-    protected int _factionID = 0;
+    protected FactionID _factionID = 0;
     protected float _damage = 1;
 
     public virtual void InitializeDamage(float amount)
@@ -10,7 +10,7 @@ public class CombatActor : MonoBehaviour
         _damage = amount;
     }
 
-    public void SetFactionID(int newID)
+    public void SetFactionID(FactionID newID)
     {
         _factionID = newID;
     }
@@ -33,5 +33,5 @@ public class CombatActor : MonoBehaviour
         }
     }
 
-    public int GetFactionID() => _factionID;
+    public FactionID GetFactionID() => _factionID;
 }

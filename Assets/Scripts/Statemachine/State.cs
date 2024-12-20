@@ -4,11 +4,12 @@ using UnityEngine.AI;
 public abstract class State
 {
     protected Statemachine stateMachine;
+    protected BasicAI basicAI;
     protected CombatReceiver combatReceiver;
     protected NavMeshAgent agent;
     protected NPCData data;
 
-    protected int factionID;
+    protected FactionID factionID;
     protected bool isAlive;
 
     public State(Statemachine stateMachine)
@@ -16,8 +17,9 @@ public abstract class State
         this.stateMachine = stateMachine;
         combatReceiver = stateMachine.GetComponent<CombatReceiver>();
         agent = stateMachine.GetComponent<NavMeshAgent>();
-        data = stateMachine.GetNPCData();
+        basicAI = stateMachine.GetComponent<BasicAI>();
 
+        data = basicAI.GetNPCData();
         factionID = stateMachine.GetComponent<CombatReceiver>().GetFactionID();
         isAlive = stateMachine.GetComponent<CombatReceiver>().GetIsAlive();
     }

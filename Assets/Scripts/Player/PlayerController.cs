@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private EquippableAbility _ability1;
     [SerializeField] private EquippableAbility _ability2;
 
-    private int _factionID = 1;
+    private FactionID _factionID = FactionID.Good;
     private bool _isAlive = true;
     private bool _inDialogue;
 
@@ -80,7 +80,7 @@ public class PlayerController : MonoBehaviour
     public PlayerAnimator GetAnimator() => GetComponent<PlayerAnimator>();
     public PlayerCharacterSheet GetCharacterSheet() => GetComponent<PlayerCharacterSheet>();
     public PlayerCombat GetCombat() => GetComponent<PlayerCombat>();
-    public int GetFactionID() => _factionID;
+    public FactionID GetFactionID() => _factionID;
     public ClassSkillManager GetSkillManager()
     {
         return _skillManager;

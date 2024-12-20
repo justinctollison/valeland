@@ -2,13 +2,14 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnemyHealthBarUI : MonoBehaviour
+public class NPCHealthBarUI : MonoBehaviour
 {
-    public static EnemyHealthBarUI Instance;
+    public static NPCHealthBarUI Instance;
 
     [SerializeField] private GameObject _healthBarUI;
     [SerializeField] private Slider _healthBarSlider;
     [SerializeField] private TextMeshProUGUI _nameText;
+    [SerializeField] private Image _healthFill;
 
     public void Awake()
     {
@@ -48,5 +49,10 @@ public class EnemyHealthBarUI : MonoBehaviour
     public void SetNameText(string name)
     {
         _nameText.text = name;
+    }
+
+    public void SetHealthBarColor(Color color)
+    {
+        _healthFill.color = color;
     }
 }

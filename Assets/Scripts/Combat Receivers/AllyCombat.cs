@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyCombat : CombatReceiver
+public class AllyCombat : CombatReceiver
 {
     protected override void Start()
     {
@@ -9,13 +9,17 @@ public class EnemyCombat : CombatReceiver
         base.Start();
     }
 
+    protected override void Update()
+    {
+        
+    }
+
     public override void Die()
     {
         base.Die();
 
         // We'll notify the AI when the Combat Receiver Dies
         GetComponent<Statemachine>().ChangeState(GetComponent<Statemachine>().GetDeathState());
-        // We'll grant the player experience
     }
 
     public override void TakeDamage(float amount)
@@ -25,10 +29,10 @@ public class EnemyCombat : CombatReceiver
         OnTakeDamageEvent?.Invoke();
     }
 
-    public override void OnHover()
+    public override void OnHover()  
     {
         OnHoverEnterEvent?.Invoke();
-        _healthBarUI.SetHealthBarColor(Color.red);
+        _healthBarUI.SetHealthBarColor(Color.green);
     }
 
     public override void OnHoverExit()

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4150311fa3dd84d4c80422d69440cfaa, type: 3}
   m_Name: Skeleton
   m_EditorClassIdentifier: 
+  factionID: 1
   enemyType: 1
   maxHealth: 25
   maxMana: 0

@@ -20,11 +20,12 @@ public class EventsManager : MonoBehaviour
 
     public UnityEvent onCurrentTargetHealthChanged;
 
-    public UnityEvent OnHoverEnterEvent; // Event fired when mouse hovers over this target
-    public UnityEvent OnHoverExitEvent; // Event fired when mouse stops hovering
+    public UnityEvent onHoverEnterEvent; // Event fired when mouse hovers over this target
+    public UnityEvent onHoverExitEvent; // Event fired when mouse stops hovering
 
     public UnityEvent onDialogueStarted;
     public UnityEvent onDialogueEnded;
+
 
     private void Awake()
     {

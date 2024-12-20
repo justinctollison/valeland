@@ -8,12 +8,12 @@ public class EngageState : State
 
     public override void Enter()
     {
-        target = stateMachine.GetCurrentTarget();
+        target = basicAI.GetCurrentTarget();
     }
 
     public override void Execute()
     {
-        target = stateMachine.GetCurrentTarget();
+        target = basicAI.GetCurrentTarget();
 
         if (target == null)
         {
@@ -21,17 +21,17 @@ public class EngageState : State
             return;
         }
 
-        stateMachine.TargetsListSorting();
+        basicAI.TargetsListSorting();
         agent.destination = target.transform.position;
 
-        if (stateMachine.TargetIsInAttackRange())
+        if (basicAI.TargetIsInAttackRange())
         {
             stateMachine.ChangeState(stateMachine.GetAttackState());
         }
 
-        stateMachine.RemoveTargetBasedOnDistance();
+        basicAI.RemoveTargetBasedOnDistance();
 
-        if (stateMachine.GetTargetsList().Count <= 0)
+        if (basicAI.GetTargetsList().Count <= 0)
         {
             stateMachine.ChangeState(stateMachine.GetIdleState());
         }

@@ -27,7 +27,6 @@ public class DialogueManager : MonoBehaviour
         HideDialogue();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(_dialogueRunning) RunDialogue();

@@ -7,8 +7,8 @@ public class Door : MonoBehaviour, IUnlockable
     [SerializeField] private GameObject _door;
     [SerializeField] private bool _isOpen;
 
-    public bool IsLocked => _isLocked;
-    public bool RequireKey => _requireKey;
+    public bool GetIsLocked => _isLocked;
+    public bool GetRequireKey => _requireKey;
 
     private void Start()
     {
