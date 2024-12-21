@@ -23128,7 +23128,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &1429593171
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -44395,10 +44395,6 @@ PrefabInstance:
     - target: {fileID: 4950358737370691555, guid: bc9661ccf7afd6c468522e3b965e7aa4, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 4950358737370691555, guid: bc9661ccf7afd6c468522e3b965e7aa4, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5161212615702808729, guid: bc9661ccf7afd6c468522e3b965e7aa4, type: 3}
       propertyPath: m_LocalPosition.x

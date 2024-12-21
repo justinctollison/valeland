@@ -3,12 +3,12 @@ using UnityEngine;
 
 public class CollectibleManager : MonoBehaviour
 {
+    public static CollectibleManager Instance;
+
     private HashSet<Collectible> _collectedItems = new HashSet<Collectible>();
 
     private Dictionary<string, int> _collectibleProgress = new Dictionary<string, int>();
     private Dictionary<string, int> _collectibleGoals = new Dictionary<string, int>();
-
-    public static CollectibleManager Instance;
 
     private void Awake()
     {

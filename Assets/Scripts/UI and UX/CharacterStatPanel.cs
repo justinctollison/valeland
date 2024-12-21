@@ -45,12 +45,15 @@ public class CharacterStatPanel : MonoBehaviour
         // Update Strength Display
         displayInt = (int)PlayerCharacterSheet.Instance.GetStrength();
         strengthText.text = displayInt.ToString();
+
         // Update Dexterity Display
         displayInt = (int)PlayerCharacterSheet.Instance.GetDexterity();
         dexterityText.text = displayInt.ToString();
+
         // Update Vitality Display
         displayInt = (int)PlayerCharacterSheet.Instance.GetVitality();
         vitalityText.text = displayInt.ToString();
+
         // Update Energy Display
         displayInt = (int)PlayerCharacterSheet.Instance.GetEnergy();
         energyText.text = displayInt.ToString();

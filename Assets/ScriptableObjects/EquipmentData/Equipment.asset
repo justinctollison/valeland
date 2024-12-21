@@ -117,6 +117,50 @@ MonoBehaviour:
   - {fileID: 4301130, guid: 038320a534bd8b444b43734860d1a211, type: 3}
   - {fileID: 4301132, guid: 038320a534bd8b444b43734860d1a211, type: 3}
   - {fileID: 4301134, guid: 038320a534bd8b444b43734860d1a211, type: 3}
+  shoulderLefts:
+  - {fileID: 4301242, guid: 038320a534bd8b444b43734860d1a211, type: 3}
+  - {fileID: 4301244, guid: 038320a534bd8b444b43734860d1a211, type: 3}
+  - {fileID: 4301246, guid: 038320a534bd8b444b43734860d1a211, type: 3}
+  - {fileID: 4301248, guid: 038320a534bd8b444b43734860d1a211, type: 3}
+  - {fileID: 4301250, guid: 038320a534bd8b444b43734860d1a211, type: 3}
+  - {fileID: 4301252, guid: 038320a534bd8b444b43734860d1a211, type: 3}
+  - {fileID: 4301254, guid: 038320a534bd8b444b43734860d1a211, type: 3}
+  - {fileID: 4301256, guid: 038320a534bd8b444b43734860d1a211, type: 3}
+  - {fileID: 4301258, guid: 038320a534bd8b444b43734860d1a211, type: 3}
+  - {fileID: 4301260, guid: 038320a534bd8b444b43734860d1a211, type: 3}
+  - {fileID: 4301262, guid: 038320a534bd8b444b43734860d1a211, type: 3}
+  - {fileID: 4301264, guid: 038320a534bd8b444b43734860d1a211, type: 3}
+  - {fileID: 4301266, guid: 038320a534bd8b444b43734860d1a211, type: 3}
+  - {fileID: 4301268, guid: 038320a534bd8b444b43734860d1a211, type: 3}
+  - {fileID: 4301270, guid: 038320a534bd8b444b43734860d1a211, type: 3}
+  - {fileID: 4301272, guid: 038320a534bd8b444b43734860d1a211, type: 3}
+  - {fileID: 4301274, guid: 038320a534bd8b444b43734860d1a211, type: 3}
+  - {fileID: 4301276, guid: 038320a534bd8b444b43734860d1a211, type: 3}
+  - {fileID: 4301278, guid: 038320a534bd8b444b43734860d1a211, type: 3}
+  - {fileID: 4301280, guid: 038320a534bd8b444b43734860d1a211, type: 3}
+  - {fileID: 4301282, guid: 038320a534bd8b444b43734860d1a211, type: 3}
+  shoulderRights:
+  - {fileID: 4301200, guid: 038320a534bd8b444b43734860d1a211, type: 3}
+  - {fileID: 4301202, guid: 038320a534bd8b444b43734860d1a211, type: 3}
+  - {fileID: 4301204, guid: 038320a534bd8b444b43734860d1a211, type: 3}
+  - {fileID: 4301206, guid: 038320a534bd8b444b43734860d1a211, type: 3}
+  - {fileID: 4301208, guid: 038320a534bd8b444b43734860d1a211, type: 3}
+  - {fileID: 4301210, guid: 038320a534bd8b444b43734860d1a211, type: 3}
+  - {fileID: 4301212, guid: 038320a534bd8b444b43734860d1a211, type: 3}
+  - {fileID: 4301214, guid: 038320a534bd8b444b43734860d1a211, type: 3}
+  - {fileID: 4301216, guid: 038320a534bd8b444b43734860d1a211, type: 3}
+  - {fileID: 4301218, guid: 038320a534bd8b444b43734860d1a211, type: 3}
+  - {fileID: 4301220, guid: 038320a534bd8b444b43734860d1a211, type: 3}
+  - {fileID: 4301222, guid: 038320a534bd8b444b43734860d1a211, type: 3}
+  - {fileID: 4301224, guid: 038320a534bd8b444b43734860d1a211, type: 3}
+  - {fileID: 4301226, guid: 038320a534bd8b444b43734860d1a211, type: 3}
+  - {fileID: 4301228, guid: 038320a534bd8b444b43734860d1a211, type: 3}
+  - {fileID: 4301230, guid: 038320a534bd8b444b43734860d1a211, type: 3}
+  - {fileID: 4301232, guid: 038320a534bd8b444b43734860d1a211, type: 3}
+  - {fileID: 4301234, guid: 038320a534bd8b444b43734860d1a211, type: 3}
+  - {fileID: 4301236, guid: 038320a534bd8b444b43734860d1a211, type: 3}
+  - {fileID: 4301238, guid: 038320a534bd8b444b43734860d1a211, type: 3}
+  - {fileID: 4301240, guid: 038320a534bd8b444b43734860d1a211, type: 3}
   chestArmors:
   - {fileID: 4300476, guid: 038320a534bd8b444b43734860d1a211, type: 3}
   - {fileID: 4300478, guid: 038320a534bd8b444b43734860d1a211, type: 3}
@@ -205,9 +249,7 @@ MonoBehaviour:
   - {fileID: 4301300, guid: 038320a534bd8b444b43734860d1a211, type: 3}
   - {fileID: 4301302, guid: 038320a534bd8b444b43734860d1a211, type: 3}
   - {fileID: 4301304, guid: 038320a534bd8b444b43734860d1a211, type: 3}
-  backAttachments:
-  - {fileID: 4301170, guid: 038320a534bd8b444b43734860d1a211, type: 3}
-  - {fileID: 4301172, guid: 038320a534bd8b444b43734860d1a211, type: 3}
+  capeAttachments:
   - {fileID: 4301174, guid: 038320a534bd8b444b43734860d1a211, type: 3}
   - {fileID: 4301176, guid: 038320a534bd8b444b43734860d1a211, type: 3}
   - {fileID: 4301178, guid: 038320a534bd8b444b43734860d1a211, type: 3}
@@ -221,50 +263,9 @@ MonoBehaviour:
   - {fileID: 4301194, guid: 038320a534bd8b444b43734860d1a211, type: 3}
   - {fileID: 4301196, guid: 038320a534bd8b444b43734860d1a211, type: 3}
   - {fileID: 4301198, guid: 038320a534bd8b444b43734860d1a211, type: 3}
-  shoulderLefts:
-  - {fileID: 4301242, guid: 038320a534bd8b444b43734860d1a211, type: 3}
-  - {fileID: 4301244, guid: 038320a534bd8b444b43734860d1a211, type: 3}
-  - {fileID: 4301246, guid: 038320a534bd8b444b43734860d1a211, type: 3}
-  - {fileID: 4301248, guid: 038320a534bd8b444b43734860d1a211, type: 3}
-  - {fileID: 4301250, guid: 038320a534bd8b444b43734860d1a211, type: 3}
-  - {fileID: 4301252, guid: 038320a534bd8b444b43734860d1a211, type: 3}
-  - {fileID: 4301254, guid: 038320a534bd8b444b43734860d1a211, type: 3}
-  - {fileID: 4301256, guid: 038320a534bd8b444b43734860d1a211, type: 3}
-  - {fileID: 4301258, guid: 038320a534bd8b444b43734860d1a211, type: 3}
-  - {fileID: 4301260, guid: 038320a534bd8b444b43734860d1a211, type: 3}
-  - {fileID: 4301262, guid: 038320a534bd8b444b43734860d1a211, type: 3}
-  - {fileID: 4301264, guid: 038320a534bd8b444b43734860d1a211, type: 3}
-  - {fileID: 4301266, guid: 038320a534bd8b444b43734860d1a211, type: 3}
-  - {fileID: 4301268, guid: 038320a534bd8b444b43734860d1a211, type: 3}
-  - {fileID: 4301270, guid: 038320a534bd8b444b43734860d1a211, type: 3}
-  - {fileID: 4301272, guid: 038320a534bd8b444b43734860d1a211, type: 3}
-  - {fileID: 4301274, guid: 038320a534bd8b444b43734860d1a211, type: 3}
-  - {fileID: 4301276, guid: 038320a534bd8b444b43734860d1a211, type: 3}
-  - {fileID: 4301278, guid: 038320a534bd8b444b43734860d1a211, type: 3}
-  - {fileID: 4301280, guid: 038320a534bd8b444b43734860d1a211, type: 3}
-  - {fileID: 4301282, guid: 038320a534bd8b444b43734860d1a211, type: 3}
-  shoulderRights:
-  - {fileID: 4301200, guid: 038320a534bd8b444b43734860d1a211, type: 3}
-  - {fileID: 4301202, guid: 038320a534bd8b444b43734860d1a211, type: 3}
-  - {fileID: 4301204, guid: 038320a534bd8b444b43734860d1a211, type: 3}
-  - {fileID: 4301206, guid: 038320a534bd8b444b43734860d1a211, type: 3}
-  - {fileID: 4301208, guid: 038320a534bd8b444b43734860d1a211, type: 3}
-  - {fileID: 4301210, guid: 038320a534bd8b444b43734860d1a211, type: 3}
-  - {fileID: 4301212, guid: 038320a534bd8b444b43734860d1a211, type: 3}
-  - {fileID: 4301214, guid: 038320a534bd8b444b43734860d1a211, type: 3}
-  - {fileID: 4301216, guid: 038320a534bd8b444b43734860d1a211, type: 3}
-  - {fileID: 4301218, guid: 038320a534bd8b444b43734860d1a211, type: 3}
-  - {fileID: 4301220, guid: 038320a534bd8b444b43734860d1a211, type: 3}
-  - {fileID: 4301222, guid: 038320a534bd8b444b43734860d1a211, type: 3}
-  - {fileID: 4301224, guid: 038320a534bd8b444b43734860d1a211, type: 3}
-  - {fileID: 4301226, guid: 038320a534bd8b444b43734860d1a211, type: 3}
-  - {fileID: 4301228, guid: 038320a534bd8b444b43734860d1a211, type: 3}
-  - {fileID: 4301230, guid: 038320a534bd8b444b43734860d1a211, type: 3}
-  - {fileID: 4301232, guid: 038320a534bd8b444b43734860d1a211, type: 3}
-  - {fileID: 4301234, guid: 038320a534bd8b444b43734860d1a211, type: 3}
-  - {fileID: 4301236, guid: 038320a534bd8b444b43734860d1a211, type: 3}
-  - {fileID: 4301238, guid: 038320a534bd8b444b43734860d1a211, type: 3}
-  - {fileID: 4301240, guid: 038320a534bd8b444b43734860d1a211, type: 3}
+  backpackAttachments:
+  - {fileID: 4301170, guid: 038320a534bd8b444b43734860d1a211, type: 3}
+  - {fileID: 4301172, guid: 038320a534bd8b444b43734860d1a211, type: 3}
   lowerRightArms:
   - {fileID: 4300608, guid: 038320a534bd8b444b43734860d1a211, type: 3}
   - {fileID: 4300610, guid: 038320a534bd8b444b43734860d1a211, type: 3}

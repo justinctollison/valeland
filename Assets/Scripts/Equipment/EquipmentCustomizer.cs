@@ -26,7 +26,8 @@ public class EquipmentCustomizer : MonoBehaviour
     public SkinnedMeshRenderer upperLeftArm;
 
     // Cape/Cloak
-    public SkinnedMeshRenderer backAttachment;
+    public SkinnedMeshRenderer capeAttachment;
+    public SkinnedMeshRenderer backpackAttachment;
 
     // Gloves
     public SkinnedMeshRenderer lowerRightArm;
@@ -59,8 +60,8 @@ public class EquipmentCustomizer : MonoBehaviour
 
 
         EquipShoulderArmor(Random.Range(0, equipmentAssets.shoulderRights.Length));
-        EquipChestArmor(Random.Range(0, equipmentAssets.chestArmors.Length));
-        EquipCloak(Random.Range(0, equipmentAssets.backAttachments.Length));
+        EquipChestArmor(Random.Range(0, equipmentAssets.chestArmors.Length), Random.Range(0, equipmentAssets.upperRightArms.Length));
+        EquipCape(Random.Range(0, equipmentAssets.capeAttachments.Length));
         EquipGloves(Random.Range(0, equipmentAssets.rightHands.Length));
         EquipLegArmor(Random.Range(0, equipmentAssets.hips.Length));
         EquipBoots(Random.Range(0, equipmentAssets.leftLegs.Length));
@@ -128,21 +129,53 @@ public class EquipmentCustomizer : MonoBehaviour
         shoulderLeft.gameObject.SetActive(false);
     }
 
-    public void EquipChestArmor(int armor)
+    public void EquipChestArmor(int chest, int upperArms)
     {
-        chestArmor.sharedMesh = equipmentAssets.chestArmors[armor];
-        upperRightArm.sharedMesh = equipmentAssets.upperRightArms[armor];
-        upperLeftArm.sharedMesh = equipmentAssets.upperLeftArms[armor];
+        chestArmor.sharedMesh = equipmentAssets.chestArmors[chest];
+        EquipUpperArmsArmor(upperArms);
     }
 
     public void UnequipChestArmor()
     {
         chestArmor.sharedMesh = equipmentAssets.chestArmors[0];
+
+        UnequipUpperArmsArmor();
     }
 
-    public void EquipCloak(int armor)
+    public void EquipUpperArmsArmor(int armor)
     {
-        backAttachment.sharedMesh = equipmentAssets.backAttachments[armor];
+        upperRightArm.sharedMesh = equipmentAssets.upperRightArms[armor];
+        upperLeftArm.sharedMesh = equipmentAssets.upperLeftArms[armor];
+    }
+
+    public void UnequipUpperArmsArmor()
+    {
+        upperRightArm.sharedMesh = equipmentAssets.upperRightArms[0];
+        upperLeftArm.sharedMesh = equipmentAssets.upperLeftArms[0];
+    }
+
+    public void EquipCape(int armor)
+    {
+        UnequipBackpack();
+        capeAttachment.gameObject.SetActive(true);
+        capeAttachment.sharedMesh = equipmentAssets.capeAttachments[armor]; 
+    }
+
+    public void UnequipCape()
+    {
+        capeAttachment.gameObject.SetActive(false);
+    }
+
+    public void EquipBackpack(int armor)
+    {
+        UnequipCape();
+        backpackAttachment.gameObject.SetActive(true);
+        backpackAttachment.sharedMesh = equipmentAssets.backpackAttachments[armor];
+    }
+
+    public void UnequipBackpack()
+    {
+        backpackAttachment.gameObject.SetActive(false);
     }
 
     public void EquipGloves(int armor)
