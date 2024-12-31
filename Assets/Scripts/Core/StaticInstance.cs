@@ -18,11 +18,11 @@ using UnityEngine;
 /// and saves you doing it manually
 /// </summary>
 public abstract class StaticInstance<T> : MonoBehaviour where T : MonoBehaviour {
-    public static T Instance { get; private set; }
-    protected virtual void Awake() => Instance = this as T;
+    public static T instance { get; private set; }
+    protected virtual void Awake() => instance = this as T;
 
     protected virtual void OnApplicationQuit() {
-        Instance = null;
+        instance = null;
         Destroy(gameObject);
     }
 }
@@ -33,7 +33,7 @@ public abstract class StaticInstance<T> : MonoBehaviour where T : MonoBehaviour 
 /// </summary>
 public abstract class Singleton<T> : StaticInstance<T> where T : MonoBehaviour {
     protected override void Awake() {
-        if (Instance != null) 
+        if (instance != null) 
         {
             Destroy(gameObject);
             return;

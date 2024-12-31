@@ -2268,9 +2268,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b2743cc8a8105d4bb63516921dbb8ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _statusEffects:
-  - statusEffectName: Burn
-    statusEffectPrefab: {fileID: 5437055886030684159, guid: 984fc6cce7a6afb498254a5850278031, type: 3}
+  statusEffectPrefabs:
+  - {fileID: 5437055886030684159, guid: 984fc6cce7a6afb498254a5850278031, type: 3}
 --- !u!1 &2285679698493637177
 GameObject:
   m_ObjectHideFlags: 0

@@ -67,7 +67,7 @@ public class CombatReceiver : MonoBehaviour, IClickable
     public virtual void TakeDamage(float amount)
     {
         if (!_isAlive) { return; }
-
+        print("Taking Damage");
         _currentHP -= amount;
         Vector3 dmgIndicatorPos = transform.position + new Vector3(0, height, 0);
         EffectsManager.Instance.PlayDamageIndicator(amount, dmgIndicatorPos);
@@ -101,43 +101,46 @@ public class CombatReceiver : MonoBehaviour, IClickable
     #endregion
 
     #region Status Effects
-    public void ApplyStatusEffect<T>() where T : StatusEffect
+    public void ApplyStatusEffect(string statusEffectName)
     {
         if(!_isAlive) { return; }
-        if (HasStatusEffect<T>()) { GetStatusEffect<T>().RefreshDuration(); }
+        if (HasStatusEffect(statusEffectName)) 
+        { 
+            GetStatusEffect(statusEffectName).RefreshDuration();
+            return;
+        }
 
         //todo: use a StatusEffect Manager instead of Resources.FindObjectsOfTypeAll
-        print(Resources.FindObjectsOfTypeAll<T>().Length);
-        GameObject statusEffectObject = Resources.FindObjectsOfTypeAll<T>()[0].gameObject;
+        GameObject statusEffectObject = StatusEffectManager.instance.GetStatusEffectPrefab(statusEffectName);
         statusEffectObject = Instantiate(statusEffectObject, transform);
-        T statusEffect = statusEffectObject.GetComponent<T>();
+        statusEffectObject.transform.position = transform.position + Vector3.up*height/2; //makes the particle effect appear at the center of the receiver
+        StatusEffect statusEffect = statusEffectObject.GetComponent<StatusEffect>();
 
         _statusEffects.Add(statusEffect);
         statusEffect.receiver = this;
         statusEffect.OnApply();
     }
 
-    public void RemoveStatusEffect<T>() where T : StatusEffect
+    public void RemoveStatusEffect(string statusEffectName)
     {
-        StatusEffect statusEffect = GetStatusEffect<T>();
+        StatusEffect statusEffect = GetStatusEffect(statusEffectName);
         RemoveStatusEffect(statusEffect);
     }
     public void RemoveStatusEffect(StatusEffect statusEffect)
     {
+        if (!HasStatusEffect(statusEffect.effectName)) return;
+
         _statusEffects.Remove(statusEffect);
         statusEffect.OnRemoved();
     }
 
-    public bool HasStatusEffect<T>() where T : StatusEffect
+    public bool HasStatusEffect(string statusEffectName)
     {
-        return _statusEffects.Exists(x => x.GetType() == typeof(T));
+        return _statusEffects.Exists(x => x.effectName == statusEffectName);
     }
-
-    private StatusEffect GetStatusEffect<T>() where T: StatusEffect
+    public StatusEffect GetStatusEffect(string statusEffectName)
     {
-        if(!HasStatusEffect<T>()) 
-            throw new ArgumentException("Attempted to Get a StatusEffect not attached to CombatReceiver");
-        return _statusEffects.Find(x => x.GetType() == typeof(T)) as T;
+        return _statusEffects.Find(x => x.effectName == statusEffectName);
     }
     #endregion
 }

@@ -20,7 +20,7 @@ public class FireballCA : CombatActor
         base.HitReceiever(target);
 
         EffectsManager.Instance.PlaySmallBoom(transform.position, 1);
-        target.ApplyStatusEffect<BurnStatus>();
+        target.ApplyStatusEffect("Burn");
     }
 
     public void SetShootDirection(Vector3 newDirection)

@@ -4,6 +4,7 @@ public class DamageOverTimeStatus : StatusEffect
 {
     [SerializeField] protected float damagePerTick;
     [SerializeField] protected float timeBetweenTicksSeconds;
+    [SerializeField] private ParticleSystem damageTickParticles;
     protected float _timeSinceLastTick = 0;
 
     public override void RunStatusEffect()
@@ -14,6 +15,7 @@ public class DamageOverTimeStatus : StatusEffect
         {
             _timeSinceLastTick = 0;
             receiver.TakeDamage(damagePerTick);
+            damageTickParticles.Play();
         }
         base.RunStatusEffect();
     }
