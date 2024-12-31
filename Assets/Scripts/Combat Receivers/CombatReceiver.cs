@@ -67,7 +67,6 @@ public class CombatReceiver : MonoBehaviour, IClickable
     public virtual void TakeDamage(float amount)
     {
         if (!_isAlive) { return; }
-        print("Taking Damage");
         _currentHP -= amount;
         Vector3 dmgIndicatorPos = transform.position + new Vector3(0, height, 0);
         EffectsManager.Instance.PlayDamageIndicator(amount, dmgIndicatorPos);
