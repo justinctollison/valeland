@@ -27757,6 +27757,7 @@ MonoBehaviour:
       m_Calls: []
   _currentHP: 0
   _currentMana: 0
+  height: 1.2
 --- !u!114 &1753059934
 MonoBehaviour:
   m_ObjectHideFlags: 0

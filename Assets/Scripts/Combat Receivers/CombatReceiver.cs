@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -18,6 +20,9 @@ public class CombatReceiver : MonoBehaviour, IClickable
     protected float _maxMana;
     protected bool _isAlive = true;
 
+    protected List<StatusEffect> _statusEffects = new List<StatusEffect>();
+    public float height = 1.2f;
+
     protected virtual void Awake() { }
 
     protected virtual void Start()
@@ -32,7 +37,15 @@ public class CombatReceiver : MonoBehaviour, IClickable
         OnTakeDamageEvent.AddListener(() => _healthBarUI.UpdateHealthBar(_currentHP, _maxHP));
     }
 
-    protected virtual void Update() { }
+    protected virtual void Update() {
+        if (_isAlive)
+        {
+            foreach(StatusEffect status in _statusEffects)
+            {
+                status.RunStatusEffect();
+            }
+        }
+    }
 
     public virtual void Die()
     {
@@ -56,7 +69,8 @@ public class CombatReceiver : MonoBehaviour, IClickable
         if (!_isAlive) { return; }
 
         _currentHP -= amount;
-
+        Vector3 dmgIndicatorPos = transform.position + new Vector3(0, height, 0);
+        EffectsManager.Instance.PlayDamageIndicator(amount, dmgIndicatorPos);
         if (_currentHP <= 0)
         {
             Die();
@@ -84,5 +98,46 @@ public class CombatReceiver : MonoBehaviour, IClickable
     public virtual void OnHover() { }
 
     public virtual void OnHoverExit() { }
+    #endregion
+
+    #region Status Effects
+    public void ApplyStatusEffect<T>() where T : StatusEffect
+    {
+        if(!_isAlive) { return; }
+        if (HasStatusEffect<T>()) { GetStatusEffect<T>().RefreshDuration(); }
+
+        //todo: use a StatusEffect Manager instead of Resources.FindObjectsOfTypeAll
+        print(Resources.FindObjectsOfTypeAll<T>().Length);
+        GameObject statusEffectObject = Resources.FindObjectsOfTypeAll<T>()[0].gameObject;
+        statusEffectObject = Instantiate(statusEffectObject, transform);
+        T statusEffect = statusEffectObject.GetComponent<T>();
+
+        _statusEffects.Add(statusEffect);
+        statusEffect.receiver = this;
+        statusEffect.OnApply();
+    }
+
+    public void RemoveStatusEffect<T>() where T : StatusEffect
+    {
+        StatusEffect statusEffect = GetStatusEffect<T>();
+        RemoveStatusEffect(statusEffect);
+    }
+    public void RemoveStatusEffect(StatusEffect statusEffect)
+    {
+        _statusEffects.Remove(statusEffect);
+        statusEffect.OnRemoved();
+    }
+
+    public bool HasStatusEffect<T>() where T : StatusEffect
+    {
+        return _statusEffects.Exists(x => x.GetType() == typeof(T));
+    }
+
+    private StatusEffect GetStatusEffect<T>() where T: StatusEffect
+    {
+        if(!HasStatusEffect<T>()) 
+            throw new ArgumentException("Attempted to Get a StatusEffect not attached to CombatReceiver");
+        return _statusEffects.Find(x => x.GetType() == typeof(T)) as T;
+    }
     #endregion
 }
