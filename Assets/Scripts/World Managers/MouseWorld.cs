@@ -43,7 +43,7 @@ public class MouseWorld : MonoBehaviour
                 }
             }
 
-            else if (_clickable != null)
+            else if (_clickable != null && _clickable.CanBeClicked())
             {
                 if (_hoverTarget != _clickable)
                 {

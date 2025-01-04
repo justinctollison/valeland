@@ -74,7 +74,7 @@ public class CombatReceiver : MonoBehaviour, IClickable
     }
 
     #region Clickable Functions
-    public bool CanBeClicked()
+    public virtual bool CanBeClicked()
     {
         return true;
     }

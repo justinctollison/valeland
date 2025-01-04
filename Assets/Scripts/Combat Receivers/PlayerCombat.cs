@@ -53,6 +53,11 @@ public class PlayerCombat : CombatReceiver
         EventsManager.Instance.onHealthChanged.Invoke(_currentHP / _maxHP);
     }
 
+    public override bool CanBeClicked()
+    {
+        return false;
+    }
+
     #region Mana Management
     public float GetMana() => _currentMana;
     public void SpendMana(float amount)
