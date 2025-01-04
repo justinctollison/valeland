@@ -80,7 +80,7 @@ public class EquippableAbility : MonoBehaviour
     {
         if (_targetedReceiver != null)
         {
-            if (Vector3.Distance(_myPlayer.transform.position, _targetedReceiver.transform.position) <= _attackRange)
+            if (Vector3.Distance(_myPlayer.transform.position, _targetedReceiver.transform.position) <= _attackRange && _targetedReceiver.GetFactionID() != _myPlayer.GetFactionID())
             {
                 _myPlayer.GetMovement().MoveToLocation(_myPlayer.transform.position);
 

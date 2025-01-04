@@ -8,7 +8,7 @@ public class FireballEquippableAbility : EquippableAbility
         _targetedReceiver = null;
 
         var clickable = MouseWorld.Instance.GetClickable() as CombatReceiver;
-        if (CanCastFireball(clickable))
+        if (CanCastFireball(clickable) && clickable.GetFactionID() != player.GetFactionID())
         {
             SpawnEquippedAttack(MouseWorld.Instance.GetMousePosition());
             _myPlayer.GetMovement().MoveToLocation(_myPlayer.transform.position);
