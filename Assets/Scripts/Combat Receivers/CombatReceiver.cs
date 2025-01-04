@@ -1,7 +1,8 @@
-using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UIElements;
 
 public class CombatReceiver : MonoBehaviour, IClickable
 {
@@ -37,15 +38,16 @@ public class CombatReceiver : MonoBehaviour, IClickable
         OnTakeDamageEvent.AddListener(() => _healthBarUI.UpdateHealthBar(_currentHP, _maxHP));
     }
 
-    protected virtual void Update() {
+    protected virtual void LateUpdate() {
         if (_isAlive)
         {
-            foreach(StatusEffect status in _statusEffects)
+            for(int i = 0; i< _statusEffects.Count; i++)
             {
-                status.RunStatusEffect();
+                _statusEffects[i].RunStatusEffect();
             }
         }
     }
+    protected virtual void Update() { }
 
     public virtual void Die()
     {
@@ -140,6 +142,35 @@ public class CombatReceiver : MonoBehaviour, IClickable
     public StatusEffect GetStatusEffect(string statusEffectName)
     {
         return _statusEffects.Find(x => x.effectName == statusEffectName);
+    }
+    #endregion
+
+    #region Knockback
+    private IEnumerator KnockbackRoutine(Vector3 knockbackVector, float duration)
+    {
+        BasicAnimator animator = GetComponent<BasicAnimator>();
+        if(animator != null)
+            GetComponent<BasicAnimator>().StartCoroutine("PauseAnimation", duration);
+        yield return new WaitForSeconds(0.05f);//hitstop? why not?
+        for(float i = 0; i < duration; i += Time.deltaTime)
+        {
+            transform.position += knockbackVector * Time.deltaTime;
+            yield return null;
+        }
+    }
+    public void ReceiveKnockback(Vector3 knockbackVector, float duration = 0.8f)
+    {
+        StartCoroutine(KnockbackRoutine(knockbackVector, duration));
+    }
+    public void ReceiveKnockbackAwayFromPlayer(float knockbackForce, float duration = 0.8f)
+    {
+        Vector3 knockbackVector = GetDirectionAwayFromPlayer() * knockbackForce;
+        StartCoroutine(KnockbackRoutine(knockbackVector,duration));
+    }
+    public Vector3 GetDirectionAwayFromPlayer()
+    {
+        Vector3 playerPos = PlayerController.Instance.transform.position;
+        return (transform.position - playerPos).normalized;
     }
     #endregion
 }

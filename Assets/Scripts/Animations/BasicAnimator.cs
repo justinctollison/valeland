@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class BasicAnimator : MonoBehaviour
@@ -40,5 +41,15 @@ public class BasicAnimator : MonoBehaviour
     public virtual void TriggerRevive()
     {
         _animator.SetTrigger("Revive");
+    }
+    private IEnumerator PauseAnimation(float duration)
+    {
+        _animator.enabled = false;
+        yield return new WaitForSeconds(duration);
+        _animator.enabled = true;
+    }
+    public void MultiplySpeed(float speed)
+    {
+        _animator.speed *= speed;
     }
 }

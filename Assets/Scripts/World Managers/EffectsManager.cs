@@ -6,6 +6,7 @@ public class EffectsManager : MonoBehaviour
 
     [SerializeField] GameObject smallEffect;
     [SerializeField] GameObject bigEffect;
+    [SerializeField] GameObject iceExplosionEffect;
     [SerializeField] GameObject damageIndicatorPrefab;
 
     private void Awake()
@@ -29,6 +30,10 @@ public class EffectsManager : MonoBehaviour
     public void PlayBigBoom(Vector3 location, float duration, Transform effectParent = null)
     {
         SpawnEffect(bigEffect, location, duration, effectParent);
+    }
+    public void PlayIceExplosion(Vector3 location, float duration, Transform effectParent = null)
+    {
+        SpawnEffect(iceExplosionEffect, location, duration, effectParent);
     }
     public void PlayDamageIndicator(float damage, Vector3 location, float duration = 1, Transform effectParent = null)
     {

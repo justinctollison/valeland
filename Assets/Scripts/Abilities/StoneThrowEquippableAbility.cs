@@ -1,7 +1,6 @@
 using UnityEngine;
-using UnityEngine.UIElements;
 
-public class FireballEquippableAbility : EquippableAbility
+public class StoneThrowEquippableAbility : EquippableAbility
 {
     public override void RunAbilityClicked(PlayerController player)
     {
@@ -9,7 +8,7 @@ public class FireballEquippableAbility : EquippableAbility
         _targetedReceiver = null;
 
         var clickable = MouseWorld.Instance.GetClickable() as CombatReceiver;
-        if (CanCastFireball(clickable))
+        if (CanCastStoneThrow(clickable))
         {
             SpawnEquippedAttack(MouseWorld.Instance.GetMousePosition());
             _myPlayer.GetMovement().MoveToLocation(_myPlayer.transform.position);
@@ -18,7 +17,7 @@ public class FireballEquippableAbility : EquippableAbility
         }
     }
 
-    private bool CanCastFireball(CombatReceiver clickable)
+    private bool CanCastStoneThrow(CombatReceiver clickable)
     {
         return _myPlayer.GetCombat().GetMana() >= _manaCost && (clickable != null || Input.GetKey(KeyCode.LeftShift));
     }
@@ -33,11 +32,11 @@ public class FireballEquippableAbility : EquippableAbility
 
         GameObject newAttack = Instantiate(_spawnablePrefab, spawnPosition, Quaternion.identity);
 
-        var fireballCA = newAttack.gameObject.GetComponent<FireballCA>();
+        var fireballCA = newAttack.gameObject.GetComponent<KnockbackAttack>();
         fireballCA.SetFactionID(_myPlayer.GetFactionID());
         fireballCA.SetShootDirection(_myPlayer.transform.forward);
 
-        float calculatedDamage = fireballCA.GetBaseDamage() + (2 * classSkill.skillLevel);
-        fireballCA.InitializeDamage(calculatedDamage);
+        float calculatedDamge = 1 + (2 * classSkill.skillLevel);
+        newAttack.GetComponent<KnockbackAttack>().InitializeDamage(calculatedDamge);
     }
 }

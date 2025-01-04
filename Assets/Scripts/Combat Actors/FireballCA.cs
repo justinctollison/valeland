@@ -17,10 +17,18 @@ public class FireballCA : CombatActor
 
     protected override void HitReceiever(CombatReceiver target)
     {
-        base.HitReceiever(target);
+        //deal double damage to frozen targets
+        if (target.HasStatusEffect("Freeze"))
+        {
+            target.RemoveStatusEffect("Freeze");
+            base.HitReceiever(target, 2);
+        }
+        else
+            base.HitReceiever(target);
 
         EffectsManager.Instance.PlaySmallBoom(transform.position, 1);
         target.ApplyStatusEffect("Burn");
+        //target.ReceiveKnockbackAwayFromPlayer(10);
     }
 
     public void SetShootDirection(Vector3 newDirection)
@@ -32,13 +40,14 @@ public class FireballCA : CombatActor
     {
         var target = other.GetComponent<CombatReceiver>();
 
-        if (target != null && !other.isTrigger)
+        if (CanDamageReceiver(other, target))
         {
-            if (target.GetFactionID() != _factionID)
-            {
-                HitReceiever(target);
-                Destroy(gameObject);
-            }
+            HitReceiever(target);
+            Destroy(gameObject);
         }
+    }
+    bool CanDamageReceiver(Collider other, CombatReceiver target)
+    {
+        return target != null && !other.isTrigger && target.GetFactionID() != _factionID;
     }
 }

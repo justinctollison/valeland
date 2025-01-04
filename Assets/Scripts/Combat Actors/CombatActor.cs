@@ -3,7 +3,7 @@ using UnityEngine;
 public class CombatActor : MonoBehaviour
 {
     protected FactionID _factionID = 0;
-    protected float _damage = 1;
+    [SerializeField] protected float _damage = 1;
 
     public virtual void InitializeDamage(float amount)
     {
@@ -18,6 +18,10 @@ public class CombatActor : MonoBehaviour
     protected virtual void HitReceiever(CombatReceiver target)
     {
         target.TakeDamage(_damage);
+    }
+    protected virtual void HitReceiever(CombatReceiver target,float damageMultiplier)
+    {
+        target.TakeDamage(_damage * damageMultiplier);
     }
 
     protected virtual void OnTriggerEnter(Collider other)
@@ -34,4 +38,5 @@ public class CombatActor : MonoBehaviour
     }
 
     public FactionID GetFactionID() => _factionID;
+    public float GetBaseDamage() => _damage;
 }

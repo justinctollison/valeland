@@ -2270,6 +2270,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   statusEffectPrefabs:
   - {fileID: 5437055886030684159, guid: 984fc6cce7a6afb498254a5850278031, type: 3}
+  - {fileID: 5074424799480202065, guid: 71bc6577cecb3db43a116c15e9cc5ab2, type: 3}
 --- !u!1 &2285679698493637177
 GameObject:
   m_ObjectHideFlags: 0
@@ -6009,9 +6010,9 @@ Transform:
   - {fileID: 7985501455652850629}
   - {fileID: 8815586494971275232}
   - {fileID: 2473018350928463599}
+  - {fileID: 8200210628227724252}
   - {fileID: 8416572416051520097}
   - {fileID: 3167414327546361649}
-  - {fileID: 8200210628227724252}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3497125288456667589
@@ -9076,6 +9077,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smallEffect: {fileID: 4610086009391079144, guid: bee52d11e51179c4f868caad3e20ed06, type: 3}
   bigEffect: {fileID: 0}
+  iceExplosionEffect: {fileID: 5680801374429739399, guid: ba87301db2e5def479b277d13eb95b0c, type: 3}
   damageIndicatorPrefab: {fileID: 138418819769901626, guid: 3d9ddd1eab306c849bfb9d1d4691b27c, type: 3}
 --- !u!1 &8762531970645747546
 GameObject:
