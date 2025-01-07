@@ -24,7 +24,8 @@ public class EquipmentAssets : ScriptableObject
     public Mesh[] elbowLeftAttachments;
 
     // Cape/Cloak
-    public Mesh[] backAttachments;
+    public Mesh[] capeAttachments;
+    public Mesh[] backpackAttachments;
 
     // Gloves
     public Mesh[] lowerRightArms;

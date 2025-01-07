@@ -18,27 +18,23 @@ public class ChattableNPC : MonoBehaviour, IClickable
         if (Input.GetMouseButtonDown(0) && buttonReleased)
         {
             clicked = false;
-            Debug.Log($"Clicked is set to: {clicked}");
         }
         else
         {
             buttonReleased = true;
-            Debug.Log($"Button Released is set to: {buttonReleased}");
         }
 
         if (Vector3.Distance(PlayerController.Instance.transform.position, transform.position) < 1.5f)
         {
             StartConversation();
-            Debug.Log($"We're inside the Distance Check for Start Conversation");
         }
     }
 
     protected virtual void StartConversation()
     {
         clicked = false;
-        DialogueManager.instance.TriggerDialogue(npcName, dialogueDatas);
+        DialogueManager.Instance.TriggerDialogue(npcName, dialogueDatas);
         PlayerController.Instance.GetMovement().MoveToLocation(PlayerController.Instance.transform.position);
-        Debug.Log($"We're in Start Conversation");
     }
     private void OnMouseDown()
     {

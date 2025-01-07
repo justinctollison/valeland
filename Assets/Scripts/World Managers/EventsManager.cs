@@ -26,6 +26,8 @@ public class EventsManager : MonoBehaviour
     public UnityEvent onDialogueStarted;
     public UnityEvent onDialogueEnded;
 
+    public UnityEvent onQuestStatusChanged;
+
 
     private void Awake()
     {

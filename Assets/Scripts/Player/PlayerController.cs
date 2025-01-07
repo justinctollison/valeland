@@ -5,6 +5,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] ClassSkillManager _skillManager;
     [SerializeField] private EquippableAbility _ability1;
     [SerializeField] private EquippableAbility _ability2;
+    [SerializeField] private EquippableAbility _ability3;
 
     private FactionID _factionID = FactionID.Good;
     private bool _isAlive = true;
@@ -46,6 +47,10 @@ public class PlayerController : MonoBehaviour
         {
             UseAbility2();
         }
+        if (Input.GetKeyDown(KeyCode.Space) && _ability3 != null)
+        {
+            UseAbility3();
+        }
 
     }
 
@@ -64,6 +69,10 @@ public class PlayerController : MonoBehaviour
     private void UseAbility2()
     {
         _ability2.RunAbilityClicked(this);
+    }
+    private void UseAbility3()
+    {
+        _ability3.RunAbilityClicked(this);
     }
 
     public void SetAbility2(EquippableAbility newAbility)

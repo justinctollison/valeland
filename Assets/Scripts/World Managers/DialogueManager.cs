@@ -5,7 +5,7 @@ using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
-    public static DialogueManager instance;
+    public static DialogueManager Instance;
 
     [SerializeField] private GameObject _dialogueBox;
     [SerializeField] private TextMeshProUGUI _dialogueBodyText;
@@ -19,7 +19,7 @@ public class DialogueManager : MonoBehaviour
 
     void Awake()
     {
-        if (instance == null) instance = this;
+        if (Instance == null) Instance = this;
     }
 
     private void Start()

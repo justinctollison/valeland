@@ -11,7 +11,7 @@ public class AllyCombat : CombatReceiver
 
     protected override void Update()
     {
-        
+        base.Update();
     }
 
     public override void Die()

@@ -26,6 +26,7 @@ public class PlayerCombat : CombatReceiver
 
     protected override void Update()
     {
+        base.Update();
         if (_isAlive)
         {
             RunRegen();
@@ -51,6 +52,11 @@ public class PlayerCombat : CombatReceiver
         base.TakeDamage(amount);
 
         EventsManager.Instance.onHealthChanged.Invoke(_currentHP / _maxHP);
+    }
+
+    public override bool CanBeClicked()
+    {
+        return false;
     }
 
     #region Mana Management

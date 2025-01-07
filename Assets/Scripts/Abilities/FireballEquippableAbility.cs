@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class FireballEquippableAbility : EquippableAbility
 {
@@ -8,7 +9,7 @@ public class FireballEquippableAbility : EquippableAbility
         _targetedReceiver = null;
 
         var clickable = MouseWorld.Instance.GetClickable() as CombatReceiver;
-        if (CanCastFireball(clickable))
+        if (CanCastFireball(clickable) && clickable.GetFactionID() != player.GetFactionID())
         {
             SpawnEquippedAttack(MouseWorld.Instance.GetMousePosition());
             _myPlayer.GetMovement().MoveToLocation(_myPlayer.transform.position);
@@ -36,7 +37,7 @@ public class FireballEquippableAbility : EquippableAbility
         fireballCA.SetFactionID(_myPlayer.GetFactionID());
         fireballCA.SetShootDirection(_myPlayer.transform.forward);
 
-        float calculatedDamge = 1 + (2 * classSkill.skillLevel);
-        newAttack.GetComponent<FireballCA>().InitializeDamage(calculatedDamge);
+        float calculatedDamage = fireballCA.GetBaseDamage() + (2 * classSkill.skillLevel);
+        fireballCA.InitializeDamage(calculatedDamage);
     }
 }
