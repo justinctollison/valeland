@@ -20,6 +20,8 @@ public class NPCData : ScriptableObject
 
     public float experienceValue;
 
+    public LootTable lootTable;
+
     //Navmesh Agent Data
     // TODO add in all Navmesh Agent data and change it on Start based on the different type of Enemy we are using
 

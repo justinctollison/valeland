@@ -8,7 +8,6 @@ public class BasicAI : MonoBehaviour
 {
     [SerializeField] private NPCData _data;
     [SerializeField] private GameObject _attackPrefab;
-
     [SerializeField] private List<CombatReceiver> _targetsList = new List<CombatReceiver>();
     [SerializeField] private CombatReceiver _currentTarget;
 
@@ -136,6 +135,20 @@ public class BasicAI : MonoBehaviour
         }
 
         return false;
+    }
+
+    public void DropItems()
+    {
+        if (_data.lootTable != null)
+        {
+            List<ItemData> droppedItems = LootManager.GenerateLoot(_data.lootTable);
+
+            foreach (ItemData item in droppedItems)
+            {
+                Debug.Log($"Dropped item: {item.itemName}");
+                InventoryManager.Instance.AddItem(item);
+            }
+        }
     }
 
     public List<CombatReceiver> GetTargetsList() => _targetsList;
