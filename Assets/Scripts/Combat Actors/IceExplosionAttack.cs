@@ -16,7 +16,7 @@ public class IceExplosionAttack : CombatActor
         if (target.HasStatusEffect("Burn"))
         {
             target.RemoveStatusEffect("Burn");
-            base.HitReceiever(target, 2);
+            base.HitReceieverMultiplied(target, 2);
         }
         else
         {
@@ -24,6 +24,7 @@ public class IceExplosionAttack : CombatActor
         }
         target.ApplyStatusEffect("Freeze");
         target.ReceiveKnockbackAwayFromPlayer(knockbackForce, knockbackDuration);
+        //target.GetComponentInChildren<RagDollController>().EnableRagdoll();
     }
 
     protected override void OnTriggerEnter(Collider other)

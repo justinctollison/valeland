@@ -19,7 +19,7 @@ public class CombatActor : MonoBehaviour
     {
         target.TakeDamage(_damage);
     }
-    protected virtual void HitReceiever(CombatReceiver target,float damageMultiplier)
+    protected virtual void HitReceieverMultiplied(CombatReceiver target,float damageMultiplier)
     {
         target.TakeDamage(_damage * damageMultiplier);
     }

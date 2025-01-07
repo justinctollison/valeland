@@ -21,7 +21,7 @@ public class FireballCA : CombatActor
         if (target.HasStatusEffect("Freeze"))
         {
             target.RemoveStatusEffect("Freeze");
-            base.HitReceiever(target, 2);
+            base.HitReceieverMultiplied(target, 2);
         }
         else
             base.HitReceiever(target);
