@@ -33,7 +33,7 @@ public class ChattableNPC : MonoBehaviour, IClickable
     protected virtual void StartConversation()
     {
         clicked = false;
-        DialogueManager.instance.TriggerDialogue(npcName, dialogueDatas);
+        DialogueManager.Instance.TriggerDialogue(npcName, dialogueDatas);
         PlayerController.Instance.GetMovement().MoveToLocation(PlayerController.Instance.transform.position);
     }
     private void OnMouseDown()
