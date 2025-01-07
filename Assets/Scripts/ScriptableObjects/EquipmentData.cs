@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 [CreateAssetMenu(fileName = "Equipment", menuName = "New Equipment")]
 public class EquipmentData : ScriptableObject
@@ -10,7 +11,16 @@ public class EquipmentData : ScriptableObject
     public int durability;
     public int baseDamage;
     public int armorValue;
-    public string equipmentDescription;
+    public string description;
+
+    public List<StatModifier> statModifiers;
+}
+
+[System.Serializable]
+public class StatModifier
+{
+    public string statName;
+    public float value;
 }
 
 public enum EquipmentType { Head, Chest, Gloves, Legs, Boots, Shield, OffHand, Weapon };

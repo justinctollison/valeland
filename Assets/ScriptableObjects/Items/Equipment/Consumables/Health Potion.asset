@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ee6c6860b0b42eb45a6fab3b9df72af6, type: 3}
-  m_Name: AxeItem
+  m_Name: Health Potion
   m_EditorClassIdentifier: 
-  equipmentData: {fileID: 11400000, guid: 762fd051cb3b2214ab3883aa0499db94, type: 2}
-  itemName: Axe
+  equipmentData: {fileID: 0}
+  itemName: 
   itemType: 0
-  itemIcon: {fileID: 21300000, guid: 719c2201c2f5f6c4aafffaeb5abdf5f9, type: 3}
+  itemIcon: {fileID: 0}
   itemDescription: 
   maxStackSize: 1

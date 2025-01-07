@@ -29,6 +29,9 @@ public class EquipmentSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
             onItemEquipped?.Invoke(itemData);
 
+            EventsManager.Instance.onEquipmentEquipped.Invoke();
+            PlayerCharacterSheet.Instance.ApplyModifiers(_currentItemData.equipmentData.statModifiers);
+
             Debug.Log($"Equipped item: {_currentItemData.itemName} in {_slotType} slot.");
         }
         else
@@ -55,6 +58,10 @@ public class EquipmentSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             onItemUnequipped?.Invoke(_currentItemData); 
 
             Debug.Log($"Unequipped item from {_slotType} slot.");
+
+            PlayerCharacterSheet.Instance.RemoveModifiers(_currentItemData.equipmentData.statModifiers);
+            EventsManager.Instance.onEquipmentUnequipped.Invoke();
+
             _currentItemData = null; 
         }
     }

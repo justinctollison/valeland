@@ -1,8 +1,12 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerCharacterSheet : MonoBehaviour
 {
     public static PlayerCharacterSheet Instance;
+
+    private Dictionary<string, float> baseStats;
+    private Dictionary<string, float> modifiedStats;
 
     private int _level = 1;
     private float _experience = 0;
@@ -11,10 +15,10 @@ public class PlayerCharacterSheet : MonoBehaviour
     private int _skillPointsToSpend;
 
     // Character Stats
-    private float _strength = 15;
-    private float _dexterity = 15;
-    private float _vitality = 15;
-    private float _energy = 15;
+    [SerializeField] private float _strength = 15;
+    [SerializeField] private float _dexterity = 15;
+    [SerializeField] private float _vitality = 15;
+    [SerializeField] private float _energy = 15;
 
     private float _currentHitPoints = 35;
     private float _maxHitpoints = 35;
@@ -33,17 +37,57 @@ public class PlayerCharacterSheet : MonoBehaviour
         }
     }
 
-    #region Listeners
     private void Start()
     {
         EventsManager.Instance.onExperienceGranted.AddListener(AddExperience);
+
+        baseStats = new Dictionary<string, float> 
+        {
+            {"Strength", _strength},
+            {"Dexterity", _dexterity},
+            {"Vitality", _vitality},
+            {"Energy", _energy},
+        };
+
+        modifiedStats = new Dictionary<string, float>(baseStats);
+    }
+
+    public void ApplyModifiers(List<StatModifier> modifiers)
+    {
+        foreach (var modifier in modifiers)
+        {
+            if (modifiedStats.ContainsKey(modifier.statName))
+                modifiedStats[modifier.statName] += modifier.value;
+            else
+                Debug.LogWarning($"Stat {modifier.statName} does not exist.");
+        }
+        UpdateStats();
+    }
+
+    public void RemoveModifiers(List<StatModifier> modifiers)
+    {
+        foreach (var modifier in modifiers)
+        {
+            if (modifiedStats.ContainsKey(modifier.statName))
+                modifiedStats[modifier.statName] -= modifier.value;
+        }
+        UpdateStats();
+    }
+
+    private void UpdateStats()
+    {
+        _strength = modifiedStats["Strength"];
+        _dexterity = modifiedStats["Dexterity"];
+        _vitality = modifiedStats["Vitality"];
+        _energy = modifiedStats["Energy"];
+
+        Debug.Log($"Stats Updated: Strength = {_strength}, Dexterity = {_dexterity}, Vitality = {_vitality}, Energy = {_energy}");
     }
 
     private void OnDestroy()
     {
         EventsManager.Instance.onExperienceGranted.RemoveListener(AddExperience);
     }
-    #endregion
 
     #region Levels and Experience
     public void AddExperience(float amount)
