@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class FireballEquippableAbility : EquippableAbility
 {
@@ -36,7 +37,7 @@ public class FireballEquippableAbility : EquippableAbility
         fireballCA.SetFactionID(_myPlayer.GetFactionID());
         fireballCA.SetShootDirection(_myPlayer.transform.forward);
 
-        float calculatedDamge = 1 + (2 * classSkill.skillLevel);
-        newAttack.GetComponent<FireballCA>().InitializeDamage(calculatedDamge);
+        float calculatedDamage = fireballCA.GetBaseDamage() + (2 * classSkill.skillLevel);
+        fireballCA.InitializeDamage(calculatedDamage);
     }
 }

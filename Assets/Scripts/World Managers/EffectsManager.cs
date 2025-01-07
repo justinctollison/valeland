@@ -6,6 +6,8 @@ public class EffectsManager : MonoBehaviour
 
     [SerializeField] GameObject smallEffect;
     [SerializeField] GameObject bigEffect;
+    [SerializeField] GameObject iceExplosionEffect;
+    [SerializeField] GameObject damageIndicatorPrefab;
 
     private void Awake()
     {
@@ -13,11 +15,12 @@ public class EffectsManager : MonoBehaviour
     }
 
 
-    void SpawnEffect(GameObject effectPrefab, Vector3 location, float duration, Transform effectParent = null)
+    GameObject SpawnEffect(GameObject effectPrefab, Vector3 location, float duration, Transform effectParent = null)
     {
         GameObject newEffect = Instantiate(effectPrefab, location, Quaternion.identity);
         if (effectParent != null) newEffect.transform.SetParent(effectParent);
         if (duration > 0) Destroy(newEffect, duration);
+        return newEffect;
     }
 
     public void PlaySmallBoom(Vector3 location, float duration, Transform effectParent = null)
@@ -28,4 +31,16 @@ public class EffectsManager : MonoBehaviour
     {
         SpawnEffect(bigEffect, location, duration, effectParent);
     }
+    public void PlayIceExplosion(Vector3 location, float duration, Transform effectParent = null)
+    {
+        SpawnEffect(iceExplosionEffect, location, duration, effectParent);
+    }
+    public void PlayDamageIndicator(float damage, Vector3 location, float duration = 1, Transform effectParent = null)
+    {
+        GameObject fx = SpawnEffect(damageIndicatorPrefab, location, duration, effectParent);
+        DamageIndicator damageIndicator = fx.GetComponent<DamageIndicator>();
+        damageIndicator.SetDamageText(damage);
+        damageIndicator.FaceOut(duration);
+    }
+
 }

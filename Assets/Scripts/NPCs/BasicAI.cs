@@ -122,7 +122,7 @@ public class BasicAI : MonoBehaviour
 
         //TODO Change to NPC data, each NPC has a set crit chance
         float critMod = 1f;
-        float calculatedDamage = Random.Range(_data.minDamage, _data.maxDamage) * critMod;
+        float calculatedDamage = Mathf.Round(Random.Range(_data.minDamage, _data.maxDamage) * critMod);
 
         newAttack.GetComponent<CombatActor>().InitializeDamage(calculatedDamage);
         newAttack.GetComponent<CombatActor>().SetFactionID(GetComponent<CombatReceiver>().GetFactionID());
