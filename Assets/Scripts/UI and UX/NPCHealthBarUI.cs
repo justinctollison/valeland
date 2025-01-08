@@ -10,6 +10,7 @@ public class NPCHealthBarUI : MonoBehaviour
     [SerializeField] private Slider _healthBarSlider;
     [SerializeField] private TextMeshProUGUI _nameText;
     [SerializeField] private Image _healthFill;
+    [SerializeField] private Image _npcPortrait;
 
     public void Awake()
     {
@@ -54,5 +55,10 @@ public class NPCHealthBarUI : MonoBehaviour
     public void SetHealthBarColor(Color color)
     {
         _healthFill.color = color;
+    }
+
+    public void SetPortrait(Sprite sprite)
+    {
+        _npcPortrait.sprite = sprite;
     }
 }

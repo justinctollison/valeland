@@ -5,6 +5,7 @@ public class NPCData : ScriptableObject
 {
     public FactionID factionID;
     public NPCType enemyType;
+    public Sprite portrait;
 
     public float maxHealth;
     public float maxMana;
