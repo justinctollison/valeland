@@ -25,9 +25,42 @@ public class EquipmentSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
             _currentItemData = itemData;
             _icon.sprite = itemData.itemIcon;
-            _icon.enabled = true;
+            _icon.gameObject.SetActive(true);
 
             onItemEquipped?.Invoke(itemData);
+
+            switch (_slotType)
+            {
+                case EquipmentType.Head:
+                    EquipmentCustomizer.Instance.EquipOpenHelmet(_currentItemData.equipmentData.ArmorID);
+                    break;
+                case EquipmentType.Shoulders:
+                    EquipmentCustomizer.Instance.EquipShoulderArmor(_currentItemData.equipmentData.ArmorID);
+                    break;
+                case EquipmentType.Chest:
+                    EquipmentCustomizer.Instance.EquipChestArmor(_currentItemData.equipmentData.ArmorID, 2);
+                    break;
+                case EquipmentType.Gloves:
+                    EquipmentCustomizer.Instance.EquipGloves(_currentItemData.equipmentData.ArmorID);
+                    break;
+                case EquipmentType.Legs:
+                    EquipmentCustomizer.Instance.EquipLegArmor(_currentItemData.equipmentData.ArmorID);
+                    break;
+                case EquipmentType.Boots:
+                    EquipmentCustomizer.Instance.EquipBoots(_currentItemData.equipmentData.ArmorID);
+                    break;
+                case EquipmentType.Shield:
+                    break;
+                case EquipmentType.OffHand:
+                    break;
+                case EquipmentType.Weapon:
+                    break;
+                default:
+                    break;
+            }
+
+            EventsManager.Instance.onEquipmentEquipped.Invoke();
+            PlayerCharacterSheet.Instance.ApplyModifiers(_currentItemData.equipmentData.statModifiers);
 
             Debug.Log($"Equipped item: {_currentItemData.itemName} in {_slotType} slot.");
         }
@@ -50,11 +83,15 @@ public class EquipmentSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         if (_currentItemData != null)
         {
-            _icon.sprite = null; 
-            _icon.enabled = false;  
+            _icon.sprite = null;
+            _icon.gameObject.SetActive(false);
             onItemUnequipped?.Invoke(_currentItemData); 
 
             Debug.Log($"Unequipped item from {_slotType} slot.");
+
+            PlayerCharacterSheet.Instance.RemoveModifiers(_currentItemData.equipmentData.statModifiers);
+            EventsManager.Instance.onEquipmentUnequipped.Invoke();
+
             _currentItemData = null; 
         }
     }

@@ -7,7 +7,6 @@ using UnityEngine.AI;
 public class BasicAI : MonoBehaviour
 {
     [SerializeField] private NPCData _data;
-    [SerializeField] private GameObject _attackPrefab;
 
     [SerializeField] private List<CombatReceiver> _targetsList = new List<CombatReceiver>();
     [SerializeField] private CombatReceiver _currentTarget;
@@ -31,9 +30,8 @@ public class BasicAI : MonoBehaviour
     protected virtual void Update()
     {
         TargetsListSorting();
-
     }
-
+    #region Engaging
     protected virtual void OnTriggerEnter(Collider other)
     {
         var target = other.gameObject.GetComponent<CombatReceiver>();
@@ -58,13 +56,8 @@ public class BasicAI : MonoBehaviour
             }
         }
     }
-
-    public virtual void SetFactionID(FactionID newID)
-    {
-        _factionID = newID;
-        GetComponent<CombatReceiver>().SetFactionID(newID);
-    }
-
+    #endregion
+    #region TargetsList
     public void AddToTargetsList(CombatReceiver target)
     {
         if (!_targetsList.Contains(target))
@@ -116,28 +109,56 @@ public class BasicAI : MonoBehaviour
         }
     }
 
+    public void DropItems()
+    {
+        if (_data.lootTable != null)
+        {
+            List<ItemData> droppedItems = LootManager.GenerateLoot(_data.lootTable);
+
+            foreach (ItemData item in droppedItems)
+            {
+                Debug.Log($"Dropped item: {item.itemName}");
+                InventoryManager.Instance.AddItem(item);
+            }
+        }
+    }
+
+    #endregion
+    #region Attacking
+
     public void InstantiateNewAttack(Vector3 spawnPosition)
     {
-        GameObject newAttack = Instantiate(_attackPrefab, spawnPosition, Quaternion.identity);
+        GameObject newAttack = Instantiate(_stateMachine.activeAttack.AttackPrefab, spawnPosition, Quaternion.identity);
 
         //TODO Change to NPC data, each NPC has a set crit chance
         float critMod = 1f;
-        float calculatedDamage = Mathf.Round(Random.Range(_data.minDamage, _data.maxDamage) * critMod);
+        float calculatedDamage = Mathf.Round(Random.Range(_stateMachine.activeAttack.minDamage, _stateMachine.activeAttack.maxDamage) * critMod);
 
-        newAttack.GetComponent<CombatActor>().InitializeDamage(calculatedDamage);
-        newAttack.GetComponent<CombatActor>().SetFactionID(GetComponent<CombatReceiver>().GetFactionID());
+        CombatActor attackActor = newAttack.GetComponent<CombatActor>();
+        attackActor.InitializeDamage(calculatedDamage);
+        attackActor.SetFactionID(GetComponent<CombatReceiver>().GetFactionID());
+        if(attackActor.attackType == AttackType.Projectile)
+        {
+            Projectile projectile = newAttack.GetComponent<Projectile>();
+            projectile.SetShootDirection(((_currentTarget.transform.position - transform.position).normalized));
+        }
     }
-
     public bool TargetIsInAttackRange()
     {
         if (_currentTarget != null)
         {
-            return Vector3.Distance(transform.position, _currentTarget.transform.position) <= _data.attackRange;
+            return Vector3.Distance(transform.position, _currentTarget.transform.position) <= _stateMachine.activeAttack.attackRange;
         }
 
         return false;
     }
+    #endregion
 
+    public virtual void SetFactionID(FactionID newID)
+    {
+        _factionID = newID;
+        GetComponent<CombatReceiver>().SetFactionID(newID);
+    }
     public List<CombatReceiver> GetTargetsList() => _targetsList;
     public CombatReceiver GetCurrentTarget() => _currentTarget;
     public NPCData GetNPCData() => _data;

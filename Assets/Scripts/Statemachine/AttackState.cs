@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class AttackState : State
@@ -15,10 +16,9 @@ public class AttackState : State
     {
         _attackCooldownTimer += Time.deltaTime;
 
-        if (_attackCooldownTimer > data.attackCooldown)
+        if (_attackCooldownTimer > stateMachine.activeAttack.attackCooldown)
         {
-            _attackCooldownTimer -= data.attackCooldown;
-            stateMachine.GetComponent<BasicAnimator>().TriggerAttack();
+            _attackCooldownTimer -= stateMachine.activeAttack.attackCooldown;
             SpawnAttackPrefab();
         }
 
@@ -35,10 +35,11 @@ public class AttackState : State
 
     private void SpawnAttackPrefab()
     {
+        stateMachine.GetComponent<BasicAnimator>().TriggerAttack();
         stateMachine.transform.LookAt(basicAI.GetCurrentTarget().transform.position);
         Vector3 attackDirection = (basicAI.GetCurrentTarget().transform.position - stateMachine.transform.position).normalized;
-        Vector3 spawnDirection = (attackDirection * data.attackRange) + stateMachine.transform.position;
+        Vector3 spawnPosition = stateMachine.transform.position + attackDirection * 2;// spawn the attack in front of the AI
 
-        basicAI.InstantiateNewAttack(spawnDirection);
+        basicAI.InstantiateNewAttack(spawnPosition);
     }
 }

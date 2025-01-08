@@ -1,16 +1,38 @@
 using UnityEngine;
-
 public class EngageState : State
 {
     public EngageState(Statemachine stateMachine) : base(stateMachine) { }
 
     CombatReceiver target;
-
+    float timeOutTimer = 0.0f;
+    System.Random random = new System.Random();
     public override void Enter()
     {
         target = basicAI.GetCurrentTarget();
+        SetRandomActiveAttack();
     }
 
+    private void SetRandomActiveAttack()
+    {
+        stateMachine.activeAttack = data.attacks[random.Next(data.attacks.Count)];
+    }
+    private void SetRandomActiveAttackWithGreaterRange()
+    {
+        if (stateMachine.activeAttack == null)
+        {
+            SetRandomActiveAttack();
+            return;
+        }
+        EnemyAttack newAttack = data.attacks.Find(attack => attack.attackRange > stateMachine.activeAttack.attackRange);
+        if (newAttack != null)
+        {
+            stateMachine.activeAttack = newAttack;
+        }
+        else
+        {
+            SetRandomActiveAttack();
+        }
+    }
     public override void Execute()
     {
         target = basicAI.GetCurrentTarget();
@@ -19,6 +41,13 @@ public class EngageState : State
         {
             stateMachine.ChangeState(stateMachine.GetIdleState());
             return;
+        }
+
+        timeOutTimer += Time.deltaTime;
+        if(timeOutTimer > stateMachine.activeAttack.maxTimeOutSeconds)
+        {
+            SetRandomActiveAttackWithGreaterRange();
+            timeOutTimer = 0.0f;
         }
 
         basicAI.TargetsListSorting();

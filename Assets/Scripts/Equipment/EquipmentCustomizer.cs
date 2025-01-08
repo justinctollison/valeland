@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class EquipmentCustomizer : MonoBehaviour
 {
+    public static EquipmentCustomizer Instance;
+
     public EquipmentAssets equipmentAssets;
 
     // Head/Helmets/Hair/Hats
@@ -44,6 +46,17 @@ public class EquipmentCustomizer : MonoBehaviour
     public SkinnedMeshRenderer leftLeg;
     public SkinnedMeshRenderer rightLeg;
 
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private void Update()
     {
@@ -52,13 +65,13 @@ public class EquipmentCustomizer : MonoBehaviour
 
     public void Randomize()
     {
-        closedHelmet.gameObject.SetActive(true);
+        //closedHelmet.gameObject.SetActive(true);
         //helmetAttachment.gameObject.SetActive(true);
 
-        closedHelmet.sharedMesh = equipmentAssets.closedHelmets[Random.Range(0, equipmentAssets.closedHelmets.Length)];
+        //closedHelmet.sharedMesh = equipmentAssets.closedHelmets[Random.Range(0, equipmentAssets.closedHelmets.Length)];
         //helmetAttachment.sharedMesh = equipmentAssets.helmetAttachments[Random.Range(0, equipmentAssets.closedHelmets.Length)];
 
-
+        EquipOpenHelmet(Random.Range(0, equipmentAssets.openHelmets.Length));
         EquipShoulderArmor(Random.Range(0, equipmentAssets.shoulderRights.Length));
         EquipChestArmor(Random.Range(0, equipmentAssets.chestArmors.Length), Random.Range(0, equipmentAssets.upperRightArms.Length));
         EquipCape(Random.Range(0, equipmentAssets.capeAttachments.Length));
@@ -71,6 +84,7 @@ public class EquipmentCustomizer : MonoBehaviour
     // With Helmet/Shoulders/Chest/Cape/Gloves/Legs/Boots
     public void EquipClosedHelmet(int helmet, int attachment)
     {
+        UnequipOpenHelmet();
         closedHelmet.gameObject.SetActive(true);
         //helmetAttachment.gameObject.SetActive(true);
 
@@ -78,14 +92,26 @@ public class EquipmentCustomizer : MonoBehaviour
         //helmetAttachment.sharedMesh = equipmentAssets.helmetAttachments[attachment];
     }
 
-    public void EquipOpenHelmet(int helmet, int attachment)
+    public void UnequipClosedHelmet()
     {
+        closedHelmet.gameObject.SetActive(false);
+    }
+
+    public void EquipOpenHelmet(int helmet)
+    {
+        UnequipClosedHelmet();
+
         openHelmet.gameObject.SetActive(true);
         //helmetAttachment .gameObject.SetActive(true);
         head.gameObject.SetActive(true);
 
         openHelmet.sharedMesh = equipmentAssets.openHelmets[helmet];
         //helmetAttachment.sharedMesh = equipmentAssets.helmetAttachments[attachment];
+    }
+
+    public void UnequipOpenHelmet()
+    {
+        openHelmet.gameObject.SetActive(false);
     }
 
     public void EnableHead()
@@ -142,13 +168,13 @@ public class EquipmentCustomizer : MonoBehaviour
         UnequipUpperArmsArmor();
     }
 
-    public void EquipUpperArmsArmor(int armor)
+    private void EquipUpperArmsArmor(int armor)
     {
         upperRightArm.sharedMesh = equipmentAssets.upperRightArms[armor];
         upperLeftArm.sharedMesh = equipmentAssets.upperLeftArms[armor];
     }
 
-    public void UnequipUpperArmsArmor()
+    private void UnequipUpperArmsArmor()
     {
         upperRightArm.sharedMesh = equipmentAssets.upperRightArms[0];
         upperLeftArm.sharedMesh = equipmentAssets.upperLeftArms[0];

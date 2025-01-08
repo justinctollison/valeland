@@ -98,9 +98,6 @@ MonoBehaviour:
   - {fileID: 4301096, guid: 038320a534bd8b444b43734860d1a211, type: 3}
   - {fileID: 4301098, guid: 038320a534bd8b444b43734860d1a211, type: 3}
   - {fileID: 4301100, guid: 038320a534bd8b444b43734860d1a211, type: 3}
-  - {fileID: 4301102, guid: 038320a534bd8b444b43734860d1a211, type: 3}
-  - {fileID: 4301104, guid: 038320a534bd8b444b43734860d1a211, type: 3}
-  - {fileID: 4301106, guid: 038320a534bd8b444b43734860d1a211, type: 3}
   - {fileID: 4301108, guid: 038320a534bd8b444b43734860d1a211, type: 3}
   - {fileID: 4301110, guid: 038320a534bd8b444b43734860d1a211, type: 3}
   helmetAttachmentsHeadRootBones: []

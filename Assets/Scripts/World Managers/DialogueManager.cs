@@ -2,6 +2,7 @@ using UnityEngine;
 using System;
 using System.Collections.Generic;
 using TMPro;
+using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject _dialogueBox;
     [SerializeField] private TextMeshProUGUI _dialogueBodyText;
     [SerializeField] private TextMeshProUGUI _dialogueNameText;
+    [SerializeField] private Image _dialoguePortrait;
 
     private List<DialogueData> _savedDialogueDataList = new List<DialogueData>();
 
@@ -77,7 +79,7 @@ public class DialogueManager : MonoBehaviour
         EventsManager.Instance.onDialogueEnded.Invoke();
     }
 
-    public void TriggerDialogue(string npcName, List<DialogueData> dialogDatas)
+    public void TriggerDialogue(string npcName, List<DialogueData> dialogDatas, Sprite npcPortrait)
     {
         if(dialogDatas == null)
         {
@@ -88,6 +90,8 @@ public class DialogueManager : MonoBehaviour
         _dialogueBox.SetActive(true);
         // Set the NPC name
         _dialogueNameText.text = npcName;
+        // Set the NPC Portrait
+        _dialoguePortrait.sprite = npcPortrait;
         // Restart the counter for the list infex of information to pull from
         _dialogueProgressionCount = 0;
 
