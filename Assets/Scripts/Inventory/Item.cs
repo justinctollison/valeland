@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
+    //TODO: Droppable Items in the world
+
     public ItemData itemData;
     public int currentStackSize;
 
@@ -12,9 +14,8 @@ public class Item : MonoBehaviour
 
     public void PickUpItem()
     {
-        // Handle what happens when the player picks up the item
-        InventoryManager.Instance.AddItem(itemData);  // Example: Add item to inventory (adjust depending on your setup)
-        Destroy(gameObject);  // Destroy the item from the world once picked up
+        InventoryManager.Instance.AddItem(itemData);
+        Destroy(gameObject); 
     }
 
     public void DropItem(Vector3 dropPosition)

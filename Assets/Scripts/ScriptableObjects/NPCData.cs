@@ -6,6 +6,7 @@ public class NPCData : ScriptableObject
 {
     public FactionID factionID;
     public NPCType enemyType;
+    public Sprite portrait;
 
     public float maxHealth;
     public float maxMana;
@@ -15,6 +16,8 @@ public class NPCData : ScriptableObject
 
     public float experienceValue;
     public List<EnemyAttack> attacks;
+
+    public LootTable lootTable;
 
     //Navmesh Agent Data
     // TODO add in all Navmesh Agent data and change it on Start based on the different type of Enemy we are using

@@ -28,6 +28,7 @@ public class DeathState : State
         }
 
         isAlive = false;
+        basicAI.DropItems();
 
         if (stateMachine.GetComponent<EnemyAnimator>() != null)
         {

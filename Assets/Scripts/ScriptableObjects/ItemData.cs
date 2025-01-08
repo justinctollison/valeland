@@ -10,6 +10,7 @@ public class ItemData : ScriptableObject
     public Sprite itemIcon;
     public string itemDescription;
 
+    // TODO max stack size does nothing, need implementation and UI
     public int maxStackSize = 1;
 }
 
