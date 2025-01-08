@@ -1,7 +1,7 @@
 using UnityEngine;
-public class EngageState : State
+public class WindUpState : State
 {
-    public EngageState(Statemachine stateMachine) : base(stateMachine) { }
+    public WindUpState(Statemachine stateMachine) : base(stateMachine) { }
 
     CombatReceiver target;
     float timeOutTimer = 0.0f;

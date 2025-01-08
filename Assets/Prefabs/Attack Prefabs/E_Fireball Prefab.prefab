@@ -4844,9 +4844,9 @@ GameObject:
   - component: {fileID: 2053433215122217285}
   - component: {fileID: 659763878988386137}
   - component: {fileID: 8984888948770078983}
-  - component: {fileID: -6608506836591603924}
+  - component: {fileID: 3443362609992162539}
   m_Layer: 0
-  m_Name: StoneThrow Prefab
+  m_Name: E_Fireball Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4917,7 +4917,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!114 &-6608506836591603924
+--- !u!114 &3443362609992162539
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4926,13 +4926,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3725300542052902232}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70c22f15ade4d434b9d7a85fac8e03c9, type: 3}
+  m_Script: {fileID: 11500000, guid: 161473de978ee2c4884d068e1e29cb73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   attackType: 1
   _damage: 1
-  _speed: 25
-  _knockbackForce: 6
+  _speed: 8
 --- !u!1001 &8907230640861088657
 PrefabInstance:
   m_ObjectHideFlags: 0
