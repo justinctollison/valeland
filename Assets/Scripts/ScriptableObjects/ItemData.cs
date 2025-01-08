@@ -15,6 +15,4 @@ public class ItemData : ScriptableObject
 }
 
 public enum ItemType { Weapon, Armor, Consumable, Trinket, QuestItem };
-public enum ArmorType { Head, Chest, Gloves, Legs, Boots, Shield };
-public enum WeaponType { Sword, Bow, Axe, Staff, Dagger, Mace, OffHand };
 public enum ItemRarity { Common, Uncommon, Rare, Epic, Unique };

@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: Golden Mace Data
   m_EditorClassIdentifier: 
   itemRarity: 0
-  equipmentType: 7
-  weaponType: 5
-  armorType: 0
+  equipmentType: 8
+  weaponType: 6
+  ArmorID: 0
   durability: 0
   baseDamage: 0
   armorValue: 0
-  equipmentDescription: 
+  description: 
+  statModifiers: []
