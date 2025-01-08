@@ -1,7 +1,5 @@
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
-using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -110,6 +108,21 @@ public class BasicAI : MonoBehaviour
             _currentTarget = _targetsList[0];
         }
     }
+
+    public void DropItems()
+    {
+        if (_data.lootTable != null)
+        {
+            List<ItemData> droppedItems = LootManager.GenerateLoot(_data.lootTable);
+
+            foreach (ItemData item in droppedItems)
+            {
+                Debug.Log($"Dropped item: {item.itemName}");
+                InventoryManager.Instance.AddItem(item);
+            }
+        }
+    }
+
     #endregion
     #region Attacking
 
