@@ -1,0 +1,337 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7079298475406185015
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3439576489200225022}
+  - component: {fileID: 8645349431306357282}
+  - component: {fileID: 5028954379695807072}
+  - component: {fileID: 408644208401495091}
+  - component: {fileID: 570973916151538055}
+  - component: {fileID: 3680603104983380088}
+  - component: {fileID: 1457633346177233687}
+  - component: {fileID: 2424731475111210002}
+  - component: {fileID: 5306018915030284031}
+  - component: {fileID: 3122547866371468089}
+  - component: {fileID: 5684747201353991576}
+  - component: {fileID: 7020766135361653485}
+  m_Layer: 0
+  m_Name: Tarkus
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3439576489200225022
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7079298475406185015}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.9149303, z: -0, w: 0.40361205}
+  m_LocalPosition: {x: 93.67, y: 0, z: 144.44}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4248280398828001772}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -132.392, z: 0}
+--- !u!136 &8645349431306357282
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7079298475406185015}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
+--- !u!135 &5028954379695807072
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7079298475406185015}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 7.5
+  m_Center: {x: 0, y: 1, z: 0}
+--- !u!195 &408644208401495091
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7079298475406185015}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &570973916151538055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7079298475406185015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bbdd9b375210dc4f82a95752715705b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 0}
+--- !u!114 &3680603104983380088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7079298475406185015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f6d14b7b2b7a8d4098b2d73092df8d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnHoverEnterEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnHoverExitEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTakeDamageEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  _currentHP: 0
+  _currentMana: 0
+  height: 1.2
+--- !u!114 &1457633346177233687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7079298475406185015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa735a1c23cd6d043afca64b69249734, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _data: {fileID: 11400000, guid: 49ab9e7fefd279845a0196077d901626, type: 2}
+  _targetsList: []
+  _currentTarget: {fileID: 0}
+--- !u!114 &2424731475111210002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7079298475406185015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63506b8285ca3194fb61f5247f14a8a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentStateName: 
+  activeAttack: {fileID: 0}
+--- !u!114 &5306018915030284031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7079298475406185015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7daa624e0a1e7734db803f5b6accb076, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueDatas: []
+  questDialogues:
+  - newStep: {fileID: 3122547866371468089}
+    questDialogueDatas:
+    - dialogueText: Are you the latest runner from the town?
+      dialogueAudio: {fileID: 0}
+    - dialogueText: Ah, finally. We've been running out of rations and supplies.
+        We've managed to hold off the Goblins, but you can't hunt with an axe and
+        sword.
+      dialogueAudio: {fileID: 0}
+    - dialogueText: Supplies normally don't take this long, I suspect the previous
+        runners didn't make it. That makes you either lucky or strong and I don't
+        put a man's fate up to luck.
+      dialogueAudio: {fileID: 0}
+  - newStep: {fileID: 5684747201353991576}
+    questDialogueDatas:
+    - dialogueText: The Goblins out here have been acting out of the ordinary, and
+        I mean moreso than their usual activity.
+      dialogueAudio: {fileID: 0}
+    - dialogueText: They're more organized and a few of my hunters spoke of ones
+        that were as crimson as blood. Now, I don't take much stock in rumors, but
+        my hunters have keen eyes.
+      dialogueAudio: {fileID: 0}
+    - dialogueText: Can you go investigate the area where my hunters last saw this
+        red goblin? It'll be on the otherside of this hill, behind our encampment.
+        Just follow the woods.
+      dialogueAudio: {fileID: 0}
+  - newStep: {fileID: 7020766135361653485}
+    questDialogueDatas:
+    - dialogueText: The Goblin was truly red and much larger than the others? No..
+        this is not good.
+      dialogueAudio: {fileID: 0}
+    - dialogueText: Ancient stories spoke of the influence and corruption of demons,
+        specifically what it use to do to the Goblins.
+      dialogueAudio: {fileID: 0}
+    - dialogueText: Thank you for doing this, you'll need to return to Rygus and
+        inform him. He'll know what to do
+      dialogueAudio: {fileID: 0}
+--- !u!114 &3122547866371468089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7079298475406185015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08ecf0e963c123747962e30f20e04dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questName: Deliver Supplies
+  questStep: 1
+  initialStep: 0
+  lastStep: 1
+--- !u!114 &5684747201353991576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7079298475406185015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08ecf0e963c123747962e30f20e04dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questName: Investigate Area
+  questStep: 0
+  initialStep: 1
+  lastStep: 0
+--- !u!114 &7020766135361653485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7079298475406185015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08ecf0e963c123747962e30f20e04dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questName: Investigate Area
+  questStep: 2
+  initialStep: 0
+  lastStep: 0
+--- !u!1001 &4248280398827859110
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3439576489200225022}
+    m_Modifications:
+    - target: {fileID: 152104, guid: 12ca67ad4d842c44398557f35a3cd3b4, type: 3}
+      propertyPath: m_Name
+      value: Character_Chief_01_Brown
+      objectReference: {fileID: 0}
+    - target: {fileID: 423242, guid: 12ca67ad4d842c44398557f35a3cd3b4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 423242, guid: 12ca67ad4d842c44398557f35a3cd3b4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 423242, guid: 12ca67ad4d842c44398557f35a3cd3b4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 423242, guid: 12ca67ad4d842c44398557f35a3cd3b4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 423242, guid: 12ca67ad4d842c44398557f35a3cd3b4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 423242, guid: 12ca67ad4d842c44398557f35a3cd3b4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 423242, guid: 12ca67ad4d842c44398557f35a3cd3b4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 423242, guid: 12ca67ad4d842c44398557f35a3cd3b4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 423242, guid: 12ca67ad4d842c44398557f35a3cd3b4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 423242, guid: 12ca67ad4d842c44398557f35a3cd3b4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 12ca67ad4d842c44398557f35a3cd3b4, type: 3}
+--- !u!4 &4248280398828001772 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 423242, guid: 12ca67ad4d842c44398557f35a3cd3b4, type: 3}
+  m_PrefabInstance: {fileID: 4248280398827859110}
+  m_PrefabAsset: {fileID: 0}

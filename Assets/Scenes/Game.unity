@@ -68052,12 +68052,13 @@ MonoBehaviour:
     questDialogueDatas:
     - dialogueText: Are you the latest runner from the town?
       dialogueAudio: {fileID: 0}
-    - dialogueText: Ah, finally. We've been running out of rations and arrows. We've
-        managed to hold off the Goblins, but you can't hunt with an axe and sword.
+    - dialogueText: Ah, finally. We've been running out of rations and supplies.
+        We've managed to hold off the Goblins, but you can't hunt with an axe and
+        sword.
       dialogueAudio: {fileID: 0}
     - dialogueText: Supplies normally don't take this long, I suspect the previous
-        runners didn't make it. That makes you either lucky or strong and I put a
-        man's fate up to luck.
+        runners didn't make it. That makes you either lucky or strong and I don't
+        put a man's fate up to luck.
       dialogueAudio: {fileID: 0}
   - newStep: {fileID: 8875892147114058499}
     questDialogueDatas:
@@ -68070,6 +68071,7 @@ MonoBehaviour:
       dialogueAudio: {fileID: 0}
     - dialogueText: Can you go investigate the area where my hunters last saw this
         red goblin? It'll be on the otherside of this hill, behind our encampment.
+        Just follow the woods.
       dialogueAudio: {fileID: 0}
   - newStep: {fileID: 8875892147114058502}
     questDialogueDatas:
