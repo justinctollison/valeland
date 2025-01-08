@@ -8,11 +8,13 @@ public class Statemachine : MonoBehaviour
 {
     [SerializeField] private string _currentStateName;
     private State _currentState;
+    public EnemyAttack activeAttack;
 
     private IdleState _idleState;
     private PatrolState _patrolState;
     private EngageState _engageState;
     private AttackState _attackState;
+    private WindUpState _windUpState;
     private DeathState _deathState;
 
     private void Awake()
@@ -24,6 +26,7 @@ public class Statemachine : MonoBehaviour
         _engageState = new EngageState(this);
         _attackState = new AttackState(this);
         _deathState = new DeathState(this);
+        _windUpState = new WindUpState(this);
     }
 
     private void Start()
@@ -60,4 +63,5 @@ public class Statemachine : MonoBehaviour
     public EngageState GetEngageState() => _engageState;
     public AttackState GetAttackState() => _attackState;
     public DeathState GetDeathState() => _deathState;
+    public WindUpState GetWindUpState() => _windUpState;
 }
