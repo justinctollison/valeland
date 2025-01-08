@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effectName: Burn
-  duration: 10
+  duration: 5
   receiver: {fileID: 0}
   TextColor: {r: 0, g: 0, b: 0, a: 0}
   ApplicationParticles: {fileID: 0}

@@ -27810,6 +27810,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentStateName: 
+  activeAttack: {fileID: 0}
 --- !u!114 &1753059932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27823,7 +27824,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _data: {fileID: 11400000, guid: 0211d9faefc52d345baac2e863c818d6, type: 2}
-  _attackPrefab: {fileID: 4001024201544436937, guid: 523aff856b2ee274c9171c445f204a61, type: 3}
   _targetsList: []
   _currentTarget: {fileID: 0}
 --- !u!114 &1753059933
@@ -44495,7 +44495,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5161212615702808729, guid: bc9661ccf7afd6c468522e3b965e7aa4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -43.79
+      value: -38.05
       objectReference: {fileID: 0}
     - target: {fileID: 5161212615702808729, guid: bc9661ccf7afd6c468522e3b965e7aa4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -44503,7 +44503,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5161212615702808729, guid: bc9661ccf7afd6c468522e3b965e7aa4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 89.51
+      value: 92.71
       objectReference: {fileID: 0}
     - target: {fileID: 5161212615702808729, guid: bc9661ccf7afd6c468522e3b965e7aa4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -44887,6 +44887,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 42482233584120306, guid: c881f96eb7b4496498acdf079828a842, type: 3}
+      propertyPath: m_Radius
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1102767932579131852, guid: c881f96eb7b4496498acdf079828a842, type: 3}
       propertyPath: m_Name
       value: Skeleton

@@ -3,6 +3,7 @@ using UnityEngine;
 public class CombatActor : MonoBehaviour
 {
     protected FactionID _factionID = 0;
+    public AttackType attackType;
     [SerializeField] protected float _damage = 1;
 
     public virtual void InitializeDamage(float amount)

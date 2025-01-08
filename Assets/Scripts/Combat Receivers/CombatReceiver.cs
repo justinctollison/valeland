@@ -34,6 +34,7 @@ public class CombatReceiver : MonoBehaviour, IClickable
 
         OnHoverEnterEvent.AddListener(() => _healthBarUI.ShowHealthBar(_currentHP, _maxHP));
         OnHoverEnterEvent.AddListener(() => _healthBarUI.SetNameText(GetComponent<BasicAI>().GetNPCData().name));
+        OnHoverEnterEvent.AddListener(() => _healthBarUI.SetPortrait(GetComponent<BasicAI>().GetNPCData().portrait));
         OnHoverExitEvent.AddListener(() => _healthBarUI.HideHealthBar());
         OnTakeDamageEvent.AddListener(() => _healthBarUI.UpdateHealthBar(_currentHP, _maxHP));
     }
