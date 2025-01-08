@@ -42,6 +42,14 @@ public class BasicAnimator : MonoBehaviour
     {
         _animator.SetTrigger("Revive");
     }
+    public virtual void TriggerFrostExplosion()
+    {
+        _animator.SetTrigger("FrostNovaAttack");
+    }
+    public virtual void TriggerSpellProjectileAttack()
+    {
+        _animator.SetTrigger("SpellProjectileAttack");
+    }
     private IEnumerator PauseAnimation(float duration)
     {
         _animator.enabled = false;

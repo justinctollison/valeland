@@ -39,7 +39,7 @@ public class EffectsManager : MonoBehaviour
     {
         GameObject fx = SpawnEffect(damageIndicatorPrefab, location, duration, effectParent);
         DamageIndicator damageIndicator = fx.GetComponent<DamageIndicator>();
-        damageIndicator.SetDamageText(damage);
+        damageIndicator.SetDamageText(damage.ToString());
         damageIndicator.FaceOut(duration);
     }
 

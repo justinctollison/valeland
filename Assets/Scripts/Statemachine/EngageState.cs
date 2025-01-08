@@ -1,3 +1,5 @@
+using System;
+using System.Linq;
 using UnityEngine;
 public class EngageState : State
 {
@@ -9,7 +11,7 @@ public class EngageState : State
     public override void Enter()
     {
         target = basicAI.GetCurrentTarget();
-        SetRandomActiveAttack();
+        stateMachine.activeAttack = data.attacks[0];
     }
 
     private void SetRandomActiveAttack()
@@ -56,6 +58,7 @@ public class EngageState : State
         if (basicAI.TargetIsInAttackRange())
         {
             stateMachine.ChangeState(stateMachine.GetAttackState());
+            timeOutTimer = 0.0f;
         }
 
         basicAI.RemoveTargetBasedOnDistance();
@@ -63,6 +66,7 @@ public class EngageState : State
         if (basicAI.GetTargetsList().Count <= 0)
         {
             stateMachine.ChangeState(stateMachine.GetIdleState());
+            timeOutTimer = 0.0f;
         }
     }
 

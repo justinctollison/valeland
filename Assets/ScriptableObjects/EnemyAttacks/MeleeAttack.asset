@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: MeleeAttack
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
+  attackType: 0
   attackRange: 2
   attackCooldown: 2
   minDamage: 5
   maxDamage: 7
-  maxTimeOutSeconds: Infinity
+  maxTimeOutSeconds: 5
   AttackPrefab: {fileID: 4001024201544436937, guid: 523aff856b2ee274c9171c445f204a61, type: 3}

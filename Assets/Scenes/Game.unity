@@ -44473,6 +44473,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2899090342257392276, guid: bc9661ccf7afd6c468522e3b965e7aa4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -0.0000054677475
+      objectReference: {fileID: 0}
+    - target: {fileID: 2981412886931302962, guid: bc9661ccf7afd6c468522e3b965e7aa4, type: 3}
+      propertyPath: m_WarningMessage
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2981412886931302962, guid: bc9661ccf7afd6c468522e3b965e7aa4, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4171246035083532429, guid: bc9661ccf7afd6c468522e3b965e7aa4, type: 3}
       propertyPath: _ability1
       value: 
