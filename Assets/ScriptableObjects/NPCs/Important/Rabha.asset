@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4150311fa3dd84d4c80422d69440cfaa, type: 3}
   m_Name: Rabha
   m_EditorClassIdentifier: 
-  factionID: 1
+  factionID: 0
   enemyType: 1
   portrait: {fileID: 21300000, guid: 69e7911abc84ea94eaf0359d02bf7b78, type: 3}
   maxHealth: 150
   maxMana: 0
   wanderDistance: 0
-  engageDistance: 20
+  engageDistance: 10
   experienceValue: 200
   attacks:
   - {fileID: 11400000, guid: 8e97cee66adfbbe4ca719a148640191c, type: 2}

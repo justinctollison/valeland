@@ -1,6 +1,4 @@
-using Unity.Hierarchy;
 using UnityEditor;
-using UnityEditor.PackageManager;
 using UnityEngine;
 
 public class EquipmentCustomizer : MonoBehaviour
@@ -246,18 +244,18 @@ public class EquipmentCustomizer : MonoBehaviour
     }
 }
 
-[CustomEditor(typeof(EquipmentCustomizer))]
-public class EquipmentCustomizerEditor : Editor
-{
-    public override void OnInspectorGUI()
-    {
-        DrawDefaultInspector();
+//[CustomEditor(typeof(EquipmentCustomizer))]
+//public class EquipmentCustomizerEditor : Editor
+//{
+//    public override void OnInspectorGUI()
+//    {
+//        DrawDefaultInspector();
 
-        var customizer = (EquipmentCustomizer)target;
+//        var customizer = (EquipmentCustomizer)target;
 
-        if (GUILayout.Button(text: "Randomize"))
-        {
-            customizer.Randomize();
-        }
-    }
-}
+//        if (GUILayout.Button(text: "Randomize"))
+//        {
+//            customizer.Randomize();
+//        }
+//    }
+//}

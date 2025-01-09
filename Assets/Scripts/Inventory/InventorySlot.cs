@@ -76,6 +76,8 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         if (eventData.pointerEnter != null)
         {
             EquipmentSlot equipmentSlot = eventData.pointerEnter.GetComponent<EquipmentSlot>();
+
+            //TODO Fix bug where equipment is being removed from Inventory but not equipped
             if (equipmentSlot != null && !equipmentSlot.GetSlotOccupied())
             {
                 equipmentSlot.EquipItem(currentItemData);

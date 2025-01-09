@@ -9,7 +9,7 @@ public class BasicAI : MonoBehaviour
     [SerializeField] protected NPCData _data;
 
     [SerializeField] private List<CombatReceiver> _targetsList = new List<CombatReceiver>();
-    [SerializeField] private CombatReceiver _currentTarget;
+    [SerializeField] public CombatReceiver _currentTarget;
 
     protected Statemachine _stateMachine;
     protected NavMeshAgent _agent;

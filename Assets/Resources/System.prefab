@@ -332,6 +332,7 @@ MonoBehaviour:
   _gameMusic: {fileID: 8300000, guid: ed0c0c828c2c4ba478d82c99bc97b04c, type: 3}
   _townMusic: {fileID: 8300000, guid: 23e8faf69e5eb5748818b5db878e3186, type: 3}
   _bossArea: {fileID: 8300000, guid: 532daca5960c6eb429376d646f93e9f5, type: 3}
+  _bossFight: {fileID: 8300000, guid: 7ea7a3636bba6c847831a5e6b95ca193, type: 3}
   _sceneSwitchSwoosh: {fileID: 8300000, guid: a192671434915bf4daa926453cdebe6c, type: 3}
   _fireball: {fileID: 8300000, guid: 4253ea676060e49dd9488f73d692ea2a, type: 3}
   _iceNova: {fileID: 8300000, guid: 92f9c41020767e34a86a135a0e8185fc, type: 3}

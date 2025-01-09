@@ -175,5 +175,6 @@ public class CombatReceiver : MonoBehaviour, IClickable
         Vector3 playerPos = PlayerController.Instance.transform.position;
         return (transform.position - playerPos).normalized;
     }
+
     #endregion
 }

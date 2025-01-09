@@ -14,8 +14,9 @@ GameObject:
   - component: {fileID: 201800215722522693}
   - component: {fileID: 8684365391598408241}
   - component: {fileID: 4342354145958137099}
-  - component: {fileID: 1590046596855847133}
   - component: {fileID: 3508231414363115817}
+  - component: {fileID: 2912401081322668034}
+  - component: {fileID: 6242301522745109759}
   m_Layer: 0
   m_Name: Rabha
   m_TagString: Untagged
@@ -142,21 +143,6 @@ MonoBehaviour:
   _currentHP: 10
   _currentMana: 0
   height: 1.2
---- !u!114 &1590046596855847133
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2219417849708369480}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa735a1c23cd6d043afca64b69249734, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _data: {fileID: 11400000, guid: 394a3fe615072164caeb31b114755f6f, type: 2}
-  _targetsList: []
-  _currentTarget: {fileID: 0}
 --- !u!114 &3508231414363115817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,6 +157,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _currentStateName: 
   activeAttack: {fileID: 0}
+--- !u!114 &2912401081322668034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2219417849708369480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cf5e3fef42610f40b8ae74cbef541dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueDatas:
+  - dialogueText: Well, I didn't expect you to arrive.
+    dialogueAudio: {fileID: 0}
+  - dialogueText: Tell me, are you pleased with yourself?
+    dialogueAudio: {fileID: 0}
+  - dialogueText: What did you expect to find down here? Some weak, decrepit demon?
+      You humans never learn.
+    dialogueAudio: {fileID: 0}
+  - dialogueText: Now suffer my wrath and learn the true meaning of fear!
+    dialogueAudio: {fileID: 0}
+--- !u!114 &6242301522745109759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2219417849708369480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3acca563610a4794a8679d3d66d12934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _data: {fileID: 11400000, guid: 394a3fe615072164caeb31b114755f6f, type: 2}
+  _targetsList: []
+  _currentTarget: {fileID: 0}
 --- !u!1001 &4712707683476496285
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -9,6 +9,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioClip _gameMusic;
     [SerializeField] AudioClip _townMusic;
     [SerializeField] AudioClip _bossArea;
+    [SerializeField] AudioClip _bossFight;
 
     // Sound Effects
     [SerializeField] AudioClip _sceneSwitchSwoosh;
@@ -83,6 +84,11 @@ public class AudioManager : MonoBehaviour
     public void PlayBossAreaMusic()
     {
         PlayMusic(_bossArea);
+    }
+
+    public void PlayBossFightMusic()
+    {
+        PlayMusic(_bossFight);
     }
 
     public void StopMusic()
