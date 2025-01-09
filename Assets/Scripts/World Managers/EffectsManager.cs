@@ -7,6 +7,7 @@ public class EffectsManager : MonoBehaviour
     [SerializeField] GameObject smallEffect;
     [SerializeField] GameObject bigEffect;
     [SerializeField] GameObject iceExplosionEffect;
+    [SerializeField] GameObject bloodSplurt;
     [SerializeField] GameObject damageIndicatorPrefab;
 
     private void Awake()
@@ -41,6 +42,10 @@ public class EffectsManager : MonoBehaviour
         DamageIndicator damageIndicator = fx.GetComponent<DamageIndicator>();
         damageIndicator.SetDamageText(damage.ToString());
         damageIndicator.FaceOut(duration);
+    }
+    public void PlayBloodSplurt(Vector3 location, float duration, Transform effectParent = null)
+    {
+        SpawnEffect(bloodSplurt, location, duration, effectParent);
     }
 
 }

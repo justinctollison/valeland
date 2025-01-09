@@ -1,15 +1,16 @@
 using System;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class AttackState : State
 {
     public AttackState(Statemachine stateMachine) : base(stateMachine) { }
-
+    CombatReceiver target;
     private float _attackCooldownTimer = 0.0f;
 
     public override void Enter()
     {
-
+        target = basicAI.GetCurrentTarget();
     }
 
     public override void Execute()
@@ -20,12 +21,17 @@ public class AttackState : State
         {
             _attackCooldownTimer -= stateMachine.activeAttack.attackCooldown;
             SpawnAttackPrefab();
+            stateMachine.ChangeState(stateMachine.GetWindUpState());
         }
 
         if (!basicAI.TargetIsInAttackRange())
         {
             stateMachine.ChangeState(stateMachine.GetEngageState());
         }
+
+        Vector3 lookDirection = basicAI.GetCurrentTarget().transform.position;
+        lookDirection.y = 0;
+        stateMachine.transform.LookAt(lookDirection);
     }
 
     public override void Exit()
@@ -35,10 +41,10 @@ public class AttackState : State
 
     private void SpawnAttackPrefab()
     {
-        stateMachine.GetComponent<BasicAnimator>().TriggerAttack();
+        stateMachine.GetComponent<BasicAnimator>().TriggerAnimation(stateMachine.activeAttack.animatorTriggerAttackName);
         stateMachine.transform.LookAt(basicAI.GetCurrentTarget().transform.position);
         Vector3 attackDirection = (basicAI.GetCurrentTarget().transform.position - stateMachine.transform.position).normalized;
-        Vector3 spawnPosition = stateMachine.transform.position + attackDirection * 2;// spawn the attack in front of the AI
+        Vector3 spawnPosition = stateMachine.transform.position + attackDirection;// spawn the attack in front of the AI
 
         basicAI.InstantiateNewAttack(spawnPosition);
     }

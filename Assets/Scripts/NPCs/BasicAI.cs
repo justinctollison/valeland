@@ -140,6 +140,7 @@ public class BasicAI : MonoBehaviour
         if(attackActor.attackType == AttackType.Projectile)
         {
             Projectile projectile = newAttack.GetComponent<Projectile>();
+            //newAttack.transform.LookAt(_currentTarget.transform.position);
             projectile.SetShootDirection(((_currentTarget.transform.position - transform.position).normalized));
         }
     }

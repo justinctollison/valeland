@@ -57,7 +57,7 @@ public class EngageState : State
 
         if (basicAI.TargetIsInAttackRange())
         {
-            stateMachine.ChangeState(stateMachine.GetAttackState());
+            stateMachine.ChangeState(stateMachine.GetWindUpState());
             timeOutTimer = 0.0f;
         }
 

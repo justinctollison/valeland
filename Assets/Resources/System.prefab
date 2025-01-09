@@ -11522,6 +11522,7 @@ MonoBehaviour:
   smallEffect: {fileID: 4610086009391079144, guid: bee52d11e51179c4f868caad3e20ed06, type: 3}
   bigEffect: {fileID: 0}
   iceExplosionEffect: {fileID: 5680801374429739399, guid: ba87301db2e5def479b277d13eb95b0c, type: 3}
+  bloodSplurt: {fileID: 1026642433091512, guid: ed67c2cb8e3a7fb418c6fbb1b001dce2, type: 3}
   damageIndicatorPrefab: {fileID: 138418819769901626, guid: 3d9ddd1eab306c849bfb9d1d4691b27c, type: 3}
 --- !u!1 &8661646072686866549
 GameObject:
@@ -11888,7 +11889,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.18365625, y: 0.15}
   m_AnchorMax: {x: 0.82100004, y: 0.1987778}
-  m_AnchoredPosition: {x: -29.299988, y: -2.2016907}
+  m_AnchoredPosition: {x: -29.299988, y: -2.2017212}
   m_SizeDelta: {x: 3.4199982, y: 12.556999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6987153642168715696

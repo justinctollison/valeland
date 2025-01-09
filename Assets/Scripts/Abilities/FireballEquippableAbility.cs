@@ -9,7 +9,9 @@ public class FireballEquippableAbility : EquippableAbility
         _targetedReceiver = null;
 
         var clickable = MouseWorld.Instance.GetClickable() as CombatReceiver;
-        if (CanCastFireball(clickable) && clickable.GetFactionID() != player.GetFactionID())
+        print(clickable);
+        print(player);
+        if (CanCastFireball(clickable,player))
         {
             SpawnEquippedAttack(MouseWorld.Instance.GetMousePosition());
             _myPlayer.GetMovement().MoveToLocation(_myPlayer.transform.position);
@@ -18,9 +20,9 @@ public class FireballEquippableAbility : EquippableAbility
         }
     }
 
-    private bool CanCastFireball(CombatReceiver clickable)
+    private bool CanCastFireball(CombatReceiver clickable, PlayerController player)
     {
-        return _myPlayer.GetCombat().GetMana() >= _manaCost && (clickable != null || Input.GetKey(KeyCode.LeftShift));
+        return _myPlayer.GetCombat().GetMana() >= _manaCost && (clickable != null && clickable.GetFactionID() != player.GetFactionID()  || Input.GetKey(KeyCode.LeftShift));
     }
 
     protected override void SpawnEquippedAttack(Vector3 location)

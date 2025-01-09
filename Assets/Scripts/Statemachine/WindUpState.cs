@@ -1,68 +1,37 @@
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 public class WindUpState : State
 {
     public WindUpState(Statemachine stateMachine) : base(stateMachine) { }
 
     CombatReceiver target;
-    float timeOutTimer = 0.0f;
-    System.Random random = new System.Random();
+    public float timeToCharge;
+    private float chargeTimer = 0.0f;
     public override void Enter()
     {
+        chargeTimer = 0.0f;
+        agent.destination = stateMachine.transform.position;
         target = basicAI.GetCurrentTarget();
-        SetRandomActiveAttack();
-    }
-
-    private void SetRandomActiveAttack()
-    {
-        stateMachine.activeAttack = data.attacks[random.Next(data.attacks.Count)];
-    }
-    private void SetRandomActiveAttackWithGreaterRange()
-    {
-        if (stateMachine.activeAttack == null)
-        {
-            SetRandomActiveAttack();
-            return;
-        }
-        EnemyAttack newAttack = data.attacks.Find(attack => attack.attackRange > stateMachine.activeAttack.attackRange);
-        if (newAttack != null)
-        {
-            stateMachine.activeAttack = newAttack;
-        }
-        else
-        {
-            SetRandomActiveAttack();
-        }
+        timeToCharge = stateMachine.activeAttack.windUpTime;
+        if(stateMachine.activeAttack.animatorTriggerWindUpName != null && stateMachine.activeAttack.animatorTriggerWindUpName != "")
+            stateMachine.GetComponent<BasicAnimator>().TriggerAnimation(stateMachine.activeAttack.animatorTriggerWindUpName);
     }
     public override void Execute()
     {
-        target = basicAI.GetCurrentTarget();
-
-        if (target == null)
+        if (!basicAI.TargetIsInAttackRange())
         {
-            stateMachine.ChangeState(stateMachine.GetIdleState());
+            stateMachine.GetComponent<BasicAnimator>().TriggerAnimation("CancelAttack");
+            stateMachine.ChangeState(stateMachine.GetEngageState());
             return;
         }
-
-        timeOutTimer += Time.deltaTime;
-        if(timeOutTimer > stateMachine.activeAttack.maxTimeOutSeconds)
-        {
-            SetRandomActiveAttackWithGreaterRange();
-            timeOutTimer = 0.0f;
-        }
-
-        basicAI.TargetsListSorting();
-        agent.destination = target.transform.position;
-
-        if (basicAI.TargetIsInAttackRange())
+        Vector3 lookDirection = basicAI.GetCurrentTarget().transform.position;
+        lookDirection.y = 0;
+        stateMachine.transform.LookAt(lookDirection);
+        chargeTimer += Time.deltaTime;
+        //stateMachine.transform.LookAt(target.transform.position);
+        if (chargeTimer > timeToCharge)
         {
             stateMachine.ChangeState(stateMachine.GetAttackState());
-        }
-
-        basicAI.RemoveTargetBasedOnDistance();
-
-        if (basicAI.GetTargetsList().Count <= 0)
-        {
-            stateMachine.ChangeState(stateMachine.GetIdleState());
         }
     }
 
