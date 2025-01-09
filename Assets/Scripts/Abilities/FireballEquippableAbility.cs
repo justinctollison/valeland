@@ -9,8 +9,6 @@ public class FireballEquippableAbility : EquippableAbility
         _targetedReceiver = null;
 
         var clickable = MouseWorld.Instance.GetClickable() as CombatReceiver;
-        print(clickable);
-        print(player);
         if (CanCastFireball(clickable,player))
         {
             SpawnEquippedAttack(MouseWorld.Instance.GetMousePosition());

@@ -1,5 +1,7 @@
 using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
+//This class is currently only used for the arrow attack, if no windupTime is set to 0 for the attack
+//it will effectively skip the windup state and go straight to the attack state
 public class WindUpState : State
 {
     public WindUpState(Statemachine stateMachine) : base(stateMachine) { }
@@ -9,7 +11,11 @@ public class WindUpState : State
     private float chargeTimer = 0.0f;
     public override void Enter()
     {
-        chargeTimer = 0.0f;
+        if(stateMachine.activeAttack.windUpTime == 0.0f)
+        {
+            stateMachine.ChangeState(stateMachine.GetAttackState());
+            return;
+        }
         agent.destination = stateMachine.transform.position;
         target = basicAI.GetCurrentTarget();
         timeToCharge = stateMachine.activeAttack.windUpTime;
@@ -27,11 +33,13 @@ public class WindUpState : State
         Vector3 lookDirection = basicAI.GetCurrentTarget().transform.position;
         lookDirection.y = 0;
         stateMachine.transform.LookAt(lookDirection);
+        Debug.Log(chargeTimer);
         chargeTimer += Time.deltaTime;
-        //stateMachine.transform.LookAt(target.transform.position);
+
         if (chargeTimer > timeToCharge)
         {
             stateMachine.ChangeState(stateMachine.GetAttackState());
+            chargeTimer = 0.0f;
         }
     }
 

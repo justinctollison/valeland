@@ -11,6 +11,7 @@ public class AttackState : State
     public override void Enter()
     {
         target = basicAI.GetCurrentTarget();
+        _attackCooldownTimer = 0.0f;
     }
 
     public override void Execute()
@@ -21,6 +22,10 @@ public class AttackState : State
         {
             _attackCooldownTimer -= stateMachine.activeAttack.attackCooldown;
             SpawnAttackPrefab();
+            if (UnityEngine.Random.Range(0, 100) < stateMachine.activeAttack.attackChanceToChangeAttackState)
+            {
+                stateMachine.ChangeState(stateMachine.GetEngageState());
+            }
             stateMachine.ChangeState(stateMachine.GetWindUpState());
         }
 

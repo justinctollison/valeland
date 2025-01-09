@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 676b9766e999fb341bf86d61b99b708c, type: 3}
-  m_Name: MeleeAttack
+  m_Name: OctupleFireball
   m_EditorClassIdentifier: 
-  attackType: 0
-  attackRange: 2
-  attackCooldown: 1
+  attackType: 3
+  attackRange: 12
+  attackCooldown: 0.8
   minDamage: 5
-  maxDamage: 7
-  windUpTime: 0
-  animatorTriggerAttackName: Attack
-  animatorTriggerWindUpName: 
+  maxDamage: 6
+  windUpTime: 1.883
+  animatorTriggerAttackName: BigAreaRelease
+  animatorTriggerWindUpName: BigAreaCharge
   maxTimeOutSeconds: 5
-  attackChanceToChangeAttackState: 50
-  AttackPrefab: {fileID: 4001024201544436937, guid: 523aff856b2ee274c9171c445f204a61, type: 3}
+  attackChanceToChangeAttackState: 32.2
+  AttackPrefab: {fileID: 3725300542052902232, guid: 007dc3361db91634eb218c48f5b0f3f1, type: 3}

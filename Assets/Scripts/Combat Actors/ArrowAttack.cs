@@ -12,5 +12,6 @@ public class ArrowAttack : Projectile
     {
         EffectsManager.Instance.PlayBloodSplurt(transform.position, 1);
         base.HitReceiever(target);
+        Destroy(gameObject);
     }
 }

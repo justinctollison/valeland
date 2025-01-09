@@ -137,11 +137,36 @@ public class BasicAI : MonoBehaviour
         CombatActor attackActor = newAttack.GetComponent<CombatActor>();
         attackActor.InitializeDamage(calculatedDamage);
         attackActor.SetFactionID(GetComponent<CombatReceiver>().GetFactionID());
-        if(attackActor.attackType == AttackType.Projectile)
+        switch(attackActor.attackType)
         {
-            Projectile projectile = newAttack.GetComponent<Projectile>();
-            //newAttack.transform.LookAt(_currentTarget.transform.position);
-            projectile.SetShootDirection(((_currentTarget.transform.position - transform.position).normalized));
+            case AttackType.Melee:
+                break;
+            case AttackType.Projectile:
+                Projectile projectile = newAttack.GetComponent<Projectile>();
+                //newAttack.transform.LookAt(_currentTarget.transform.position);
+                projectile.SetShootDirection(((_currentTarget.transform.position - transform.position).normalized));
+                break;
+            case AttackType.AreaSpell:
+                newAttack.transform.position = transform.position;
+                break;
+            case AttackType.MultiProjectile:
+                Destroy(newAttack);
+                Projectile[] projectiles = new Projectile[8];
+                for (int i = 0; i < 8; i++)
+                {
+                    projectiles[i] = Instantiate(_stateMachine.activeAttack.AttackPrefab, transform.position, Quaternion.identity).GetComponent<Projectile>();
+                    
+                    calculatedDamage = Mathf.Round(Random.Range(_stateMachine.activeAttack.minDamage, _stateMachine.activeAttack.maxDamage) * critMod);
+
+                    attackActor = projectiles[i].GetComponent<CombatActor>();
+                    attackActor.InitializeDamage(calculatedDamage);
+                    attackActor.SetFactionID(GetComponent<CombatReceiver>().GetFactionID());
+
+                    Vector3 direction = Quaternion.Euler(0, 45 * i, 0) * (_currentTarget.transform.position - transform.position).normalized;
+                    print(projectiles[i] + "at angle: " + direction);
+                    projectiles[i].SetShootDirection(direction);
+                }
+                break;
         }
     }
     public bool TargetIsInAttackRange()

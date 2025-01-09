@@ -10,18 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4150311fa3dd84d4c80422d69440cfaa, type: 3}
-  m_Name: Demon
+  m_Name: FrostCaster
   m_EditorClassIdentifier: 
   factionID: 1
-  enemyType: 1
-  portrait: {fileID: 21300000, guid: 69e7911abc84ea94eaf0359d02bf7b78, type: 3}
-  maxHealth: 90
+  enemyType: 2
+  portrait: {fileID: 21300000, guid: 6cac79362032c7f42939d5bcb0ab2b38, type: 3}
+  maxHealth: 10
   maxMana: 0
   wanderDistance: 6
-  engageDistance: 30
-  experienceValue: 90
+  engageDistance: 20
+  experienceValue: 40
   attacks:
-  - {fileID: 11400000, guid: 8e97cee66adfbbe4ca719a148640191c, type: 2}
-  - {fileID: 11400000, guid: 8d9be45cc24e47745b3c7fad20e335e8, type: 2}
   - {fileID: 11400000, guid: e24f1b51c42fb794abfe78a1318c97f6, type: 2}
-  lootTable: {fileID: 11400000, guid: 2cc6da6e3be915442be5ee1faffaf550, type: 2}
+  lootTable: {fileID: 11400000, guid: c081e7e459f75774cad1a7bdc776fce2, type: 2}

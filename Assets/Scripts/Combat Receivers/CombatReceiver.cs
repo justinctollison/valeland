@@ -72,7 +72,7 @@ public class CombatReceiver : MonoBehaviour, IClickable
         if (!_isAlive) { return; }
         _currentHP -= amount;
         Vector3 dmgIndicatorPos = transform.position + new Vector3(0, height, 0);
-        EffectsManager.Instance.PlayDamageIndicator(amount, dmgIndicatorPos);
+        EffectsManager.Instance.PlayDamageIndicator(amount.ToString(), dmgIndicatorPos);
         if (_currentHP <= 0)
         {
             Die();

@@ -11,7 +11,7 @@ public class EngageState : State
     public override void Enter()
     {
         target = basicAI.GetCurrentTarget();
-        stateMachine.activeAttack = data.attacks[0];
+        SetRandomActiveAttack();
     }
 
     private void SetRandomActiveAttack()

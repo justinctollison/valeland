@@ -27,7 +27,6 @@ public class IceExplosionAbility : EquippableAbility
         Vector3 spawnPosition = _myPlayer.transform.position + Vector3.down * .7f; // Spawn at player's feet
 
         GameObject newAttack = Instantiate(_spawnablePrefab, spawnPosition, Quaternion.identity);
-        EffectsManager.Instance.PlayIceExplosion(spawnPosition, 4);
 
         var iceExplosionAttack = newAttack.gameObject.GetComponent<IceExplosionAttack>();
         iceExplosionAttack.SetFactionID(_myPlayer.GetFactionID());

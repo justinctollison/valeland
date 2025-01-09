@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 676b9766e999fb341bf86d61b99b708c, type: 3}
-  m_Name: MeleeAttack
+  m_Name: FrostExplosion
   m_EditorClassIdentifier: 
-  attackType: 0
-  attackRange: 2
-  attackCooldown: 1
-  minDamage: 5
-  maxDamage: 7
+  attackType: 2
+  attackRange: 4
+  attackCooldown: 2.3
+  minDamage: 8
+  maxDamage: 10
   windUpTime: 0
-  animatorTriggerAttackName: Attack
+  animatorTriggerAttackName: FrostExplosion
   animatorTriggerWindUpName: 
-  maxTimeOutSeconds: 5
-  attackChanceToChangeAttackState: 50
-  AttackPrefab: {fileID: 4001024201544436937, guid: 523aff856b2ee274c9171c445f204a61, type: 3}
+  maxTimeOutSeconds: 8
+  attackChanceToChangeAttackState: 100
+  AttackPrefab: {fileID: 3936482579983324319, guid: fd613a0193bb5aa49a709a0173c2a168, type: 3}

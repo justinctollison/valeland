@@ -11,4 +11,5 @@ public class ClassSkillData : ScriptableObject
     public GameObject spawnablePrefab;
     public float attackRange;
     public float manaCost;
+    public float cooldown;
 }
