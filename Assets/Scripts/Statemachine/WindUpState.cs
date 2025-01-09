@@ -33,7 +33,6 @@ public class WindUpState : State
         Vector3 lookDirection = basicAI.GetCurrentTarget().transform.position;
         lookDirection.y = 0;
         stateMachine.transform.LookAt(lookDirection);
-        Debug.Log(chargeTimer);
         chargeTimer += Time.deltaTime;
 
         if (chargeTimer > timeToCharge)
