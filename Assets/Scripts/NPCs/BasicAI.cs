@@ -6,7 +6,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class BasicAI : MonoBehaviour
 {
-    [SerializeField] private NPCData _data;
+    [SerializeField] protected NPCData _data;
 
     [SerializeField] private List<CombatReceiver> _targetsList = new List<CombatReceiver>();
     [SerializeField] private CombatReceiver _currentTarget;
@@ -117,8 +117,12 @@ public class BasicAI : MonoBehaviour
 
             foreach (ItemData item in droppedItems)
             {
-                Debug.Log($"Dropped item: {item.itemName}");
+                Vector3 floatingTextIndicatorPos = transform.position + new Vector3(0, 1.2f, 0);
+
                 InventoryManager.Instance.AddItem(item);
+                EffectsManager.Instance.PlayItemDropIndicator( "+ " + item.itemName.ToString(), floatingTextIndicatorPos, 2f);
+                Debug.Log($"Dropped item: {item.itemName}");
+
             }
         }
     }

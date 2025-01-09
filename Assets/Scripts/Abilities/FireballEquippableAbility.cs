@@ -13,7 +13,7 @@ public class FireballEquippableAbility : EquippableAbility
         {
             SpawnEquippedAttack(MouseWorld.Instance.GetMousePosition());
             _myPlayer.GetMovement().MoveToLocation(_myPlayer.transform.position);
-            //AudioManager.Instance.PlayPilotLaserSFX();
+            AudioManager.Instance.PlayFireballSFX();
             _myPlayer.GetCombat().SpendMana(_manaCost);
         }
     }

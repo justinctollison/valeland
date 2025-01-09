@@ -147,6 +147,7 @@ public class PlayerCharacterSheet : MonoBehaviour
         else
         {
             _statPointsToSpend--;
+            AudioManager.Instance.PlayUIButtonSFX();
             return true;
         }
     }
@@ -157,6 +158,7 @@ public class PlayerCharacterSheet : MonoBehaviour
         {
             _strength++;
             EventsManager.Instance.onStatPointSpent.Invoke();
+            AudioManager.Instance.PlayUIButtonSFX();
         }
     }
     
@@ -166,6 +168,8 @@ public class PlayerCharacterSheet : MonoBehaviour
         {
             _dexterity++;
             EventsManager.Instance.onStatPointSpent.Invoke();
+            AudioManager.Instance.PlayUIButtonSFX();
+
         }
     }
     
@@ -175,6 +179,8 @@ public class PlayerCharacterSheet : MonoBehaviour
         {
             _vitality++;
             EventsManager.Instance.onStatPointSpent.Invoke();
+            AudioManager.Instance.PlayUIButtonSFX();
+
         }
     }
     
@@ -184,6 +190,7 @@ public class PlayerCharacterSheet : MonoBehaviour
         {
             _energy++;
             EventsManager.Instance.onStatPointSpent.Invoke();
+            AudioManager.Instance.PlayUIButtonSFX();
         }
     }
     #endregion

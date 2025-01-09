@@ -55,9 +55,7 @@ public class EquipmentSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                     break;
                 case EquipmentType.Weapon:
                     if (_currentItemData.name == PlayerController.Instance.GetComponentInChildren<Weapon>().name)
-                    {
-                        PlayerController.Instance.GetComponentInChildren<Weapon>().gameObject.SetActive(true);
-                    }
+                        PlayerController.Instance.GetComponentInChildren<Weapon>().gameObject.GetComponent<MeshRenderer>().enabled = true;
                     break;
                 case EquipmentType.Cape:
                     break;
@@ -123,10 +121,7 @@ public class EquipmentSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                     break;
                 case EquipmentType.Weapon:
                     if (_currentItemData.name == PlayerController.Instance.GetComponentInChildren<Weapon>().name)
-                    {
-                        PlayerController.Instance.GetComponentInChildren<Weapon>().gameObject.SetActive(false);
-                    }
-                    Debug.Log($"Weapon name is {PlayerController.Instance.GetComponentInChildren<Weapon>().name} and item name is {_currentItemData.name}");
+                        PlayerController.Instance.GetComponentInChildren<Weapon>().gameObject.GetComponent<MeshRenderer>().enabled = false;
                     break;
                 case EquipmentType.Cape:
                     break;

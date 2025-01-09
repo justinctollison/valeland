@@ -9,6 +9,7 @@ public class EffectsManager : MonoBehaviour
     [SerializeField] GameObject iceExplosionEffect;
     [SerializeField] GameObject bloodSplurt;
     [SerializeField] GameObject damageIndicatorPrefab;
+    [SerializeField] GameObject itemDropPrefab;
 
     private void Awake()
     {
@@ -28,14 +29,17 @@ public class EffectsManager : MonoBehaviour
     {
         SpawnEffect(smallEffect, location, duration, effectParent);
     }
+
     public void PlayBigBoom(Vector3 location, float duration, Transform effectParent = null)
     {
         SpawnEffect(bigEffect, location, duration, effectParent);
     }
+
     public void PlayIceExplosion(Vector3 location, float duration, Transform effectParent = null)
     {
         SpawnEffect(iceExplosionEffect, location, duration, effectParent);
     }
+
     public void PlayDamageIndicator(string text, Vector3 location, float duration = 1, Transform effectParent = null)
     {
         GameObject fx = SpawnEffect(damageIndicatorPrefab, location, duration, effectParent);
@@ -43,6 +47,16 @@ public class EffectsManager : MonoBehaviour
         damageIndicator.SetDamageText(text);
         damageIndicator.FaceOut(duration);
     }
+
+    //TODO: Refactor and rename for better readability
+    public void PlayItemDropIndicator(string text, Vector3 location, float duration = 1, Transform effectParent = null)
+    {
+        GameObject fx = SpawnEffect(itemDropPrefab, location, duration, effectParent);
+        DamageIndicator damageIndicator = fx.GetComponent<DamageIndicator>();
+        damageIndicator.SetDamageText(text);
+        damageIndicator.FaceOut(duration);
+    }
+
     public void PlayBloodSplurt(Vector3 location, float duration, Transform effectParent = null)
     {
         SpawnEffect(bloodSplurt, location, duration, effectParent);

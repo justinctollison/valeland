@@ -119,6 +119,7 @@ public class InventoryManager : MonoBehaviour
                 PlayerController.Instance.GetComponent<PlayerCombat>().TakeManaPotion();
                 RemoveItem(itemData);
             }
+            AudioManager.Instance.PlayUIButtonSFX();
             Debug.Log($"Using consumable item: {itemData.itemName}");
             // Logic for consumable items (e.g., healing, buffs, etc.)
             // Update the item's stack size, apply effects, or destroy the item if it's consumed

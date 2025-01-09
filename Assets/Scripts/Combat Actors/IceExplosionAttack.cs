@@ -24,11 +24,12 @@ public class IceExplosionAttack : CombatActor
         }
         target.ApplyStatusEffect("Freeze");
         target.ReceiveKnockbackAwayFromPlayer(knockbackForce, knockbackDuration);
+        AudioManager.Instance.PlayIceNovaSFX();
         //target.GetComponentInChildren<RagDollController>().EnableRagdoll();
     }
 
-    protected override void OnTriggerEnter(Collider other)
-    {}
+    protected override void OnTriggerEnter(Collider other) { }
+
     private void OnTriggerStay(Collider other)
     {
         var target = other.GetComponent<CombatReceiver>();

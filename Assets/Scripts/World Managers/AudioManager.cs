@@ -4,17 +4,24 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
+    // Music
     [SerializeField] AudioClip _menuMusic;
     [SerializeField] AudioClip _gameMusic;
     [SerializeField] AudioClip _townMusic;
     [SerializeField] AudioClip _bossArea;
 
+    // Sound Effects
     [SerializeField] AudioClip _sceneSwitchSwoosh;
-
     [SerializeField] AudioClip _fireball;
     [SerializeField] AudioClip _iceNova;
     [SerializeField] AudioClip _meleeCombatSFX;
     [SerializeField] AudioClip _hitReaction;
+    [SerializeField] AudioClip _uiSoundEffect;
+    [SerializeField] AudioClip _inventorySFX;
+    [SerializeField] AudioClip _lootPickup;
+    [SerializeField] AudioClip _healthRestored;
+    [SerializeField] AudioClip _manaRestored;
+    [SerializeField] AudioClip _dialogueSFX;
 
     [Space(10)]
     [SerializeField] AudioSource _musicChannel;
@@ -124,6 +131,36 @@ public class AudioManager : MonoBehaviour
     public void PlayMeleeCombatSFX()
     {
         PlaySoundEffect(_meleeCombatSFX);
+    }
+
+    public void PlayUIButtonSFX()
+    {
+        PlaySoundEffect(_uiSoundEffect);
+    }
+
+    public void PlayLootPickupSFX()
+    {
+        PlaySoundEffect(_lootPickup);
+    }
+
+    public void PlayInventorySFX()
+    {
+        PlaySoundEffect(_inventorySFX);
+    }
+
+    public void PlayDialogueSFX()
+    {
+        PlaySoundEffect(_dialogueSFX);
+    }
+
+    public void PlayHealthRestoredSFX()
+    {
+        PlaySoundEffect(_healthRestored);
+    }
+
+    public void PlayManaRestoredSFX()
+    {
+        PlaySoundEffect(_manaRestored);
     }
 
     // This cycles the indices of the sfx channel list and makes "currentSFXChannel" appropriate throughout the class

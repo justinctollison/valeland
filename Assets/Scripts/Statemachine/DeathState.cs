@@ -29,6 +29,7 @@ public class DeathState : State
 
         isAlive = false;
         basicAI.DropItems();
+        AudioManager.Instance.PlayLootPickupSFX();
 
         if (stateMachine.GetComponent<EnemyAnimator>() != null)
         {

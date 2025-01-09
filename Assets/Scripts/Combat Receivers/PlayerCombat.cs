@@ -67,6 +67,7 @@ public class PlayerCombat : CombatReceiver
         if (!atFullHP)
         {
             _currentHP += 25f;
+            AudioManager.Instance.PlayHealthRestoredSFX();
         }
     }
 
@@ -75,6 +76,7 @@ public class PlayerCombat : CombatReceiver
         if (!atFullMana)
         {
             _currentMana += 25f;
+            AudioManager.Instance.PlayManaRestoredSFX();
         }
     }
 

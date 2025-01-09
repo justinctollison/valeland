@@ -10,7 +10,7 @@ public class IceExplosionAbility : EquippableAbility
         {
             SpawnEquippedAttack(MouseWorld.Instance.GetMousePosition());
             _myPlayer.GetMovement().MoveToLocation(_myPlayer.transform.position);
-            //AudioManager.Instance.PlayPilotLaserSFX();
+            AudioManager.Instance.PlayIceNovaSFX();
             _myPlayer.GetCombat().SpendMana(_manaCost);
         }
     }

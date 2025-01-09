@@ -1,7 +1,7 @@
-using UnityEngine;
 using System;
 using System.Collections.Generic;
 using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
@@ -31,7 +31,7 @@ public class DialogueManager : MonoBehaviour
 
     void Update()
     {
-        if(_dialogueRunning) RunDialogue();
+        if (_dialogueRunning) RunDialogue();
     }
 
     void HideDialogue()
@@ -54,7 +54,7 @@ public class DialogueManager : MonoBehaviour
     #region Dialogue Core
     void NextDialogue()
     {
-        if(_dialogueProgressionCount >= _savedDialogueDataList.Count)
+        if (_dialogueProgressionCount >= _savedDialogueDataList.Count)
         {
             EndDialogue();
         }
@@ -76,12 +76,13 @@ public class DialogueManager : MonoBehaviour
     {
         _dialogueRunning = false;
         _dialogueBox.SetActive(false);
+
         EventsManager.Instance.onDialogueEnded.Invoke();
     }
 
     public void TriggerDialogue(string npcName, List<DialogueData> dialogDatas, Sprite npcPortrait)
     {
-        if(dialogDatas == null)
+        if (dialogDatas == null)
         {
             Debug.LogError("Attempted to send a null Dialog Data List to DialogManager.TriggerDialog");
         }
@@ -105,9 +106,10 @@ public class DialogueManager : MonoBehaviour
 
     void RunDialogue()
     {
-        if(ProgressDialogueButtonPressed() && !_dialogueProgressedThisFrame)
+        if (ProgressDialogueButtonPressed() && !_dialogueProgressedThisFrame)
         {
             _dialogueProgressedThisFrame = true;
+            AudioManager.Instance.PlayDialogueSFX();
             NextDialogue();
         }
         else
