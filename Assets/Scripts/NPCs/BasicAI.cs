@@ -163,7 +163,6 @@ public class BasicAI : MonoBehaviour
                     attackActor.SetFactionID(GetComponent<CombatReceiver>().GetFactionID());
 
                     Vector3 direction = Quaternion.Euler(0, 45 * i, 0) * (_currentTarget.transform.position - transform.position).normalized;
-                    print(projectiles[i] + "at angle: " + direction);
                     projectiles[i].SetShootDirection(direction);
                 }
                 break;
