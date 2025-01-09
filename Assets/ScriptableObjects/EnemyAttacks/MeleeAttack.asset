@@ -9,12 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 676b9766e999fb341bf86d61b99b708c, type: 3}
   m_Name: MeleeAttack
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
+  m_EditorClassIdentifier: 
+  attackType: 0
   attackRange: 2
-  attackCooldown: 2
+  attackCooldown: 1
   minDamage: 5
   maxDamage: 7
-  maxTimeOutSeconds: Infinity
+  windUpTime: 0
+  animatorTriggerAttackName: Attack
+  animatorTriggerWindUpName: 
+  maxTimeOutSeconds: 5
+  attackChanceToChangeAttackState: 50
   AttackPrefab: {fileID: 4001024201544436937, guid: 523aff856b2ee274c9171c445f204a61, type: 3}

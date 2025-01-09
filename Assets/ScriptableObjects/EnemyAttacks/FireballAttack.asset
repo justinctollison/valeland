@@ -9,13 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 676b9766e999fb341bf86d61b99b708c, type: 3}
   m_Name: FireballAttack
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
+  m_EditorClassIdentifier: 
   attackType: 1
   attackRange: 10
   attackCooldown: 3
   minDamage: 4
   maxDamage: 5
+  windUpTime: 0
+  animatorTriggerAttackName: Attack
+  animatorTriggerWindUpName: 
   maxTimeOutSeconds: Infinity
   AttackPrefab: {fileID: 3725300542052902232, guid: 2278fb831f035c74684e5b61ae1b6122, type: 3}

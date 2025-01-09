@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87e491a4124ffbd4d9a86915633864d7, type: 3}
+  m_Name: Goblin Archer Loot Table
+  m_EditorClassIdentifier: 
+  lootEntries:
+  - item: {fileID: 11400000, guid: f6928e6efa1d8e6449ea2a6421e61aef, type: 2}
+    dropChance: 73.2
+    minQuantity: 1
+    maxQuantity: 1

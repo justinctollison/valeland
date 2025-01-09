@@ -10,9 +10,9 @@ public class DamageIndicator : MonoBehaviour
     {
         transform.LookAt(Camera.main.transform);
     }
-    public void SetDamageText(float damage)
+    public void SetDamageText(string damage)
     {
-        text.text = damage.ToString();
+        text.text = damage;
     }
     public void FaceOut(float duration)
     {

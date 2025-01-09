@@ -8,7 +8,7 @@ public class IceExplosionAttack : CombatActor
     List<CombatReceiver> _hitTargets = new List<CombatReceiver>();
     void Start()
     {
-        Destroy(gameObject, 50f);
+        Destroy(gameObject, 10f);
     }
 
     protected override void HitReceiever(CombatReceiver target)
