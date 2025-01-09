@@ -10,10 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 87e491a4124ffbd4d9a86915633864d7, type: 3}
-  m_Name: Skeleton Loot Table
+  m_Name: Waking Up Quest Mob
   m_EditorClassIdentifier: 
   lootEntries:
-  - item: {fileID: 11400000, guid: f6928e6efa1d8e6449ea2a6421e61aef, type: 2}
-    dropChance: 80
+  - item: {fileID: 11400000, guid: 30e91a12ea9c3f84b904baf4b6ab3e0a, type: 2}
+    dropChance: 100
     minQuantity: 1
-    maxQuantity: 2
+    maxQuantity: 1
+  - item: {fileID: 11400000, guid: a9bdd07c70090d942abee5bbf15897cd, type: 2}
+    dropChance: 100
+    minQuantity: 1
+    maxQuantity: 1
+  - item: {fileID: 11400000, guid: 32e2c3a85e584f649a62fb804b7eca05, type: 2}
+    dropChance: 100
+    minQuantity: 1
+    maxQuantity: 1
+  - item: {fileID: 11400000, guid: f6928e6efa1d8e6449ea2a6421e61aef, type: 2}
+    dropChance: 100
+    minQuantity: 1
+    maxQuantity: 1

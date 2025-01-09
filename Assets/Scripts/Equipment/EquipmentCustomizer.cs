@@ -232,6 +232,7 @@ public class EquipmentCustomizer : MonoBehaviour
         hips.sharedMesh = equipmentAssets.hips[0];
     }
 
+    // Legs shared mesh and equipment assets are BACKWARDS
     public void EquipBoots(int armor)
     {
         rightLeg.sharedMesh = equipmentAssets.leftLegs[armor];
@@ -240,8 +241,8 @@ public class EquipmentCustomizer : MonoBehaviour
 
     public void UnequipBoots()
     {
-        rightLeg.sharedMesh = equipmentAssets.rightLegs[0];
-        leftLeg.sharedMesh = equipmentAssets.leftLegs[0];
+        rightLeg.sharedMesh = equipmentAssets.leftLegs[0];
+        leftLeg.sharedMesh = equipmentAssets.rightLegs[0];
     }
 }
 

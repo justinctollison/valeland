@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4150311fa3dd84d4c80422d69440cfaa, type: 3}
+  m_Name: Sir Deckard
+  m_EditorClassIdentifier: 
+  factionID: 1
+  enemyType: 1
+  portrait: {fileID: 21300000, guid: 240269c71d695234db3d29142fee3352, type: 3}
+  maxHealth: 50
+  maxMana: 0
+  wanderDistance: 3
+  engageDistance: 20
+  experienceValue: 100
+  attacks:
+  - {fileID: 11400000, guid: 8d9be45cc24e47745b3c7fad20e335e8, type: 2}
+  lootTable: {fileID: 11400000, guid: b62ca25e644bce6438d503ed06ca28c3, type: 2}

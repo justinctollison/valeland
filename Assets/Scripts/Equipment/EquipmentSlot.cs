@@ -54,6 +54,10 @@ public class EquipmentSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                 case EquipmentType.OffHand:
                     break;
                 case EquipmentType.Weapon:
+                    if (_currentItemData.name == PlayerController.Instance.GetComponentInChildren<Weapon>().name)
+                    {
+                        PlayerController.Instance.GetComponentInChildren<Weapon>().gameObject.SetActive(true);
+                    }
                     break;
                 case EquipmentType.Cape:
                     break;
@@ -87,7 +91,7 @@ public class EquipmentSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         {
             _icon.sprite = null;
             _icon.gameObject.SetActive(false);
-            onItemUnequipped?.Invoke(_currentItemData); 
+            onItemUnequipped?.Invoke(_currentItemData);
 
             Debug.Log($"Unequipped item from {_slotType} slot.");
 
@@ -118,6 +122,11 @@ public class EquipmentSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                 case EquipmentType.OffHand:
                     break;
                 case EquipmentType.Weapon:
+                    if (_currentItemData.name == PlayerController.Instance.GetComponentInChildren<Weapon>().name)
+                    {
+                        PlayerController.Instance.GetComponentInChildren<Weapon>().gameObject.SetActive(false);
+                    }
+                    Debug.Log($"Weapon name is {PlayerController.Instance.GetComponentInChildren<Weapon>().name} and item name is {_currentItemData.name}");
                     break;
                 case EquipmentType.Cape:
                     break;
@@ -128,7 +137,7 @@ public class EquipmentSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             PlayerCharacterSheet.Instance.RemoveModifiers(_currentItemData.equipmentData.statModifiers);
             EventsManager.Instance.onEquipmentUnequipped.Invoke();
 
-            _currentItemData = null; 
+            _currentItemData = null;
         }
     }
 
@@ -136,7 +145,7 @@ public class EquipmentSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         if (_currentItemData != null)
         {
-            RemoveItem(); 
+            RemoveItem();
             Debug.Log($"Unequipped item: {_currentItemData.itemName} from {_slotType} slot.");
         }
     }

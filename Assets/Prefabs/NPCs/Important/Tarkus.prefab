@@ -35,7 +35,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7079298475406185015}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.9149303, z: -0, w: 0.40361205}
+  m_LocalRotation: {x: 0, y: -0.9149315, z: 0, w: 0.40360925}
   m_LocalPosition: {x: 93.67, y: 0, z: 144.44}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -194,8 +194,12 @@ MonoBehaviour:
     - dialogueText: Are you the latest runner from the town?
       dialogueAudio: {fileID: 0}
     - dialogueText: Ah, finally. We've been running out of rations and supplies.
-        We've managed to hold off the Goblins, but you can't hunt with an axe and
+        We've managed to hold off the Goblins, but you can't hunt with just axe and
         sword.
+      dialogueAudio: {fileID: 0}
+    - dialogueText: Wine huh? Old Rygus must be quite worried for him to send something
+        from the Mayor's storehouse. Should've just sent some more ale if he cares
+        that much.
       dialogueAudio: {fileID: 0}
     - dialogueText: Supplies normally don't take this long, I suspect the previous
         runners didn't make it. That makes you either lucky or strong and I don't

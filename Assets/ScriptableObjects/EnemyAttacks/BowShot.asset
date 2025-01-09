@@ -14,11 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackType: 1
   attackRange: 15
-  attackCooldown: 1
+  attackCooldown: 1.5
   minDamage: 5
   maxDamage: 7
-  windUpTime: 1.3
+  windUpTime: 2
   animatorTriggerAttackName: BowRelease
   animatorTriggerWindUpName: BowCharge
   maxTimeOutSeconds: Infinity
+  attackChanceToChangeAttackState: 0
   AttackPrefab: {fileID: 3725300542052902232, guid: d2751d1b663e6714ab881152517ee774, type: 3}

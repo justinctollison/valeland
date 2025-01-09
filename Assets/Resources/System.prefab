@@ -2448,7 +2448,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentItemData: {fileID: 0}
-  _slotType: 8
+  _slotType: 9
   _icon: {fileID: 2644704099833644105}
   onItemEquipped:
     m_PersistentCalls:
@@ -2593,8 +2593,8 @@ MonoBehaviour:
   _items: []
   inventorySlotPrefab: {fileID: 5137520608164719000, guid: cba90db697046444a9b36a3f3954b060, type: 3}
   inventoryGrid: {fileID: 2035149651644015834}
-  testItem: {fileID: 11400000, guid: ec4f51625eb8de74fb7cfa3303dcc7a5, type: 2}
-  testItem2: {fileID: 11400000, guid: ec955b11c28d6b44c8dd4cac996f45f3, type: 2}
+  testItem: {fileID: 11400000, guid: f6928e6efa1d8e6449ea2a6421e61aef, type: 2}
+  testItem2: {fileID: 11400000, guid: e7184f1b3f3591b448ac1a49972410a4, type: 2}
 --- !u!1 &1615998177525086811
 GameObject:
   m_ObjectHideFlags: 0
@@ -12199,7 +12199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentItemData: {fileID: 0}
-  _slotType: 6
+  _slotType: 7
   _icon: {fileID: 1716674174797382465}
   onItemEquipped:
     m_PersistentCalls:

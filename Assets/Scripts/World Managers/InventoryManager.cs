@@ -71,7 +71,7 @@ public class InventoryManager : MonoBehaviour
                 if (_inventorySlots[i].currentItemData == null)
                 {
                     _inventorySlots[i].Initialize(newItem);
-                    break; 
+                    break;
                 }
             }
         }
@@ -85,18 +85,18 @@ public class InventoryManager : MonoBehaviour
     {
         //if (_items.Contains(itemToRemove))
         //{
-            _items.Remove(itemToRemove);  // Remove from the inventory list
-            Debug.Log($"Item removed from inventory: {itemToRemove.itemName}");
+        _items.Remove(itemToRemove);  // Remove from the inventory list
+        Debug.Log($"Item removed from inventory: {itemToRemove.itemName}");
 
-            // Loop through the inventory slots and clear the one that matches the item
-            for (int i = 0; i < _inventorySlots.Count; i++)
+        // Loop through the inventory slots and clear the one that matches the item
+        for (int i = 0; i < _inventorySlots.Count; i++)
+        {
+            if (_inventorySlots[i].currentItemData == itemToRemove)
             {
-                if (_inventorySlots[i].currentItemData == itemToRemove)
-                {
-                    _inventorySlots[i].ClearSlot();  // Remove item from slot (clear the UI)
-                    break;  // Exit the loop once we find the matching slot
-                }
+                _inventorySlots[i].ClearSlot();  // Remove item from slot (clear the UI)
+                break;  // Exit the loop once we find the matching slot
             }
+        }
         //}
     }
 
@@ -104,6 +104,21 @@ public class InventoryManager : MonoBehaviour
     {
         if (itemData.itemType == ItemType.Consumable)
         {
+            //TODO: Refactor this, it's hardcoded with a string.
+            if (itemData.itemName == "Health Potion")
+            {
+                if (PlayerController.Instance.GetComponent<PlayerCombat>().atFullHP) { return; }
+
+                PlayerController.Instance.GetComponent<PlayerCombat>().TakeHealthPotion();
+                RemoveItem(itemData);
+            }
+            else if (itemData.itemName == "Mana Potion")
+            {
+                if (PlayerController.Instance.GetComponent<PlayerCombat>().atFullMana) { return; }
+
+                PlayerController.Instance.GetComponent<PlayerCombat>().TakeManaPotion();
+                RemoveItem(itemData);
+            }
             Debug.Log($"Using consumable item: {itemData.itemName}");
             // Logic for consumable items (e.g., healing, buffs, etc.)
             // Update the item's stack size, apply effects, or destroy the item if it's consumed

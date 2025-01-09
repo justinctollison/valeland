@@ -15,7 +15,7 @@ MonoBehaviour:
   itemRarity: 0
   equipmentType: 2
   weaponType: 0
-  ArmorID: 4
+  ArmorID: 10
   durability: 0
   baseDamage: 0
   armorValue: 0

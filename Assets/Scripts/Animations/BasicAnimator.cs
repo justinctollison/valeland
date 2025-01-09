@@ -7,6 +7,11 @@ public class BasicAnimator : MonoBehaviour
     protected Vector3 oldPosition = Vector3.zero;
     protected Vector3 deltaPosition = Vector3.zero;
 
+    protected virtual void Start()
+    {
+        _animator = GetComponentInChildren<Animator>();
+    }
+
     protected virtual void DeltaMovement()
     {
         deltaPosition = transform.position - oldPosition;

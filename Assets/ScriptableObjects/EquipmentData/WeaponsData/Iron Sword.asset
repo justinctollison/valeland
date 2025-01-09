@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7fe23e7f1606a26438fcf9784a61d3f2, type: 3}
-  m_Name: Iron Axe Data
+  m_Name: Iron Sword
   m_EditorClassIdentifier: 
   itemRarity: 0
-  equipmentType: 8
-  weaponType: 3
+  equipmentType: 9
+  weaponType: 1
   ArmorID: 0
   durability: 0
   baseDamage: 0
