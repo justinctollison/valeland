@@ -37,6 +37,8 @@ public class PlayerController : MonoBehaviour
         var camera = Camera.main.gameObject.AddComponent<CameraController>();
         camera.SetFollowTarget(gameObject);
 
+        InitailizeGearVisuals();
+
         EventsManager.Instance.onDialogueStarted.AddListener(StartDialogueMode);
         EventsManager.Instance.onDialogueEnded.AddListener(EndDialogueMode);
     }
@@ -131,6 +133,21 @@ public class PlayerController : MonoBehaviour
     public void EndDialogueMode()
     {
         _inDialogue = false;
+    }
+    #endregion
+
+    #region Initialize Gear Visuals
+    private void InitailizeGearVisuals()
+    {
+        EquipmentCustomizer.Instance.UnequipChestArmor();
+        EquipmentCustomizer.Instance.UnequipClosedHelmet();
+        EquipmentCustomizer.Instance.UnequipOpenHelmet();
+        EquipmentCustomizer.Instance.UnequipShoulderArmor();
+        EquipmentCustomizer.Instance.UnequipCape();
+        EquipmentCustomizer.Instance.EnableHead();
+        EquipmentCustomizer.Instance.UnequipLegArmor();
+        EquipmentCustomizer.Instance.UnequipGloves();
+        EquipmentCustomizer.Instance.UnequipBoots();
     }
     #endregion
 }

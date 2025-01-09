@@ -17,9 +17,9 @@ MonoBehaviour:
   portrait: {fileID: 21300000, guid: 901b318134456344f9095b7e164ba766, type: 3}
   maxHealth: 25
   maxMana: 0
-  wanderDistance: 0
-  engageDistance: 6
+  wanderDistance: 6
+  engageDistance: 35
   experienceValue: 35
   attacks:
-  - {fileID: 11400000, guid: 674bb606c20bb634ab8bf982509c818e, type: 2}
+  - {fileID: 11400000, guid: 8d9be45cc24e47745b3c7fad20e335e8, type: 2}
   lootTable: {fileID: 11400000, guid: 2aeb0abb5b95a8142843769fb10a7db0, type: 2}

@@ -6,9 +6,15 @@ public class AudioManager : MonoBehaviour
 {
     [SerializeField] AudioClip _menuMusic;
     [SerializeField] AudioClip _gameMusic;
+    [SerializeField] AudioClip _townMusic;
+    [SerializeField] AudioClip _bossArea;
 
     [SerializeField] AudioClip _sceneSwitchSwoosh;
+
     [SerializeField] AudioClip _fireball;
+    [SerializeField] AudioClip _iceNova;
+    [SerializeField] AudioClip _meleeCombatSFX;
+    [SerializeField] AudioClip _hitReaction;
 
     [Space(10)]
     [SerializeField] AudioSource _musicChannel;
@@ -57,9 +63,19 @@ public class AudioManager : MonoBehaviour
         PlayMusic(_menuMusic);
     }
 
+    public void PlayTownMusic()
+    {
+        PlayMusic(_townMusic);
+    }
+
     public void PlayGameMusic()
     {
         PlayMusic(_gameMusic);
+    }
+
+    public void PlayBossAreaMusic()
+    {
+        PlayMusic(_bossArea);
     }
 
     public void StopMusic()
@@ -93,6 +109,21 @@ public class AudioManager : MonoBehaviour
     public void PlayFireballSFX()
     {
         PlaySoundEffect(_fireball);
+    }
+
+    public void PlayIceNovaSFX()
+    {
+        PlaySoundEffect(_iceNova);
+    }
+
+    public void PlayHitReactionSFX()
+    {
+        PlaySoundEffect(_hitReaction);
+    }
+
+    public void PlayMeleeCombatSFX()
+    {
+        PlaySoundEffect(_meleeCombatSFX);
     }
 
     // This cycles the indices of the sfx channel list and makes "currentSFXChannel" appropriate throughout the class

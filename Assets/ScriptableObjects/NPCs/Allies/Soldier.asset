@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4150311fa3dd84d4c80422d69440cfaa, type: 3}
-  m_Name: Shopkeeper
+  m_Name: Soldier
   m_EditorClassIdentifier: 
   factionID: 0
-  enemyType: 0
-  portrait: {fileID: 21300000, guid: 001e79627f62e1d49b48d5632269abc1, type: 3}
+  enemyType: 3
+  portrait: {fileID: 21300000, guid: f28940cf40bcfe34388fbab7cd3e7b03, type: 3}
   maxHealth: 50
   maxMana: 0
   wanderDistance: 0

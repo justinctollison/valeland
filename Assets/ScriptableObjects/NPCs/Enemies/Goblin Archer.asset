@@ -22,4 +22,4 @@ MonoBehaviour:
   experienceValue: 40
   attacks:
   - {fileID: 11400000, guid: 49642d0cef87c774b98d8c3a4b5b53af, type: 2}
-  lootTable: {fileID: 0}
+  lootTable: {fileID: 11400000, guid: 2aeb0abb5b95a8142843769fb10a7db0, type: 2}

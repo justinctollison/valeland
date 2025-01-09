@@ -119,6 +119,8 @@ public class EquipmentCustomizer : MonoBehaviour
         if (!closedHelmet.gameObject.activeSelf)
         {
             head.gameObject.SetActive(true);
+            hair.gameObject.SetActive(true);
+            hair.sharedMesh = equipmentAssets.hairs[0];
         }
     }
 
@@ -216,6 +218,8 @@ public class EquipmentCustomizer : MonoBehaviour
     {
         rightHand.sharedMesh = equipmentAssets.rightHands[0];
         leftHand.sharedMesh = equipmentAssets.leftHands[0];
+        lowerLeftArm.sharedMesh = equipmentAssets.lowerLeftArms[0];
+        lowerRightArm.sharedMesh = equipmentAssets.lowerRightArms[0];
     }
 
     public void EquipLegArmor(int armor)

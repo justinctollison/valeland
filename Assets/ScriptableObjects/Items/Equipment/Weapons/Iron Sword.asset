@@ -9,11 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87e491a4124ffbd4d9a86915633864d7, type: 3}
-  m_Name: Goblin Archer Loot Table
+  m_Script: {fileID: 11500000, guid: ee6c6860b0b42eb45a6fab3b9df72af6, type: 3}
+  m_Name: Iron Sword
   m_EditorClassIdentifier: 
-  lootEntries:
-  - item: {fileID: 11400000, guid: f6928e6efa1d8e6449ea2a6421e61aef, type: 2}
-    dropChance: 75
-    minQuantity: 1
-    maxQuantity: 1
+  equipmentData: {fileID: 0}
+  itemName: 
+  itemType: 0
+  itemIcon: {fileID: 21300000, guid: 5fd50594014b70e48bd6993443d46b32, type: 3}
+  itemDescription: 
+  maxStackSize: 1

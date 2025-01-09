@@ -55,6 +55,8 @@ public class EquipmentSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                     break;
                 case EquipmentType.Weapon:
                     break;
+                case EquipmentType.Cape:
+                    break;
                 default:
                     break;
             }
@@ -88,6 +90,40 @@ public class EquipmentSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             onItemUnequipped?.Invoke(_currentItemData); 
 
             Debug.Log($"Unequipped item from {_slotType} slot.");
+
+            switch (_slotType)
+            {
+                case EquipmentType.Head:
+                    EquipmentCustomizer.Instance.UnequipClosedHelmet();
+                    EquipmentCustomizer.Instance.UnequipOpenHelmet();
+                    EquipmentCustomizer.Instance.EnableHead();
+                    break;
+                case EquipmentType.Shoulders:
+                    EquipmentCustomizer.Instance.UnequipShoulderArmor();
+                    break;
+                case EquipmentType.Chest:
+                    EquipmentCustomizer.Instance.UnequipChestArmor();
+                    break;
+                case EquipmentType.Gloves:
+                    EquipmentCustomizer.Instance.UnequipGloves();
+                    break;
+                case EquipmentType.Legs:
+                    EquipmentCustomizer.Instance.UnequipLegArmor();
+                    break;
+                case EquipmentType.Boots:
+                    EquipmentCustomizer.Instance.UnequipBoots();
+                    break;
+                case EquipmentType.Shield:
+                    break;
+                case EquipmentType.OffHand:
+                    break;
+                case EquipmentType.Weapon:
+                    break;
+                case EquipmentType.Cape:
+                    break;
+                default:
+                    break;
+            }
 
             PlayerCharacterSheet.Instance.RemoveModifiers(_currentItemData.equipmentData.statModifiers);
             EventsManager.Instance.onEquipmentUnequipped.Invoke();

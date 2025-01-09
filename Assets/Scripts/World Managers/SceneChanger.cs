@@ -16,6 +16,7 @@ public class SceneChanger : MonoBehaviour
 
     public void LoadScene(Scene scene)
     {
+        AudioManager.Instance.PlaySceneSwitchSwooshSFX();
         SceneManager.LoadScene(scene.ToString());
     }
 }

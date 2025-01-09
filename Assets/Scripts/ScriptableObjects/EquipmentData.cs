@@ -26,6 +26,6 @@ public class StatModifier
     public float value;
 }
 
-public enum EquipmentType { Head, Shoulders, Chest, Gloves, Legs, Boots, Shield, OffHand, Weapon };
+public enum EquipmentType { Head, Shoulders, Chest, Gloves, Legs, Boots, Cape, Shield, OffHand, Weapon };
 public enum WeaponType { None, Sword, Bow, Axe, Staff, Dagger, Mace, OffHand };
 
