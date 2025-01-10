@@ -29,7 +29,5 @@ public class BossAI : BasicAI
         _factionID = FactionID.Evil;
         GetComponent<EnemyCombat>().SetFactionID(_factionID);
         GetComponent<ChattableNPC>().enabled = false;
-
-        AudioManager.Instance.PlayBossFightMusic();
     }
 }

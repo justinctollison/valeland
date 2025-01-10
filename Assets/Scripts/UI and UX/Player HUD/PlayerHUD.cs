@@ -23,8 +23,8 @@ public class PlayerHUD : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.C)) { ToggleCharacterStatPanel(); }
         if (Input.GetKeyDown(KeyCode.T)) { ToggleSkillTreePanel(); }
-        if (Input.GetKeyDown(KeyCode.I)) { ToggleInventory(); }
-        if (Input.GetKeyDown(KeyCode.B)) { ToggleEquipment(); }
+        if (Input.GetKeyDown(KeyCode.I)) { ToggleInventory(); ToggleEquipment(); }
+        if (Input.GetKeyDown(KeyCode.B)) { ToggleEquipment(); ToggleInventory(); }
     }
 
     public void ToggleCharacterStatPanel()
