@@ -3,7 +3,6 @@ using System.Collections.Generic;
 
 public class ChattableNPC : MonoBehaviour, IClickable
 {
-    [SerializeField] protected string npcName = "";
     [SerializeField] protected List<DialogueData> dialogueDatas = new List<DialogueData>();
     bool clicked = false;
     bool buttonReleased = true;
@@ -33,7 +32,10 @@ public class ChattableNPC : MonoBehaviour, IClickable
     protected virtual void StartConversation()
     {
         clicked = false;
-        DialogueManager.Instance.TriggerDialogue(npcName, dialogueDatas);
+        Sprite portrait = GetComponent<BasicAI>().GetNPCData().portrait;
+        string npcName = GetComponent<BasicAI>().GetNPCData().name;
+
+        DialogueManager.Instance.TriggerDialogue(npcName, dialogueDatas, portrait);
         PlayerController.Instance.GetMovement().MoveToLocation(PlayerController.Instance.transform.position);
     }
     private void OnMouseDown()

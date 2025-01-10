@@ -3,9 +3,16 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] ClassSkillManager _skillManager;
+    [SerializeField] float ability1Cooldown;
     [SerializeField] private EquippableAbility _ability1;
+    [SerializeField] float ability2Cooldown;
     [SerializeField] private EquippableAbility _ability2;
+    [SerializeField] float ability3Cooldown;
     [SerializeField] private EquippableAbility _ability3;
+
+    float ability1Timer;
+    float ability2Timer;
+    float ability3Timer;
 
     private FactionID _factionID = FactionID.Good;
     private bool _isAlive = true;
@@ -28,28 +35,37 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         var camera = Camera.main.gameObject.AddComponent<CameraController>();
-        camera.SetFollowTarget(this.gameObject);
+        camera.SetFollowTarget(gameObject);
+
+        InitailizeGearVisuals();
 
         EventsManager.Instance.onDialogueStarted.AddListener(StartDialogueMode);
         EventsManager.Instance.onDialogueEnded.AddListener(EndDialogueMode);
     }
 
+    
     private void Update()
     {
+        ability1Timer += Time.deltaTime;
+        ability2Timer += Time.deltaTime;
+        ability3Timer += Time.deltaTime;
+
         if (!_isAlive || _inDialogue) { return; }
 
-        if (Input.GetMouseButtonDown(0) && _ability1 != null)
+        if (Input.GetMouseButtonDown(0) && _ability1 != null && ability1Timer > ability1Cooldown)
         {
             UseAbility1();
+            ability1Timer = 0;
         }
-        
-        if (Input.GetMouseButtonDown(1) && _ability2 != null)
+        if (Input.GetMouseButtonDown(1) && _ability2 != null && ability2Timer > ability2Cooldown)
         {
             UseAbility2();
+            ability2Timer = 0;
         }
-        if (Input.GetKeyDown(KeyCode.Space) && _ability3 != null)
+        if (Input.GetKeyDown(KeyCode.Space) && _ability3 != null && ability3Timer > ability3Cooldown)
         {
             UseAbility3();
+            ability3Timer = 0;
         }
 
     }
@@ -117,6 +133,21 @@ public class PlayerController : MonoBehaviour
     public void EndDialogueMode()
     {
         _inDialogue = false;
+    }
+    #endregion
+
+    #region Initialize Gear Visuals
+    private void InitailizeGearVisuals()
+    {
+        EquipmentCustomizer.Instance.UnequipChestArmor();
+        EquipmentCustomizer.Instance.UnequipClosedHelmet();
+        EquipmentCustomizer.Instance.UnequipOpenHelmet();
+        EquipmentCustomizer.Instance.UnequipShoulderArmor();
+        EquipmentCustomizer.Instance.UnequipCape();
+        EquipmentCustomizer.Instance.EnableHead();
+        EquipmentCustomizer.Instance.UnequipLegArmor();
+        EquipmentCustomizer.Instance.UnequipGloves();
+        EquipmentCustomizer.Instance.UnequipBoots();
     }
     #endregion
 }

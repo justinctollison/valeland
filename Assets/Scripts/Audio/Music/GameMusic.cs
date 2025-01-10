@@ -2,9 +2,8 @@ using UnityEngine;
 
 public class GameMusic : MonoBehaviour
 {
-    void Start()
+    private void OnTriggerEnter(Collider other)
     {
         AudioManager.Instance.PlayGameMusic();
     }
-
 }

@@ -70,9 +70,11 @@ public class CombatReceiver : MonoBehaviour, IClickable
     public virtual void TakeDamage(float amount)
     {
         if (!_isAlive) { return; }
+
         _currentHP -= amount;
         Vector3 dmgIndicatorPos = transform.position + new Vector3(0, height, 0);
-        EffectsManager.Instance.PlayDamageIndicator(amount, dmgIndicatorPos);
+        EffectsManager.Instance.PlayDamageIndicator(amount.ToString(), dmgIndicatorPos);
+        AudioManager.Instance.PlayHitReactionSFX();
         if (_currentHP <= 0)
         {
             Die();
@@ -173,5 +175,6 @@ public class CombatReceiver : MonoBehaviour, IClickable
         Vector3 playerPos = PlayerController.Instance.transform.position;
         return (transform.position - playerPos).normalized;
     }
+
     #endregion
 }

@@ -6,10 +6,10 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class BasicAI : MonoBehaviour
 {
-    [SerializeField] private NPCData _data;
+    [SerializeField] protected NPCData _data;
 
     [SerializeField] private List<CombatReceiver> _targetsList = new List<CombatReceiver>();
-    [SerializeField] private CombatReceiver _currentTarget;
+    [SerializeField] public CombatReceiver _currentTarget;
 
     protected Statemachine _stateMachine;
     protected NavMeshAgent _agent;
@@ -117,8 +117,12 @@ public class BasicAI : MonoBehaviour
 
             foreach (ItemData item in droppedItems)
             {
-                Debug.Log($"Dropped item: {item.itemName}");
+                Vector3 floatingTextIndicatorPos = transform.position + new Vector3(0, 1.2f, 0);
+
                 InventoryManager.Instance.AddItem(item);
+                EffectsManager.Instance.PlayItemDropIndicator( "+ " + item.itemName.ToString(), floatingTextIndicatorPos, 2f);
+                Debug.Log($"Dropped item: {item.itemName}");
+
             }
         }
     }
@@ -137,10 +141,35 @@ public class BasicAI : MonoBehaviour
         CombatActor attackActor = newAttack.GetComponent<CombatActor>();
         attackActor.InitializeDamage(calculatedDamage);
         attackActor.SetFactionID(GetComponent<CombatReceiver>().GetFactionID());
-        if(attackActor.attackType == AttackType.Projectile)
+        switch(attackActor.attackType)
         {
-            Projectile projectile = newAttack.GetComponent<Projectile>();
-            projectile.SetShootDirection(((_currentTarget.transform.position - transform.position).normalized));
+            case AttackType.Melee:
+                break;
+            case AttackType.Projectile:
+                Projectile projectile = newAttack.GetComponent<Projectile>();
+                //newAttack.transform.LookAt(_currentTarget.transform.position);
+                projectile.SetShootDirection(((_currentTarget.transform.position - transform.position).normalized));
+                break;
+            case AttackType.AreaSpell:
+                newAttack.transform.position = transform.position;
+                break;
+            case AttackType.MultiProjectile:
+                Destroy(newAttack);
+                Projectile[] projectiles = new Projectile[8];
+                for (int i = 0; i < 8; i++)
+                {
+                    projectiles[i] = Instantiate(_stateMachine.activeAttack.AttackPrefab, transform.position, Quaternion.identity).GetComponent<Projectile>();
+                    
+                    calculatedDamage = Mathf.Round(Random.Range(_stateMachine.activeAttack.minDamage, _stateMachine.activeAttack.maxDamage) * critMod);
+
+                    attackActor = projectiles[i].GetComponent<CombatActor>();
+                    attackActor.InitializeDamage(calculatedDamage);
+                    attackActor.SetFactionID(GetComponent<CombatReceiver>().GetFactionID());
+
+                    Vector3 direction = Quaternion.Euler(0, 45 * i, 0) * (_currentTarget.transform.position - transform.position).normalized;
+                    projectiles[i].SetShootDirection(direction);
+                }
+                break;
         }
     }
     public bool TargetIsInAttackRange()

@@ -1,3 +1,5 @@
+using System;
+using System.Linq;
 using UnityEngine;
 public class EngageState : State
 {
@@ -55,7 +57,8 @@ public class EngageState : State
 
         if (basicAI.TargetIsInAttackRange())
         {
-            stateMachine.ChangeState(stateMachine.GetAttackState());
+            stateMachine.ChangeState(stateMachine.GetWindUpState());
+            timeOutTimer = 0.0f;
         }
 
         basicAI.RemoveTargetBasedOnDistance();
@@ -63,6 +66,7 @@ public class EngageState : State
         if (basicAI.GetTargetsList().Count <= 0)
         {
             stateMachine.ChangeState(stateMachine.GetIdleState());
+            timeOutTimer = 0.0f;
         }
     }
 

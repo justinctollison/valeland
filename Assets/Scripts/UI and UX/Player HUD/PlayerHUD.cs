@@ -23,30 +23,37 @@ public class PlayerHUD : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.C)) { ToggleCharacterStatPanel(); }
         if (Input.GetKeyDown(KeyCode.T)) { ToggleSkillTreePanel(); }
-        if (Input.GetKeyDown(KeyCode.B)) { ToggleInventory(); }
-        if (Input.GetKeyDown(KeyCode.B)) { ToggleEquipment(); }
+        if (Input.GetKeyDown(KeyCode.I)) { ToggleInventory(); ToggleEquipment(); }
+        if (Input.GetKeyDown(KeyCode.B)) { ToggleEquipment(); ToggleInventory(); }
     }
 
     public void ToggleCharacterStatPanel()
     {
         UIManager.Instance.ToggleCharacterStatsPanel();
+        AudioManager.Instance.PlayUIButtonSFX();
+
         HideStatLevelUpButton();
     }
 
     public void ToggleSkillTreePanel()
     {
         UIManager.Instance.ToggleSkillTree();
+        AudioManager.Instance.PlayUIButtonSFX();
+
         HideSkillLevelUpButton();
     }
 
     public void ToggleInventory()
     {
         UIManager.Instance.ToggleInventory();
+        AudioManager.Instance.PlayInventorySFX();
     }
     
     public void ToggleEquipment()
     {
         UIManager.Instance.ToggleEquipment();
+        AudioManager.Instance.PlayInventorySFX();
+
     }
 
     #region StatLevelUpButton

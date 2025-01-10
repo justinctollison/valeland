@@ -10,7 +10,7 @@ public class IceExplosionAbility : EquippableAbility
         {
             SpawnEquippedAttack(MouseWorld.Instance.GetMousePosition());
             _myPlayer.GetMovement().MoveToLocation(_myPlayer.transform.position);
-            //AudioManager.Instance.PlayPilotLaserSFX();
+            AudioManager.Instance.PlayIceNovaSFX();
             _myPlayer.GetCombat().SpendMana(_manaCost);
         }
     }
@@ -22,12 +22,11 @@ public class IceExplosionAbility : EquippableAbility
 
     protected override void SpawnEquippedAttack(Vector3 location)
     {
-        _myPlayer.GetAnimator().TriggerAttack();
+        _myPlayer.GetAnimator().TriggerFrostExplosion();
 
         Vector3 spawnPosition = _myPlayer.transform.position + Vector3.down * .7f; // Spawn at player's feet
 
         GameObject newAttack = Instantiate(_spawnablePrefab, spawnPosition, Quaternion.identity);
-        EffectsManager.Instance.PlayIceExplosion(spawnPosition, 4);
 
         var iceExplosionAttack = newAttack.gameObject.GetComponent<IceExplosionAttack>();
         iceExplosionAttack.SetFactionID(_myPlayer.GetFactionID());

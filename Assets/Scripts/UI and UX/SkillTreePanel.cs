@@ -7,9 +7,13 @@ public class SkillTreePanel : MonoBehaviour
 
     [SerializeField] List<SkillTreeButton> skillTreeButtons = new List<SkillTreeButton>();
 
-    private void Start()
+    private void Awake()
     {
         skillTree = PlayerController.Instance.GetSkillManager().GetSkillTree();
+    }
+
+    private void Start()
+    {
         EventsManager.Instance.onSkillPointSpent.AddListener(UpdateSkillTree);
     }
     private void OnDestroy()
@@ -20,7 +24,6 @@ public class SkillTreePanel : MonoBehaviour
     private void OnEnable()
     {
         if (skillTree != null) UpdateSkillTree();
-
     }
 
     void UpdateSkillTree()

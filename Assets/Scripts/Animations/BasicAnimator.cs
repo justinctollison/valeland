@@ -7,6 +7,11 @@ public class BasicAnimator : MonoBehaviour
     protected Vector3 oldPosition = Vector3.zero;
     protected Vector3 deltaPosition = Vector3.zero;
 
+    protected virtual void Start()
+    {
+        _animator = GetComponentInChildren<Animator>();
+    }
+
     protected virtual void DeltaMovement()
     {
         deltaPosition = transform.position - oldPosition;
@@ -41,6 +46,18 @@ public class BasicAnimator : MonoBehaviour
     public virtual void TriggerRevive()
     {
         _animator.SetTrigger("Revive");
+    }
+    public virtual void TriggerFrostExplosion()
+    {
+        _animator.SetTrigger("FrostNovaAttack");
+    }
+    public virtual void TriggerSpellProjectileAttack()
+    {
+        _animator.SetTrigger("SpellProjectileAttack");
+    }
+    public virtual void TriggerAnimation(string animName)
+    {
+        _animator.SetTrigger(animName);
     }
     private IEnumerator PauseAnimation(float duration)
     {

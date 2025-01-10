@@ -10,10 +10,14 @@ public class PlayerCombat : CombatReceiver
     protected float _regenUpdateTickTimer = 0;
     protected float _regenUpdateTickTime = 2f;
 
+    public bool atFullHP;
+    public bool atFullMana;
+
     protected override void Start()
     {
-        _maxHP = 35f;
-        _maxMana = 100f;
+        _maxHP = PlayerCharacterSheet.Instance.GetMaxHP();
+        _maxMana = PlayerCharacterSheet.Instance.GetMaxMana();
+
 
         _factionID = GetComponent<PlayerController>().GetFactionID();
 
@@ -27,10 +31,13 @@ public class PlayerCombat : CombatReceiver
     protected override void Update()
     {
         base.Update();
+
         if (_isAlive)
         {
             RunRegen();
         }
+
+        FullHealthAndFullManaCheck();
     }
 
     private void OnDestroy()
@@ -54,9 +61,49 @@ public class PlayerCombat : CombatReceiver
         EventsManager.Instance.onHealthChanged.Invoke(_currentHP / _maxHP);
     }
 
+    // TODO: Refactor this, it's hard-coded with a magic-number
+    public void TakeHealthPotion()
+    {
+        if (!atFullHP)
+        {
+            _currentHP += 25f;
+            AudioManager.Instance.PlayHealthRestoredSFX();
+        }
+    }
+
+    public void TakeManaPotion()
+    {
+        if (!atFullMana)
+        {
+            _currentMana += 25f;
+            AudioManager.Instance.PlayManaRestoredSFX();
+        }
+    }
+
     public override bool CanBeClicked()
     {
         return false;
+    }
+
+    private void FullHealthAndFullManaCheck()
+    {
+        if (_currentHP == _maxHP)
+        {
+            atFullHP = true;
+        }
+        else if (_currentHP < _maxHP)
+        {
+            atFullHP = false;
+        }
+
+        if (_currentMana == _maxMana)
+        {
+            atFullMana = true;
+        }
+        else if (_currentMana < _maxMana)
+        {
+            atFullMana = false;
+        }
     }
 
     #region Mana Management

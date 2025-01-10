@@ -25,9 +25,43 @@ public class EquipmentSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
             _currentItemData = itemData;
             _icon.sprite = itemData.itemIcon;
-            _icon.enabled = true;
+            _icon.gameObject.SetActive(true);
 
             onItemEquipped?.Invoke(itemData);
+
+            switch (_slotType)
+            {
+                case EquipmentType.Head:
+                    EquipmentCustomizer.Instance.EquipOpenHelmet(_currentItemData.equipmentData.ArmorID);
+                    break;
+                case EquipmentType.Shoulders:
+                    EquipmentCustomizer.Instance.EquipShoulderArmor(_currentItemData.equipmentData.ArmorID);
+                    break;
+                case EquipmentType.Chest:
+                    EquipmentCustomizer.Instance.EquipChestArmor(_currentItemData.equipmentData.ArmorID, 2);
+                    break;
+                case EquipmentType.Gloves:
+                    EquipmentCustomizer.Instance.EquipGloves(_currentItemData.equipmentData.ArmorID);
+                    break;
+                case EquipmentType.Legs:
+                    EquipmentCustomizer.Instance.EquipLegArmor(_currentItemData.equipmentData.ArmorID);
+                    break;
+                case EquipmentType.Boots:
+                    EquipmentCustomizer.Instance.EquipBoots(_currentItemData.equipmentData.ArmorID);
+                    break;
+                case EquipmentType.Shield:
+                    break;
+                case EquipmentType.OffHand:
+                    break;
+                case EquipmentType.Weapon:
+                    if (_currentItemData.name == PlayerController.Instance.GetComponentInChildren<Weapon>().name)
+                        PlayerController.Instance.GetComponentInChildren<Weapon>().gameObject.GetComponent<MeshRenderer>().enabled = true;
+                    break;
+                case EquipmentType.Cape:
+                    break;
+                default:
+                    break;
+            }
 
             EventsManager.Instance.onEquipmentEquipped.Invoke();
             PlayerCharacterSheet.Instance.ApplyModifiers(_currentItemData.equipmentData.statModifiers);
@@ -53,16 +87,52 @@ public class EquipmentSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         if (_currentItemData != null)
         {
-            _icon.sprite = null; 
-            _icon.enabled = false;  
-            onItemUnequipped?.Invoke(_currentItemData); 
+            _icon.sprite = null;
+            _icon.gameObject.SetActive(false);
+            onItemUnequipped?.Invoke(_currentItemData);
 
             Debug.Log($"Unequipped item from {_slotType} slot.");
+
+            switch (_slotType)
+            {
+                case EquipmentType.Head:
+                    EquipmentCustomizer.Instance.UnequipClosedHelmet();
+                    EquipmentCustomizer.Instance.UnequipOpenHelmet();
+                    EquipmentCustomizer.Instance.EnableHead();
+                    break;
+                case EquipmentType.Shoulders:
+                    EquipmentCustomizer.Instance.UnequipShoulderArmor();
+                    break;
+                case EquipmentType.Chest:
+                    EquipmentCustomizer.Instance.UnequipChestArmor();
+                    break;
+                case EquipmentType.Gloves:
+                    EquipmentCustomizer.Instance.UnequipGloves();
+                    break;
+                case EquipmentType.Legs:
+                    EquipmentCustomizer.Instance.UnequipLegArmor();
+                    break;
+                case EquipmentType.Boots:
+                    EquipmentCustomizer.Instance.UnequipBoots();
+                    break;
+                case EquipmentType.Shield:
+                    break;
+                case EquipmentType.OffHand:
+                    break;
+                case EquipmentType.Weapon:
+                    if (_currentItemData.name == PlayerController.Instance.GetComponentInChildren<Weapon>().name)
+                        PlayerController.Instance.GetComponentInChildren<Weapon>().gameObject.GetComponent<MeshRenderer>().enabled = false;
+                    break;
+                case EquipmentType.Cape:
+                    break;
+                default:
+                    break;
+            }
 
             PlayerCharacterSheet.Instance.RemoveModifiers(_currentItemData.equipmentData.statModifiers);
             EventsManager.Instance.onEquipmentUnequipped.Invoke();
 
-            _currentItemData = null; 
+            _currentItemData = null;
         }
     }
 
@@ -70,7 +140,7 @@ public class EquipmentSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         if (_currentItemData != null)
         {
-            RemoveItem(); 
+            RemoveItem();
             Debug.Log($"Unequipped item: {_currentItemData.itemName} from {_slotType} slot.");
         }
     }

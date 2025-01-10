@@ -14,6 +14,7 @@ public class FireballCA : Projectile
             base.HitReceiever(target);
 
         EffectsManager.Instance.PlaySmallBoom(transform.position, 1);
+        AudioManager.Instance.PlayFireballSFX();
         target.ApplyStatusEffect("Burn");
         //target.ReceiveKnockbackAwayFromPlayer(10);
     }

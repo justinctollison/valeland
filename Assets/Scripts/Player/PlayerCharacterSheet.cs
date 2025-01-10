@@ -127,11 +127,11 @@ public class PlayerCharacterSheet : MonoBehaviour
     #region HP and Mana
     public float GetMaxHP()
     {
-        return (5 + (2 * _vitality));
+        return (5 + (3 * _vitality));
     }
     public float GetMaxMana()
     {
-        return (5 + (2 * _energy));
+        return (5 + (3 * _energy));
     }
     #endregion
 
@@ -147,6 +147,7 @@ public class PlayerCharacterSheet : MonoBehaviour
         else
         {
             _statPointsToSpend--;
+            AudioManager.Instance.PlayUIButtonSFX();
             return true;
         }
     }
@@ -157,6 +158,7 @@ public class PlayerCharacterSheet : MonoBehaviour
         {
             _strength++;
             EventsManager.Instance.onStatPointSpent.Invoke();
+            AudioManager.Instance.PlayUIButtonSFX();
         }
     }
     
@@ -166,6 +168,8 @@ public class PlayerCharacterSheet : MonoBehaviour
         {
             _dexterity++;
             EventsManager.Instance.onStatPointSpent.Invoke();
+            AudioManager.Instance.PlayUIButtonSFX();
+
         }
     }
     
@@ -175,6 +179,8 @@ public class PlayerCharacterSheet : MonoBehaviour
         {
             _vitality++;
             EventsManager.Instance.onStatPointSpent.Invoke();
+            AudioManager.Instance.PlayUIButtonSFX();
+
         }
     }
     
@@ -184,6 +190,7 @@ public class PlayerCharacterSheet : MonoBehaviour
         {
             _energy++;
             EventsManager.Instance.onStatPointSpent.Invoke();
+            AudioManager.Instance.PlayUIButtonSFX();
         }
     }
     #endregion
