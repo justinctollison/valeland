@@ -15,7 +15,8 @@ MonoBehaviour:
   skillLevel: 0
   skillName: 
   skillDescription: 
-  skillIcon: {fileID: 0}
+  skillIcon: {fileID: 21300000, guid: 5fd50594014b70e48bd6993443d46b32, type: 3}
   spawnablePrefab: {fileID: 4001024201544436937, guid: 523aff856b2ee274c9171c445f204a61, type: 3}
-  attackRange: 1.5
+  attackRange: 2
   manaCost: 0
+  cooldown: 0.4

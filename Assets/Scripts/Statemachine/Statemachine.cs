@@ -64,4 +64,5 @@ public class Statemachine : MonoBehaviour
     public AttackState GetAttackState() => _attackState;
     public DeathState GetDeathState() => _deathState;
     public WindUpState GetWindUpState() => _windUpState;
+
 }

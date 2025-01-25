@@ -7,11 +7,12 @@ public class AttackState : State
     public AttackState(Statemachine stateMachine) : base(stateMachine) { }
     CombatReceiver target;
     private float _attackCooldownTimer = 0.0f;
-
+    private int repeatAttackCounter = 0;
     public override void Enter()
     {
         target = basicAI.GetCurrentTarget();
         _attackCooldownTimer = 0.0f;
+        repeatAttackCounter = 0;
     }
 
     public override void Execute()
@@ -21,10 +22,13 @@ public class AttackState : State
         if (_attackCooldownTimer > stateMachine.activeAttack.attackCooldown)
         {
             _attackCooldownTimer -= stateMachine.activeAttack.attackCooldown;
+            repeatAttackCounter++;
             SpawnAttackPrefab();
-            if (UnityEngine.Random.Range(0, 100) < stateMachine.activeAttack.attackChanceToChangeAttackState)
+            if (UnityEngine.Random.Range(0, 100) < stateMachine.activeAttack.attackChanceToChangeAttackState || repeatAttackCounter > stateMachine.activeAttack.maxRepeatAttacks)
             {
-                stateMachine.ChangeState(stateMachine.GetEngageState());
+                repeatAttackCounter = 0;
+                SetRandomDifferentAttack();
+                return;
             }
             stateMachine.ChangeState(stateMachine.GetWindUpState());
         }
@@ -35,7 +39,7 @@ public class AttackState : State
         }
 
         Vector3 lookDirection = basicAI.GetCurrentTarget().transform.position;
-        lookDirection.y = 0;
+        lookDirection.y = basicAI.transform.position.y;
         stateMachine.transform.LookAt(lookDirection);
     }
 

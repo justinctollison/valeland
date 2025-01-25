@@ -3,11 +3,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] ClassSkillManager _skillManager;
-    [SerializeField] float ability1Cooldown;
     [SerializeField] private EquippableAbility _ability1;
-    [SerializeField] float ability2Cooldown;
     [SerializeField] private EquippableAbility _ability2;
-    [SerializeField] float ability3Cooldown;
     [SerializeField] private EquippableAbility _ability3;
 
     float ability1Timer;
@@ -52,17 +49,19 @@ public class PlayerController : MonoBehaviour
 
         if (!_isAlive || _inDialogue) { return; }
 
-        if (Input.GetMouseButtonDown(0) && _ability1 != null && ability1Timer > ability1Cooldown)
+        if (Input.GetMouseButtonDown(0) && _ability1 != null && ability1Timer > _ability1.classSkill.cooldown)
         {
             UseAbility1();
-            ability1Timer = 0;
+            var clickable = MouseWorld.Instance.GetClickable() as CombatReceiver; //prevents cooldown from starting if the player doesn't click on a combat receiver
+            if (clickable != null)
+                ability1Timer = 0;
         }
-        if (Input.GetMouseButtonDown(1) && _ability2 != null && ability2Timer > ability2Cooldown)
+        if (Input.GetMouseButtonDown(1) && _ability2 != null && ability2Timer > _ability2.classSkill.cooldown)
         {
             UseAbility2();
             ability2Timer = 0;
         }
-        if (Input.GetKeyDown(KeyCode.Space) && _ability3 != null && ability3Timer > ability3Cooldown)
+        if (Input.GetKeyDown(KeyCode.Space) && _ability3 != null && ability3Timer > _ability3.classSkill.cooldown)
         {
             UseAbility3();
             ability3Timer = 0;
@@ -97,7 +96,13 @@ public class PlayerController : MonoBehaviour
         EventsManager.Instance.onNewAbility2Equipped.Invoke(_ability2);
     }
 
+    public EquippableAbility GetAbility1() => _ability1;
     public EquippableAbility GetAbility2() => _ability2;
+    public EquippableAbility GetAbility3() => _ability3;
+
+    public float GetAbility1CooldownPercentage() => ability1Timer / _ability1.classSkill.cooldown;
+    public float GetAbility2CooldownPercentage() => ability2Timer / _ability2.classSkill.cooldown;
+    public float GetAbility3CooldownPercentage() => ability3Timer / _ability3.classSkill.cooldown;
     #endregion
 
     #region Utility

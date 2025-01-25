@@ -22,4 +22,5 @@ MonoBehaviour:
   animatorTriggerWindUpName: BigAreaCharge
   maxTimeOutSeconds: 5
   attackChanceToChangeAttackState: 32.2
+  maxRepeatAttacks: 3
   AttackPrefab: {fileID: 3725300542052902232, guid: 007dc3361db91634eb218c48f5b0f3f1, type: 3}

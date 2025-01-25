@@ -14,27 +14,6 @@ public class EngageState : State
         SetRandomActiveAttack();
     }
 
-    private void SetRandomActiveAttack()
-    {
-        stateMachine.activeAttack = data.attacks[random.Next(data.attacks.Count)];
-    }
-    private void SetRandomActiveAttackWithGreaterRange()
-    {
-        if (stateMachine.activeAttack == null)
-        {
-            SetRandomActiveAttack();
-            return;
-        }
-        EnemyAttack newAttack = data.attacks.Find(attack => attack.attackRange > stateMachine.activeAttack.attackRange);
-        if (newAttack != null)
-        {
-            stateMachine.activeAttack = newAttack;
-        }
-        else
-        {
-            SetRandomActiveAttack();
-        }
-    }
     public override void Execute()
     {
         target = basicAI.GetCurrentTarget();

@@ -14,7 +14,7 @@ public class SkillTreeButton : MonoBehaviour
     {
         equippableSkill = skill;
         buttonImage.sprite = skill.classSkill.skillIcon;
-        nameText.text = skill.classSkill.name;
+        nameText.text = skill.classSkill.skillName;
         levelText.text = skill.GetClassSkillLevel().ToString();
     }
 

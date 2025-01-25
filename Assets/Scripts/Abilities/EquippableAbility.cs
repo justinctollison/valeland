@@ -12,6 +12,7 @@ public class EquippableAbility : MonoBehaviour
 
     protected CombatReceiver _targetedReceiver;
     protected PlayerController _myPlayer;
+    protected float additionalDamageOnLevelUp = 2;
 
     protected virtual void Start()
     {
@@ -116,6 +117,7 @@ public class EquippableAbility : MonoBehaviour
         if (PlayerCharacterSheet.Instance.SkillPointSpendSuccessful())
         {
             _classSkillLevel++;
+            _spawnablePrefab.GetComponent<CombatActor>().InitializeDamage(_spawnablePrefab.GetComponent<CombatActor>().GetBaseDamage() + additionalDamageOnLevelUp);
         }
     }
 

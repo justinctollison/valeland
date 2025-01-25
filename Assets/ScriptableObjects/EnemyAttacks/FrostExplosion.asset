@@ -22,4 +22,5 @@ MonoBehaviour:
   animatorTriggerWindUpName: 
   maxTimeOutSeconds: 8
   attackChanceToChangeAttackState: 100
+  maxRepeatAttacks: 1
   AttackPrefab: {fileID: 3936482579983324319, guid: fd613a0193bb5aa49a709a0173c2a168, type: 3}

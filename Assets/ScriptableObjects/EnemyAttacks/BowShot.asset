@@ -22,4 +22,5 @@ MonoBehaviour:
   animatorTriggerWindUpName: BowCharge
   maxTimeOutSeconds: Infinity
   attackChanceToChangeAttackState: 0
+  maxRepeatAttacks: 10
   AttackPrefab: {fileID: 3725300542052902232, guid: d2751d1b663e6714ab881152517ee774, type: 3}

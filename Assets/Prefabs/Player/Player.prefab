@@ -1700,11 +1700,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _skillManager: {fileID: 0}
-  ability1Cooldown: 0
+  ability1Cooldown: 0.2
   _ability1: {fileID: 0}
-  ability2Cooldown: 0
+  ability2Cooldown: 0.5
   _ability2: {fileID: 0}
-  ability3Cooldown: 0
+  ability3Cooldown: 3
   _ability3: {fileID: 0}
 --- !u!114 &5688648797088058239
 MonoBehaviour:

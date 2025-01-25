@@ -15,7 +15,8 @@ MonoBehaviour:
   skillLevel: 0
   skillName: Ice Explosion
   skillDescription: 
-  skillIcon: {fileID: 21300000, guid: cf6478ef684ce7f4c830edba147c7607, type: 3}
+  skillIcon: {fileID: 21300000, guid: fc904a1844dac0345930a548747c3831, type: 3}
   spawnablePrefab: {fileID: 3936482579983324319, guid: 30b69f043a4f9f14489d1e6faba6e7a9, type: 3}
   attackRange: 9999
   manaCost: 20
+  cooldown: 5

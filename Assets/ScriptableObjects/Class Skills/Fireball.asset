@@ -19,3 +19,4 @@ MonoBehaviour:
   spawnablePrefab: {fileID: 3725300542052902232, guid: bae52d9030880b4499f3151c7fc0cf1a, type: 3}
   attackRange: 1.5
   manaCost: 15
+  cooldown: 0.8
