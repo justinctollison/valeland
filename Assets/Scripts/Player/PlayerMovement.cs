@@ -20,4 +20,10 @@ public class PlayerMovement : MonoBehaviour
         _agent.ResetPath();
         _agent.destination = location;
     }
+    public void WarpToLocation(Vector3 location)
+    {
+        _agent.ResetPath();
+        _agent.destination = location;
+        _agent.Warp(location);
+    }
 }

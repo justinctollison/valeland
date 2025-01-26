@@ -22,6 +22,7 @@ public class SkillTreeButton : MonoBehaviour
     {
         equippableSkill.LevelUp();
         EventsManager.Instance.onSkillPointSpent.Invoke();
+        UpdateButton(equippableSkill);
     }
 
     public void EquipAbility()

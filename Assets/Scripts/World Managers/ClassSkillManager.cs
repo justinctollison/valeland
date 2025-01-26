@@ -11,6 +11,11 @@ public class ClassSkillManager : MonoBehaviour
     {
         return skillTree;
     }
+    private void Start()
+    {
+        foreach (EquippableAbility ability in skillTree.list)
+            ability.classSkill.skillLevel = 0;
+    }
 }
 
 [Serializable]

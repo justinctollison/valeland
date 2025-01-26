@@ -17,6 +17,14 @@ public class EnemyCombat : CombatReceiver
         GetComponent<Statemachine>().ChangeState(GetComponent<Statemachine>().GetDeathState());
         // We'll grant the player experience
     }
+    public override void Revive()
+    {
+        base.Revive();
+
+        // We'll notify the AI when the Combat Receiver Dies
+        GetComponent<Statemachine>().ChangeState(GetComponent<Statemachine>().GetReviveState());
+        // We'll grant the player experience
+    }
 
     public override void TakeDamage(float amount)
     {

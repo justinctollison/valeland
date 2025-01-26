@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     private bool _inDialogue;
 
     public static PlayerController Instance;
+    public Vector3 spawnLocation;
 
     private void Awake()
     {
@@ -121,12 +122,15 @@ public class PlayerController : MonoBehaviour
     {
         _isAlive = false;
         GetAnimator().TriggerDeath();
+        EventsManager.Instance.onPlayerDied?.Invoke();
     }
 
     public void TriggerRevive()
     {
         _isAlive = true;
         GetAnimator().TriggerRevive();
+        EventsManager.Instance.onPlayerRevived?.Invoke();
+        GetMovement().WarpToLocation(spawnLocation);
     }
 
     #region Dialogue Mode Listeners

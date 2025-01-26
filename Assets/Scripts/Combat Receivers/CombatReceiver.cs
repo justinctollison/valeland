@@ -83,12 +83,23 @@ public class CombatReceiver : MonoBehaviour, IClickable
 
     public virtual void Revive()
     {
+        _isAlive = true;
 
+        OnHoverEnterEvent.AddListener(() => _healthBarUI.ShowHealthBar(_currentHP, _maxHP));
+        OnHoverEnterEvent.AddListener(() => _healthBarUI.SetNameText(GetComponent<BasicAI>().GetNPCData().name));
+        OnHoverExitEvent.AddListener(() => _healthBarUI.HideHealthBar());
+        OnTakeDamageEvent.AddListener(() => _healthBarUI.UpdateHealthBar(_currentHP, _maxHP));
+        FullHeal();
     }
 
     public bool GetIsAlive()
     {
         return _isAlive;
+    }
+    protected virtual void FullHeal()
+    {
+        _currentHP = _maxHP;
+        _currentMana = _maxMana;
     }
 
     #region Clickable Functions

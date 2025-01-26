@@ -123,6 +123,7 @@ public class DialogueManager : MonoBehaviour
 [Serializable]
 public class DialogueData
 {
+    [TextArea(3, 10)]
     public string dialogueText = "";
     public AudioClip dialogueAudio;
 }

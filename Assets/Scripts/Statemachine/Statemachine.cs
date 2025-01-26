@@ -16,6 +16,7 @@ public class Statemachine : MonoBehaviour
     private AttackState _attackState;
     private WindUpState _windUpState;
     private DeathState _deathState;
+    private ReviveState _reviveState;
 
     private void Awake()
     {
@@ -27,6 +28,7 @@ public class Statemachine : MonoBehaviour
         _attackState = new AttackState(this);
         _deathState = new DeathState(this);
         _windUpState = new WindUpState(this);
+        _reviveState = new ReviveState(this);
     }
 
     private void Start()
@@ -64,5 +66,6 @@ public class Statemachine : MonoBehaviour
     public AttackState GetAttackState() => _attackState;
     public DeathState GetDeathState() => _deathState;
     public WindUpState GetWindUpState() => _windUpState;
+    public ReviveState GetReviveState() => _reviveState;
 
 }

@@ -21,7 +21,7 @@ MonoBehaviour:
   engageDistance: 10
   experienceValue: 200
   attacks:
+  - {fileID: 11400000, guid: e24f1b51c42fb794abfe78a1318c97f6, type: 2}
   - {fileID: 11400000, guid: 8e97cee66adfbbe4ca719a148640191c, type: 2}
   - {fileID: 11400000, guid: 8d9be45cc24e47745b3c7fad20e335e8, type: 2}
-  - {fileID: 11400000, guid: e24f1b51c42fb794abfe78a1318c97f6, type: 2}
   lootTable: {fileID: 11400000, guid: 2cc6da6e3be915442be5ee1faffaf550, type: 2}

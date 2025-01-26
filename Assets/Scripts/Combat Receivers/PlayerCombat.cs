@@ -6,7 +6,7 @@ public class PlayerCombat : CombatReceiver
     [SerializeField] protected float _healthRegenBase = 0.5f;
     protected float _healthRegenMod = 1f;
     [SerializeField] protected float _manaRegenBase = 0.5f;
-    protected float _manaRegenMod = 1f;
+    protected float _manaRegenMod = 1.2f;
     protected float _regenUpdateTickTimer = 0;
     protected float _regenUpdateTickTime = 2f;
 
@@ -23,6 +23,7 @@ public class PlayerCombat : CombatReceiver
 
         EventsManager.Instance.onPlayerLeveledUp.AddListener(LevelUp);
         EventsManager.Instance.onStatPointSpent.AddListener(StatsChangedAdjustment);
+        EventsManager.Instance.onPlayerRevived.AddListener(FullHeal);
 
         base.Start();
         Debug.Log($"Our faction for Player is {_factionID}");
@@ -44,6 +45,7 @@ public class PlayerCombat : CombatReceiver
     {
         EventsManager.Instance.onPlayerLeveledUp.RemoveListener(LevelUp);
         EventsManager.Instance.onStatPointSpent.RemoveListener(StatsChangedAdjustment);
+        EventsManager.Instance.onPlayerRevived.RemoveListener(FullHeal);
     }
 
     public override void Die()
@@ -51,7 +53,12 @@ public class PlayerCombat : CombatReceiver
         base.Die();
 
         GetComponent<PlayerController>().TriggerDeath();
-        EventsManager.Instance.onPlayerDied?.Invoke();
+    }
+    public override void Revive()
+    {
+        base.Revive();
+
+        GetComponent<PlayerController>().TriggerRevive();
     }
 
     public override void TakeDamage(float amount)
@@ -176,4 +183,11 @@ public class PlayerCombat : CombatReceiver
         _manaRegenBase = 0.5f + (0.1f * PlayerCharacterSheet.Instance.GetEnergy());
     }
     #endregion
+
+    protected override void FullHeal()
+    {
+        base.FullHeal();
+        EventsManager.Instance.onHealthChanged.Invoke(_currentHP / _maxHP);
+        EventsManager.Instance.onManaChanged.Invoke(_currentMana / _maxMana);
+    }
 }

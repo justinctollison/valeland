@@ -20,11 +20,6 @@ public class PlayerCharacterSheet : MonoBehaviour
     [SerializeField] private float _vitality = 15;
     [SerializeField] private float _energy = 15;
 
-    private float _currentHitPoints = 35;
-    private float _maxHitpoints = 35;
-    private float _currentMana = 35;
-    private float _maxMana = 35;
-
     private void Awake()
     {
         if (Instance == null)

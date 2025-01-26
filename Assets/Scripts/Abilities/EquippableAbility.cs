@@ -117,7 +117,8 @@ public class EquippableAbility : MonoBehaviour
         if (PlayerCharacterSheet.Instance.SkillPointSpendSuccessful())
         {
             _classSkillLevel++;
-            _spawnablePrefab.GetComponent<CombatActor>().InitializeDamage(_spawnablePrefab.GetComponent<CombatActor>().GetBaseDamage() + additionalDamageOnLevelUp);
+            if (_spawnablePrefab.GetComponent<CombatActor>() != null)
+                _spawnablePrefab.GetComponent<CombatActor>().InitializeDamage(_spawnablePrefab.GetComponent<CombatActor>().GetBaseDamage() + additionalDamageOnLevelUp);
         }
     }
 

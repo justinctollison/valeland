@@ -39,7 +39,7 @@ public abstract class State
     }
     protected void SetRandomDifferentAttack()
     {
-        List<EnemyAttack> attacks = data.attacks;
+        List<EnemyAttack> attacks = new List<EnemyAttack>(data.attacks);
         attacks.Remove(stateMachine.activeAttack);
         if(attacks.Count > 0)
             stateMachine.activeAttack = attacks[random.Next(data.attacks.Count)];
